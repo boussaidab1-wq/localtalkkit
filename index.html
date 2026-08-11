@@ -82,30 +82,32 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 }
 </style>
 
+<style>
+.brand{font-size:13px;font-weight:900;letter-spacing:.08em;color:#77728e;margin-bottom:30px}.hero-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:22px;min-height:52px;padding:13px 22px;border-radius:14px;background:var(--purple);color:#fff;text-decoration:none;font-weight:950;box-shadow:0 12px 28px rgba(91,61,245,.2)}.hero-cta:hover{background:var(--purple-dark);transform:translateY(-1px)}.trust-line{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.trust-line span{padding:7px 10px;border:1px solid var(--line);background:#fff;border-radius:999px}.category-grid{display:grid;grid-template-columns:repeat(5,1fr)}.category-grid span{text-align:center}.upgrade h2{max-width:780px}@media(max-width:650px){.brand{margin-bottom:24px}.category-grid{grid-template-columns:repeat(2,1fr)}.category-grid span:last-child{grid-column:1/-1}}</style>
 </head>
 <body>
 <main class="wrap">
 <header class="hero">
-  <h1>Your Free Darija Survival Cards</h1>
-  <p>Keep them on your phone or print them before your trip. No app. No account. Just useful phrases you can actually use in Morocco.</p>
-  <div class="trust-line">Printable PDF · Free to download</div>
+  <div class="brand">LOCALTALKKIT · DARIJA FOR TRAVELERS</div><h1>Speak a little Darija.<br><em>Experience Morocco differently.</em></h1>
+  <p>Useful Moroccan phrases you can keep on your phone or print before your trip. No app. No account. Just phrases you can actually use.</p>
+  <div class="trust-line"><span>Free PDF</span><span>Printable</span><span>Pronunciation audio</span><span>Made for travelers</span></div><a class="hero-cta" href="#preview">See the free cards ↓</a>
 </header>
 
 <section class="categories" aria-label="What's inside the free Darija cards">
   <div class="eyebrow">WHAT'S INSIDE</div>
-  <h2>5 practical categories for everyday Morocco</h2>
-  <p>Short Darija phrases for the moments you’ll actually face on your trip.</p>
+  <h2>5 situations you’re likely to face in Morocco</h2>
+  <p>Short Darija phrases for everyday moments, without forcing you to study a language textbook on vacation.</p>
   <div class="category-grid"><span>Greetings</span><span>Shopping</span><span>Numbers</span><span>Social Interaction</span><span>Emergency</span></div>
 </section>
 
-<section class="card preview" aria-label="Preview of the free Darija cards">
-  <div class="section-head"><h2>See what you’re getting</h2><p>2-page preview from the free cards.</p></div>
+<section class="card preview" id="preview" aria-label="Preview of the free Darija cards">
+  <div class="section-head"><div><div class="eyebrow">SEE BEFORE YOU DOWNLOAD</div><h2>Here’s what the cards look like</h2></div><p>2-page preview from the free set.</p></div>
   <div class="grid">
     <div class="thumb"><img src="images/greetings.jpg" alt="Preview of the Greetings Darija card" loading="eager"></div>
     <div class="thumb"><img src="images/shopping.jpg" alt="Preview of the Shopping Darija card" loading="lazy"></div>
   </div>
-  <p class="preview-note">You’re seeing only the first 2 pages. The full PDF contains all 5 categories and more useful phrases.</p>
-  <div class="scroll-hint" role="note">
+  <p class="preview-note">The full PDF includes all 5 categories and more practical phrases.</p>
+  <div class="scroll-hint" role="note" style="display:none">
     <div class="scroll-arrow">↓</div>
     <strong>WANT THE FULL SET?</strong>
     <span>Scroll down to download the complete PDF with all 5 categories.</span>
@@ -115,22 +117,22 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 
 <section class="card lesson" aria-label="Darija pronunciation lesson: taxi phrase">
   <div class="eyebrow">TRY ONE PHRASE NOW</div>
-  <h2>Knowing the phrase is useful. Being understood is better.</h2>
-  <p class="intro">Here’s a phrase you can use with a taxi driver. Listen first, then try saying it yourself.</p>
+  <h2>Don’t just read Darija. Hear how it sounds.</h2>
+  <p class="intro">Try a phrase you can use with a taxi driver. Listen first, then say it yourself.</p>
   <div class="phrase"><div class="darija"><span class="flag" aria-hidden="true">🇲🇦</span>Aafak, Kheddem l'kountour</div><div class="translation"><span class="flag" aria-hidden="true">🇬🇧</span>Please turn on the meter</div></div>
   <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/aafak-kheddem-lkountour.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Hear it. Repeat it. Then use it when you need it.</p></div>
 </section>
 
 <section class="card lesson" aria-label="Darija pronunciation lesson: bargaining phrase">
   <div class="eyebrow">ANOTHER PHRASE WORTH KNOWING</div>
-  <h2>When something costs too much</h2>
+  <h2>A second phrase worth having ready.</h2>
   <p class="intro">Useful in shops, markets, taxis, restaurants, and anywhere a price needs a little negotiation.</p>
   <div class="phrase"><div class="darija"><span class="flag" aria-hidden="true">🇲🇦</span>Ghali bzaf</div><div class="translation"><span class="flag" aria-hidden="true">🇬🇧</span>That's too expensive</div></div>
   <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/ghali-bzaf.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Listen. Repeat it. Then use it when a price needs a little negotiation.</p></div>
 </section>
 
-<div class="download-wrap">
-  <a class="download" href="Darija-Free-Wallet-Cards.pdf" aria-label="Download the full Darija wallet cards PDF" download>Download the Full Cards</a>
+<div class="download-wrap" id="download">
+  <a class="download" href="Darija-Free-Wallet-Cards.pdf" aria-label="Download the full Darija wallet cards PDF" download>Download the Free Darija Cards</a>
 <p class="download-fallback">
   Having trouble downloading?<br>
   Tap the ⋮ menu and choose “Open in browser”
@@ -141,23 +143,25 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 
 </div>
 
+<section class="bridge" style="text-align:center;padding:28px 12px 4px"><div class="eyebrow">LIKE WHAT YOU HEARD?</div><h2 style="font-size:clamp(27px,5vw,38px);line-height:1.05;letter-spacing:-.04em;margin:0 auto 9px;max-width:760px">These two phrases are useful. The full kit gives you the rest.</h2><p style="color:var(--muted);max-width:650px;margin:auto">Instead of wondering what to say in each situation, have the right Darija phrase ready before you need it.</p></section>
+
 <section class="upgrade" aria-label="Full Darija Survival Kit offer">
-  <div class="eyebrow">TAKE THE NEXT STEP</div>
-  <h2>Imagine this, just a few hours with this kit, and locals already see you as the traveler who speaks Darija.</h2>
-  <p class="lead">No long study. No textbooks. Just real-life phrases that work on Moroccan streets, in shops, taxis, restaurants, hotels and everyday conversations.</p>
+  <div class="eyebrow">THE FULL DARIJA SURVIVAL KIT</div>
+  <h2>Go beyond a few phrases. Learn the Darija you’ll actually use.</h2>
+  <p class="lead">A practical travel kit built around real situations in Morocco: taxis, shopping, food, hotels, directions, social conversations and more.</p>
   <div class="benefits">
-    <div class="benefit"><strong>Make Locals Like You Instantly</strong></div>
-    <div class="benefit"><strong>Never Get Confused By Prices Again</strong></div>
-    <div class="benefit"><strong>Avoid Taxi Confusion & Overcharging</strong></div>
-    <div class="benefit"><strong>Eat Like a Local</strong></div>
-    <div class="benefit"><strong>Stop Paying Tourist Prices</strong></div>
-    <div class="benefit"><strong>Handle Hotels & Riads Easily</strong></div>
-    <div class="benefit"><strong>Never Get Lost in the Medina</strong></div>
-    <div class="benefit"><strong>Get Help Fast When Things Go Wrong</strong></div>
-    <div class="benefit"><strong>Make Moroccan Friends</strong></div>
-    <div class="benefit"><strong>Avoid Cultural Mistakes</strong></div>
+    <div class="benefit"><strong>Handle taxis with less confusion</strong></div>
+    <div class="benefit"><strong>Understand prices and numbers</strong></div>
+    <div class="benefit"><strong>Shop and negotiate more confidently</strong></div>
+    <div class="benefit"><strong>Order food like a local</strong></div>
+    <div class="benefit"><strong>Deal with hotels and riads</strong></div>
+    <div class="benefit"><strong>Get around the Medina more easily</strong></div>
+    <div class="benefit"><strong>Know what to say when you need help</strong></div>
+    <div class="benefit"><strong>Avoid common cultural mistakes</strong></div>
+    <div class="benefit"><strong>Start simple conversations</strong></div>
+    <div class="benefit"><strong>Build confidence before your trip</strong></div>
   </div>
-  <div class="price-row"><a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" target="_blank" rel="noopener" aria-label="Get the full Darija Survival Kit for 39 dollars">Speak Darija now - Only $39</a></div>
+  <div class="price-row"><a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" target="_blank" rel="noopener" aria-label="Get the full Darija Survival Kit for 39 dollars">Get the Full Survival Kit · $39</a></div>
   <p class="reassure">Instant access · One-time payment · Built for Morocco travelers</p>
 </section>
 <footer>localtalkkit.com · Practical Darija for travelers in Morocco</footer>
