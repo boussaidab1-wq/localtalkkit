@@ -132,7 +132,11 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 
 <div class="download-wrap">
   <a class="download" href="Darija-Free-Wallet-Cards.pdf" aria-label="Download the full Darija wallet cards PDF" download>Download the Full Cards</a>
-<p class="download-fallback">Having trouble downloading?<br>Tap the ⋮ menu and choose “Open in browser”.</p>
+<p class="download-fallback">
+  Having trouble downloading?<br>
+  Tap the ⋮ menu and choose “Open in browser”.
+</p>
+
 
 
 
@@ -168,38 +172,6 @@ document.addEventListener('DOMContentLoaded',function(){
     audio.addEventListener('play',()=>track(index===0?'audio_1_play':'audio_2_play'),{once:true});
     audio.addEventListener('error',()=>track(index===0?'audio_1_error':'audio_2_error'),{once:true});
   });
-  
-document.querySelectorAll('a.download').forEach(function(button){
-  button.removeAttribute('download');
-  button.removeAttribute('target');
-  button.addEventListener('click', async function(e){
-    e.preventDefault();
-    const original = button.textContent;
-    button.textContent = 'Preparing your cards...';
-    button.setAttribute('aria-busy','true');
-    try {
-      const response = await fetch('Darija-Free-Wallet-Cards.pdf', {credentials:'same-origin', cache:'no-store'});
-      if (!response.ok) throw new Error('PDF fetch failed');
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Darija-Free-Wallet-Cards.pdf';
-      a.style.display = 'none';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(()=>URL.revokeObjectURL(url), 10000);
-      track('free_cards_download');
-    } catch(err) {
-      // Same-origin fallback if Instagram blocks blob downloads.
-      window.location.href = 'Darija-Free-Wallet-Cards.pdf';
-    } finally {
-      button.textContent = original;
-      button.removeAttribute('aria-busy');
-    }
-  });
-});
 
   document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(link=>link.addEventListener('click',()=>track('premium_click')));
   const fired={25:false,50:false,75:false,90:false};
@@ -211,14 +183,18 @@ document.querySelectorAll('a.download').forEach(function(button){
   },{passive:true});
 });
 </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('a[download]').forEach(function (link) {
+  document.querySelectorAll('a[href="Darija-Free-Wallet-Cards.pdf"]').forEach(function (link) {
     link.addEventListener('click', function () {
-      if (typeof window.clarity === 'function') window.clarity('event', 'free_cards_download');
+      if (typeof window.clarity === 'function') {
+        window.clarity('event', 'free_cards_download');
+      }
     });
   });
 });
 </script>
+
 </body>
 </html>
