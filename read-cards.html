@@ -24,15 +24,24 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .download{background:var(--purple);color:#fff;box-shadow:0 10px 24px rgba(91,61,245,.18)}
 .download:hover{background:var(--purple-dark)}
 .back-top{background:#fff;color:#4532bb;border:1px solid #d8d2f8}
-.reader{background:#fff;border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:0 14px 38px rgba(20,25,45,.08)}
-.page{margin:0 auto 12px;border-radius:12px;overflow:hidden;background:#101116;border:1px solid #22242b}
+.reader{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:0 14px 38px rgba(20,25,45,.08)}
+.page{margin:0 auto 16px;max-width:760px;border-radius:12px;overflow:hidden;background:#101116;border:1px solid #22242b;box-shadow:0 8px 22px rgba(20,25,45,.08)}
 .page:last-child{margin-bottom:0}
-.page img{display:block;width:100%;height:auto}
-.page-label{text-align:center;background:#fff;border-top:1px solid var(--line);padding:7px 8px;color:var(--muted);font-size:11px;font-weight:800}
+.page img{display:block;width:100%;height:auto;cursor:zoom-in}
+.page-label{text-align:center;background:#fff;border-top:1px solid var(--line);padding:8px;color:var(--muted);font-size:11px;font-weight:800}
+.page-hint{text-align:center;color:var(--muted);font-size:10px;font-weight:700;padding:5px 0 0}
+.zoom-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,12,20,.92);display:none;align-items:center;justify-content:center;padding:54px 12px 24px}
+.zoom-modal.open{display:flex}
+.zoom-modal img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.zoom-close,.zoom-prev,.zoom-next{position:absolute;border:0;background:rgba(255,255,255,.94);color:var(--ink);font-weight:950;cursor:pointer;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.zoom-close{top:14px;right:14px;width:42px;height:42px;font-size:24px}
+.zoom-prev,.zoom-next{top:50%;transform:translateY(-50%);width:44px;height:44px;font-size:24px}
+.zoom-prev{left:12px}.zoom-next{right:12px}
+.zoom-count{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;font-weight:900;background:rgba(0,0,0,.35);padding:5px 10px;border-radius:999px}
 .note{text-align:center;color:var(--muted);font-size:11px;margin:10px auto 0;max-width:620px}
 .bottom{text-align:center;padding:18px 0 0}
 .bottom p{color:var(--muted);font-size:12px;margin:8px 0 0}
-@media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:9px;margin-bottom:9px}.hero{padding-top:8px}.actions{margin-bottom:12px}}
+@media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:9px;margin-bottom:11px}.hero{padding-top:8px}.actions{margin-bottom:12px}.page-hint{font-size:9px}.zoom-modal{padding:50px 8px 18px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:6px}.zoom-next{right:6px}}
 </style>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");</script>
 </head>
@@ -60,11 +69,49 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
     <p>Keep the PDF on your phone or print it before your Morocco trip.</p>
   </div>
 </main>
+<div class="zoom-modal" id="zoomModal" aria-hidden="true" role="dialog" aria-label="Card preview">
+  <button class="zoom-close" id="zoomClose" aria-label="Close preview">×</button>
+  <div class="zoom-count" id="zoomCount">1 of 5</div>
+  <button class="zoom-prev" id="zoomPrev" aria-label="Previous card">‹</button>
+  <img id="zoomImage" src="" alt="Zoomed Darija card">
+  <button class="zoom-next" id="zoomNext" aria-label="Next card">›</button>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   const track=n=>{if(typeof window.clarity==='function')window.clarity('event',n)};
   track('online_pdf_view');
   document.querySelectorAll('a[href="Darija-Free-Wallet-Cards.pdf"]').forEach(a=>a.addEventListener('click',()=>track('online_pdf_download')));
+
+  const cards=[...document.querySelectorAll('.page img')];
+  const modal=document.getElementById('zoomModal');
+  const zoomImage=document.getElementById('zoomImage');
+  const zoomCount=document.getElementById('zoomCount');
+  let current=0;
+  function showCard(i){
+    current=(i+cards.length)%cards.length;
+    zoomImage.src=cards[current].src;
+    zoomImage.alt=cards[current].alt;
+    zoomCount.textContent=(current+1)+' of '+cards.length;
+    track('online_card_zoom');
+  }
+  function openCard(i){
+    showCard(i); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+  }
+  function closeCard(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; zoomImage.src='';
+  }
+  cards.forEach((img,i)=>img.addEventListener('click',()=>openCard(i)));
+  document.getElementById('zoomClose').addEventListener('click',closeCard);
+  document.getElementById('zoomPrev').addEventListener('click',e=>{e.stopPropagation();showCard(current-1)});
+  document.getElementById('zoomNext').addEventListener('click',e=>{e.stopPropagation();showCard(current+1)});
+  modal.addEventListener('click',e=>{if(e.target===modal)closeCard()});
+  document.addEventListener('keydown',e=>{
+    if(!modal.classList.contains('open'))return;
+    if(e.key==='Escape')closeCard();
+    if(e.key==='ArrowLeft')showCard(current-1);
+    if(e.key==='ArrowRight')showCard(current+1);
+  });
 });
 </script>
 </body>
