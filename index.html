@@ -24,14 +24,12 @@ a{color:inherit}
 .categories p{font-size:15px;color:var(--muted);margin:0;max-width:760px}
 .category-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
 .category-grid span{background:var(--soft);color:#4532bb;border:1px solid #e4defe;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:800}
-.preview{padding:20px;margin-top:22px}
 .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:13px}
 .section-head h2{font-size:25px;line-height:1.15;margin:0;letter-spacing:-.025em}
 .section-head p{font-size:13px;color:var(--muted);margin:0;text-align:right}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .thumb{display:block;overflow:hidden;border-radius:14px;background:#101116;border:1px solid #22242b;box-shadow:0 8px 22px rgba(0,0,0,.08);pointer-events:none;cursor:default}
 .thumb img{display:block;width:100%;height:auto;aspect-ratio:952/941;object-fit:cover}
-.preview-note{font-size:12px;color:var(--muted);text-align:center;margin:11px 0 0}
 .scroll-hint{margin:18px auto 0;max-width:680px;padding:18px 20px;text-align:center;border-radius:16px;background:#f1efff;color:#3f2abf;border:1px solid #ddd6ff;font-size:15px;line-height:1.45;box-shadow:0 8px 22px rgba(91,61,245,.08)}
 .scroll-hint .scroll-arrow{font-size:25px;font-weight:900;line-height:1;margin-bottom:4px}
 .scroll-hint strong{display:block;font-weight:950;letter-spacing:.04em;font-size:13px}
@@ -78,19 +76,13 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 .testimonial blockquote{margin:0 auto 8px;max-width:680px;font-size:15px;line-height:1.45;font-weight:600;color:var(--ink)}
 .testimonial-author{font-size:12px;color:var(--muted);font-weight:800}
 @media(max-width:600px){
-.wrap{width:min(100% - 22px,900px)}.hero{padding:35px 0 19px}.hero h1{font-size:38px}.trust-line{font-size:12px}.categories h2{font-size:23px}.category-grid{gap:6px}.category-grid span{padding:7px 10px;font-size:12px}.preview{padding:15px;margin-top:18px}.section-head{display:block}.section-head h2{font-size:22px}.section-head p{text-align:left;margin-top:4px}.grid{gap:9px}.thumb{border-radius:11px}.preview-note{font-size:11px}.scroll-hint{font-size:13px;margin-top:13px}.lesson{padding:22px 16px;margin-top:19px}.lesson h2{font-size:29px}.phrase{padding:18px 12px}.audio-box{padding:15px}.benefits{grid-template-columns:1fr 1fr;gap:6px}.benefit{padding:9px 10px}.benefit strong{font-size:12px}.price-row{display:block}.price{margin-bottom:13px}.cta{width:100%}.upgrade{padding:24px 16px;margin-top:21px}.upgrade .lead{font-size:14px;margin-bottom:15px}.upgrade h2{font-size:28px}}
+.wrap{width:min(100% - 22px,900px)}.hero{padding:35px 0 19px}.hero h1{font-size:38px}.trust-line{font-size:12px}.categories h2{font-size:23px}.category-grid{gap:6px}.category-grid span{padding:7px 10px;font-size:12px}.section-head{display:block}.section-head h2{font-size:22px}.section-head p{text-align:left;margin-top:4px}.grid{gap:9px}.thumb{border-radius:11px}.scroll-hint{font-size:13px;margin-top:13px}.lesson{padding:22px 16px;margin-top:19px}.lesson h2{font-size:29px}.phrase{padding:18px 12px}.audio-box{padding:15px}.benefits{grid-template-columns:1fr 1fr;gap:6px}.benefit{padding:9px 10px}.benefit strong{font-size:12px}.price-row{display:block}.price{margin-bottom:13px}.cta{width:100%}.upgrade{padding:24px 16px;margin-top:21px}.upgrade .lead{font-size:14px;margin-bottom:15px}.upgrade h2{font-size:28px}}
 
 /* Compact value-first sections */
 .compact-categories{margin-top:14px}
 .compact-categories h2{margin-bottom:10px;font-size:24px}
 .compact-categories .category-grid{margin-top:0}
 .compact-categories .category-grid span{padding:7px 10px}
-.compact-preview{padding:15px 18px;margin-top:12px}
-.compact-preview .section-head{margin-bottom:9px}
-.compact-preview .section-head h2{font-size:22px}
-.compact-preview .section-head p{font-size:12px}
-.compact-preview .grid{gap:9px}
-.compact-preview .preview-note{margin:7px 0 0}
 @media(max-width:600px){
   .compact-categories{margin-top:7px}
   .compact-categories h2{font-size:20px;line-height:1.08;margin-bottom:7px}
@@ -106,10 +98,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   }
   .compact-categories .category-grid span:nth-child(-n+3){grid-column:span 2}
   .compact-categories .category-grid span:nth-child(n+4){grid-column:span 3}
-  .compact-preview{padding:12px 13px;margin-top:9px}
-  .compact-preview .section-head{margin-bottom:7px}
-  .compact-preview .section-head h2{font-size:20px}
-}
+      }
 
 .online-reader-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 18px;margin-top:10px;border-radius:12px;background:#fff;color:#4532bb;border:1px solid #d8d2f8;text-decoration:none;font-size:13px;font-weight:900;box-shadow:0 5px 14px rgba(91,61,245,.06)}
 .online-reader-link:hover{background:#f5f3ff}
@@ -147,20 +136,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="category-grid"><span>Greetings</span><span>Shopping</span><span>Numbers</span><span>Social</span><span>Emergency</span></div>
 </section>
 
-<section class="card preview compact-preview" id="preview" aria-label="Preview of the free Darija cards">
-  <div class="section-head"><div><div class="eyebrow">SEE BEFORE YOU DOWNLOAD</div><h2>Real phrases. Ready to use.</h2></div><p>2-page preview</p></div>
-  <div class="grid">
-    <div class="thumb"><img src="images/greetings.jpg" alt="Preview of the Greetings Darija card" loading="eager"></div>
-    <div class="thumb"><img src="images/shopping.jpg" alt="Preview of the Shopping Darija card" loading="lazy"></div>
-  </div>
-  <p class="preview-note">Free preview · Full set includes all 5 categories</p>
-  <div class="scroll-hint" role="note" style="display:none">
-    <div class="scroll-arrow">↓</div>
-    <strong>WANT THE FULL SET?</strong>
-    <span>Scroll down to download the complete PDF with all 5 categories.</span>
-    <small>The download button is below the two audio lessons.</small>
-  </div>
-</section>
+
 
 <section class="card lesson" aria-label="Darija pronunciation lesson: taxi phrase">
   <div class="eyebrow">TRY ONE PHRASE NOW</div>
@@ -237,7 +213,6 @@ document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(link=>link.addEventListener('click',()=>track('premium_click')));
   document.querySelectorAll('a[href="Darija-Free-Wallet-Cards.pdf"]').forEach(link=>link.addEventListener('click',()=>track('free_cards_download')));
   document.querySelectorAll('a[href="read-cards.html"]').forEach(link=>link.addEventListener('click',()=>track('online_pdf_click')));
-  document.querySelectorAll('a[href="#preview"]').forEach(link=>link.addEventListener('click',()=>track('preview_cta_click')));
   const fired={25:false,50:false,75:false,90:false};
   window.addEventListener('scroll',()=>{
     const max=document.documentElement.scrollHeight-window.innerHeight;
