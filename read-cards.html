@@ -41,6 +41,27 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .note{text-align:center;color:var(--muted);font-size:11px;margin:10px auto 0;max-width:620px}
 .bottom{text-align:center;padding:18px 0 0}
 .bottom p{color:var(--muted);font-size:12px;margin:8px 0 0}
+.bridge{text-align:center;padding:30px 12px 4px}
+.bridge h2{font-size:clamp(24px,5vw,34px);line-height:1.08;letter-spacing:-.035em;margin:0 auto 9px;max-width:700px}
+.bridge p{color:var(--muted);max-width:600px;margin:auto;font-size:14px}
+.upgrade{margin:20px 0 36px;padding:26px 22px;background:var(--dark);color:#fff;border-radius:22px;box-shadow:0 16px 40px rgba(23,20,47,.16)}
+.upgrade .eyebrow{color:#b9adff}
+.upgrade h2{font-size:clamp(24px,5vw,32px);line-height:1.1;letter-spacing:-.035em;margin:0 0 9px;max-width:700px}
+.upgrade .lead{color:#d8d5e9;max-width:700px;margin:0 0 17px;font-size:14px}
+.kit-preview{display:block;width:100%;max-width:420px;margin:0 auto 17px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
+.kit-preview video,.kit-preview img{display:block;width:100%;height:auto}
+.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0 0 17px}
+.benefit{padding:9px 11px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(255,255,255,.055)}
+.benefit strong{display:block;font-size:12px;line-height:1.25}
+.price-row{padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
+.price{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:13px}
+.original-price{color:#aaa6be;font-size:16px;text-decoration:line-through}
+.sale-price{color:#fff;font-size:28px;font-weight:950;letter-spacing:-.03em}
+.save-badge{background:#fff;color:var(--dark);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:950}
+.upgrade-cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:50px;padding:13px 16px;border-radius:13px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;font-size:14px}
+.upgrade-cta:hover{background:#f5f3ff}
+.reassure{text-align:center;color:#aaa6be;font-size:11px;margin:12px 0 0}
+@media(max-width:600px){.benefits{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:9px;margin-bottom:11px}.hero{padding-top:8px}.actions{margin-bottom:12px}.page-hint{font-size:9px}.zoom-modal{padding:50px 8px 18px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:6px}.zoom-next{right:6px}}
 </style>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");</script>
@@ -68,6 +89,40 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
     <a class="download" href="Darija-Free-Wallet-Cards.pdf" download>Download the Full Cards</a>
     <p>Keep the PDF on your phone or print it before your Morocco trip.</p>
   </div>
+
+  <section class="bridge" aria-label="Bridge to premium kit">
+    <div class="eyebrow">LIKE WHAT YOU SAW?</div>
+    <h2>These 5 cards are useful. The full kit gives you the rest.</h2>
+    <p>Instead of wondering what to say in each situation, have the right Darija phrase ready before you need it.</p>
+  </section>
+
+  <section class="upgrade" aria-label="Full Darija Survival Kit offer">
+    <div class="eyebrow">THE FULL DARIJA SURVIVAL KIT</div>
+    <h2>Go beyond a few phrases. Learn the Darija you'll actually use.</h2>
+    <p class="lead">A practical travel kit built around real situations in Morocco: taxis, shopping, food, hotels, directions, social conversations and more.</p>
+    <div class="kit-preview">
+      <video src="videos/kit-preview.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><strong>Handle taxis with less confusion</strong></div>
+      <div class="benefit"><strong>Understand prices and numbers</strong></div>
+      <div class="benefit"><strong>Shop and negotiate more confidently</strong></div>
+      <div class="benefit"><strong>Order food like a local</strong></div>
+      <div class="benefit"><strong>Deal with hotels and riads</strong></div>
+      <div class="benefit"><strong>Get around the Medina more easily</strong></div>
+      <div class="benefit"><strong>Know what to say when you need help</strong></div>
+      <div class="benefit"><strong>Avoid common cultural mistakes</strong></div>
+    </div>
+    <div class="price-row">
+      <div class="price" aria-label="Sale price 39 dollars, originally 59 dollars">
+        <span class="original-price">$59</span>
+        <span class="sale-price">$39</span>
+        <span class="save-badge">SAVE $20</span>
+      </div>
+      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" target="_blank" rel="noopener" aria-label="Get the full Darija Survival Kit for 39 dollars">Get the Full Survival Kit</a>
+    </div>
+    <p class="reassure">Instant access · One-time payment · Built for Morocco travelers</p>
+  </section>
 </main>
 <div class="zoom-modal" id="zoomModal" aria-hidden="true" role="dialog" aria-label="Card preview">
   <button class="zoom-close" id="zoomClose" aria-label="Close preview">×</button>
@@ -82,6 +137,7 @@ document.addEventListener('DOMContentLoaded',function(){
   const track=n=>{if(typeof window.clarity==='function')window.clarity('event',n)};
   track('online_pdf_view');
   document.querySelectorAll('a[href="Darija-Free-Wallet-Cards.pdf"]').forEach(a=>a.addEventListener('click',()=>track('online_pdf_download')));
+  document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(a=>a.addEventListener('click',()=>track('premium_click')));
 
   const cards=[...document.querySelectorAll('.page img')];
   const modal=document.getElementById('zoomModal');
