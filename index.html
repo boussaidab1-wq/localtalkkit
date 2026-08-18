@@ -12,9 +12,13 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .wrap{width:min(900px,calc(100% - 32px));margin:0 auto}
+
+/* Compact Hero & Top Lesson Spacing */
 .hero{text-align:center;padding:48px 0 8px}
+.hero + .lesson{margin-top:10px}
+
 .eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:9px}
-.bridge .eyebrow{font-size:16px;letter-spacing:.1em;margin-bottom:12px}
+.bridge .eyebrow{font-size:13px;letter-spacing:.1em;margin-bottom:12px}
 .hero h1{font-size:clamp(39px,7vw,60px);line-height:1.02;letter-spacing:-.055em;max-width:790px;margin:0 auto 17px}
 .hero p{font-size:clamp(17px,2.5vw,20px);color:var(--muted);max-width:710px;margin:0 auto}
 .trust-line{margin:16px auto 0;font-size:13px;color:#7b8497;font-weight:700}
@@ -36,7 +40,7 @@ a{color:inherit}
 .scroll-hint strong{display:block;font-weight:950;letter-spacing:.04em;font-size:13px}
 .scroll-hint span{display:block;font-weight:800;margin-top:3px}
 .scroll-hint small{display:block;color:#70678f;font-size:12px;margin-top:5px}
-.lesson{padding:26px 23px;margin-top:10px}
+.lesson{padding:26px 23px;margin-top:22px}
 .lesson h2{font-size:clamp(27px,5vw,38px);line-height:1.1;letter-spacing:-.035em;margin:0 0 10px;max-width:760px}
 .lesson .intro{color:var(--muted);margin:0 0 18px;max-width:700px}
 .phrase{background:var(--soft);border-radius:15px;padding:14px 16px;text-align:center;border:1px solid #e4defe}
@@ -163,7 +167,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 .testimonial-author{font-size:12px;color:var(--muted);font-weight:800}
 
 @media(max-width:600px){
-.wrap{width:min(100% - 22px,900px)}.hero{padding:35px 0 19px}.hero h1{font-size:38px}.trust-line{font-size:12px}.categories h2{font-size:23px}.category-grid{gap:6px}.category-grid span{padding:7px 10px;font-size:12px}.section-head{display:block}.section-head h2{font-size:22px}.section-head p{text-align:left;margin-top:4px}.grid{gap:9px}.thumb{border-radius:11px}.scroll-hint{font-size:13px;margin-top:13px}.lesson{padding:22px 16px;margin-top:19px}.lesson h2{font-size:29px}.phrase{padding:18px 12px}.audio-box{padding:15px}.price-row{display:block}.price{margin-bottom:13px}.cta{width:100%}.upgrade{padding:24px 16px;margin-top:21px}.upgrade .lead{font-size:14px;margin-bottom:15px}.upgrade h2{font-size:28px}
+.wrap{width:min(100% - 22px,900px)}.hero{padding:35px 0 4px}.hero + .lesson{margin-top:8px}.hero h1{font-size:38px}.trust-line{font-size:12px}.categories h2{font-size:23px}.category-grid{gap:6px}.category-grid span{padding:7px 10px;font-size:12px}.section-head{display:block}.section-head h2{font-size:22px}.section-head p{text-align:left;margin-top:4px}.grid{gap:9px}.thumb{border-radius:11px}.scroll-hint{font-size:13px;margin-top:13px}.lesson{padding:22px 16px;margin-top:19px}.lesson h2{font-size:29px}.phrase{padding:18px 12px}.audio-box{padding:15px}.price-row{display:block}.price{margin-bottom:13px}.cta{width:100%}.upgrade{padding:24px 16px;margin-top:21px}.upgrade .lead{font-size:14px;margin-bottom:15px}.upgrade h2{font-size:28px}
 
 .button-group{
   gap:8px;
@@ -244,11 +248,11 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 <div class="download-wrap" id="download">
   <div class="button-group">
     <a class="download" href="Darija-Free-Wallet-Cards.pdf" aria-label="Download the free Darija wallet cards PDF" download>Download Free Cards</a>
-    <a class="online-reader-link" href="read-cards.html" aria-label="Read all five Darija card categories online">Read Cards Online</a>
+    <a class="online-reader-link" href="read-cards.html" aria-label="Read all five Darija card categories online">Read Cards Online →</a>
   </div>
   <p class="download-fallback">
     Having trouble downloading?<br>
-    Tap the ⋮ menu and choose “Open in browser”
+    Tap the ⋮ menu and choose “Open in browser”.
   </p>
 </div>
 
@@ -263,7 +267,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 <section class="upgrade" aria-label="Full Darija Survival Kit offer">
   <div class="eyebrow">THE FULL DARIJA SURVIVAL KIT</div>
   <h2>Go beyond a few phrases. Learn the Darija you’ll actually use.</h2>
-  <p class="lead">A practical travel kit built around real situations in Morocco: taxis, shopping, food, hotels, directions, social conversations and more. (Preview Below)</p>
+  <p class="lead">A practical travel kit built around real situations in Morocco: taxis, shopping, food, hotels, directions, social conversations and more.</p>
   <div class="kit-preview">
     <video id="premiumVideo" src="videos/kit-preview.mp4" controls muted playsinline preload="metadata"></video>
   </div>
