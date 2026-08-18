@@ -46,10 +46,47 @@ a{color:inherit}
 .audio-label{font-weight:800;font-size:13px;margin-bottom:6px}
 audio{width:100%;height:44px}
 .note{font-size:12px;color:var(--muted);margin:7px 0 0}
+
+/* Download Wrapper & Side-by-Side Buttons */
 .download-wrap{text-align:center;margin:28px 0 5px}
-.download{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 27px;border-radius:14px;background:var(--purple);color:#fff;text-decoration:none;font-size:17px;font-weight:900;box-shadow:0 12px 25px rgba(91,61,245,.22);transition:transform .15s ease,background .15s ease}
-.download:hover{background:var(--purple-dark);transform:translateY(-1px)}
-.download-note{font-size:12px;color:var(--muted);margin:9px 0 0}
+.button-group{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+
+.download, .online-reader-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:12px 22px;
+  border-radius:14px;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:800;
+  transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  box-sizing:border-box;
+}
+
+.download{
+  background:var(--purple);
+  color:#fff;
+  box-shadow:0 12px 25px rgba(91,61,245,.22);
+}
+.download:hover{
+  background:var(--purple-dark);
+  transform:translateY(-1px);
+}
+
+.online-reader-link{
+  margin-top:0;
+  background:#fff;
+  color:var(--purple);
+  border:2px solid var(--purple);
+  box-shadow:0 5px 14px rgba(91,61,245,.06);
+}
+.online-reader-link:hover{
+  background:var(--soft);
+  transform:translateY(-1px);
+}
+
 .upgrade{margin:25px 0 48px;padding:28px 25px;background:var(--dark);color:#fff;border-radius:26px;box-shadow:0 18px 50px rgba(23,20,47,.16)}
 .upgrade .eyebrow{color:#b9adff}
 .upgrade h2{font-size:clamp(28px,5vw,41px);line-height:1.07;letter-spacing:-.04em;margin:0 0 10px;max-width:760px}
@@ -62,7 +99,24 @@ audio{width:100%;height:44px}
 .sale-price{color:#fff;font-size:32px;font-weight:950;letter-spacing:-.03em}
 .save-badge{background:#fff;color:var(--dark);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:950;letter-spacing:.04em}
 .cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:52px;padding:13px 18px;border-radius:13px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;transition:transform .15s ease,background .15s ease}.cta:hover{transform:translateY(-1px);background:#f5f3ff}
-.reassure{text-align:center;color:#aaa6be;font-size:12px;margin:13px 0 0}
+
+/* Reduced Text Sizes */
+.download-fallback{
+  margin:10px auto 0;
+  max-width:420px;
+  text-align:center;
+  font-size:10px; /* Reduced from 12px */
+  line-height:1.35;
+  color:#6b7280;
+}
+
+.reassure{
+  text-align:center;
+  color:#aaa6be;
+  font-size:10px; /* Reduced from 12px */
+  margin:13px 0 0;
+}
+
 footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 
 .testimonial{margin:0 0 30px;padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 28px rgba(20,25,45,.05);text-align:center}
@@ -70,9 +124,11 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 .testimonial blockquote{margin:0 auto 8px;max-width:680px;font-size:15px;line-height:1.45;font-weight:600;color:var(--ink)}
 .testimonial-author{font-size:12px;color:var(--muted);font-weight:800}
 @media(max-width:600px){
-.wrap{width:min(100% - 22px,900px)}.hero{padding:35px 0 19px}.hero h1{font-size:38px}.trust-line{font-size:12px}.categories h2{font-size:23px}.category-grid{gap:6px}.category-grid span{padding:7px 10px;font-size:12px}.section-head{display:block}.section-head h2{font-size:22px}.section-head p{text-align:left;margin-top:4px}.grid{gap:9px}.thumb{border-radius:11px}.scroll-hint{font-size:13px;margin-top:13px}.lesson{padding:22px 16px;margin-top:19px}.lesson h2{font-size:29px}.phrase{padding:18px 12px}.audio-box{padding:15px}.price-row{display:block}.price{margin-bottom:13px}.cta{width:100%}.upgrade{padding:24px 16px;margin-top:21px}.upgrade .lead{font-size:14px;margin-bottom:15px}.upgrade h2{font-size:28px}}
+.wrap{width:min(100% - 22px,900px)}.hero{padding:35px 0 19px}.hero h1{font-size:38px}.trust-line{font-size:12px}.categories h2{font-size:23px}.category-grid{gap:6px}.category-grid span{padding:7px 10px;font-size:12px}.section-head{display:block}.section-head h2{font-size:22px}.section-head p{text-align:left;margin-top:4px}.grid{gap:9px}.thumb{border-radius:11px}.scroll-hint{font-size:13px;margin-top:13px}.lesson{padding:22px 16px;margin-top:19px}.lesson h2{font-size:29px}.phrase{padding:18px 12px}.audio-box{padding:15px}.price-row{display:block}.price{margin-bottom:13px}.cta{width:100%}.upgrade{padding:24px 16px;margin-top:21px}.upgrade .lead{font-size:14px;margin-bottom:15px}.upgrade h2{font-size:28px}
+.button-group{flex-direction:column;width:100%}
+.download, .online-reader-link{width:100%}
+}
 
-/* Compact value-first sections */
 .compact-categories{margin-top:14px}
 .compact-categories h2{margin-bottom:10px;font-size:24px}
 .compact-categories .category-grid{margin-top:0}
@@ -93,25 +149,10 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   .compact-categories .category-grid span:nth-child(-n+3){grid-column:span 2}
   .compact-categories .category-grid span:nth-child(n+4){grid-column:span 3}
 }
-
-.online-reader-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 18px;margin-top:10px;border-radius:12px;background:#fff;color:#4532bb;border:1px solid #d8d2f8;text-decoration:none;font-size:13px;font-weight:900;box-shadow:0 5px 14px rgba(91,61,245,.06)}
-.online-reader-link:hover{background:#f5f3ff}
-.download-note{font-size:12px;color:var(--muted);margin:8px auto 0;max-width:520px}
 </style>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");
 </script>
-
-<style>
-.download-fallback {
-  margin: 8px auto 0;
-  max-width: 420px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.45;
-  color: #6b7280;
-}
-</style>
 
 <style>
 .brand{font-size:13px;font-weight:900;letter-spacing:.08em;color:#77728e;margin-bottom:30px}.hero-cta{display:none;margin-top:0;min-height:52px;padding:13px 22px;border-radius:14px;background:var(--purple);color:#fff;text-decoration:none;font-weight:950;box-shadow:0 12px 28px rgba(91,61,245,.2)}.hero-cta:hover{background:var(--purple-dark);transform:translateY(-1px)}.trust-line{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.trust-line span{padding:7px 10px;border:1px solid var(--line);background:#fff;border-radius:999px}.category-grid{display:grid;grid-template-columns:repeat(5,1fr)}.category-grid span{text-align:center}.upgrade h2{max-width:780px}@media(max-width:650px){.brand{margin-bottom:24px}.category-grid{grid-template-columns:repeat(2,1fr)}.category-grid span:last-child{grid-column:1/-1}}</style>
@@ -139,12 +180,14 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 </section>
 
 <div class="download-wrap" id="download">
-  <a class="download" href="Darija-Free-Wallet-Cards.pdf" aria-label="Download the full Darija wallet cards PDF" download>Download the Free Darija Cards</a>
+  <div class="button-group">
+    <a class="download" href="Darija-Free-Wallet-Cards.pdf" aria-label="Download the full Darija wallet cards PDF" download>Download the Free Darija Cards</a>
+    <a class="online-reader-link" href="read-cards.html" aria-label="Read all five Darija card categories online">Read the Cards Online →</a>
+  </div>
   <p class="download-fallback">
     Having trouble downloading?<br>
     Tap the ⋮ menu and choose “Open in browser”.
   </p>
-<a class="online-reader-link" href="read-cards.html" aria-label="Read all five Darija card categories online">Can’t download? Read the cards online →</a>
 </div>
 
 <section class="bridge" style="text-align:center;padding:28px 12px 4px"><div class="eyebrow">LIKE WHAT YOU HEARD?</div><h2 style="font-size:clamp(27px,5vw,38px);line-height:1.05;letter-spacing:-.04em;margin:0 auto 9px;max-width:760px">These two phrases are useful. The full kit gives you the rest.</h2><p style="color:var(--muted);max-width:650px;margin:auto">Instead of wondering what to say in each situation, have the right Darija phrase ready before you need it.</p></section>
