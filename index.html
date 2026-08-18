@@ -14,7 +14,7 @@ a{color:inherit}
 .wrap{width:min(900px,calc(100% - 32px));margin:0 auto}
 .hero{text-align:center;padding:48px 0 24px}
 .eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:9px}
-.bridge .eyebrow{font-size:14px;letter-spacing:.1em;margin-bottom:5px}
+.bridge .eyebrow{font-size:13px;letter-spacing:.1em;margin-bottom:12px}
 .hero h1{font-size:clamp(39px,7vw,60px);line-height:1.02;letter-spacing:-.055em;max-width:790px;margin:0 auto 17px}
 .hero p{font-size:clamp(17px,2.5vw,20px);color:var(--muted);max-width:710px;margin:0 auto}
 .trust-line{margin:16px auto 0;font-size:13px;color:#7b8497;font-weight:700}
@@ -48,14 +48,20 @@ a{color:inherit}
 audio{width:100%;height:44px}
 .note{font-size:12px;color:var(--muted);margin:7px 0 0}
 
-/* Side-by-side Button Row */
-.download-wrap{text-align:center;margin:32px 0 12px}
+/* Side-by-side Button Row & Microcopy Clearance */
+.download-wrap{
+  text-align:center;
+  margin:36px 0 16px;
+  position:relative;
+}
 .button-group{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
   max-width:520px;
   margin:0 auto;
+  position:relative;
+  z-index:2;
 }
 
 .download, .online-reader-link{
@@ -78,7 +84,7 @@ audio{width:100%;height:44px}
 .download{
   background:var(--purple);
   color:#fff;
-  box-shadow:0 10px 22px rgba(91,61,245,.2);
+  box-shadow:0 4px 14px rgba(91,61,245,.22);
 }
 .download:hover{
   background:var(--purple-dark);
@@ -97,16 +103,23 @@ audio{width:100%;height:44px}
   transform:translateY(-1px);
 }
 
-/* Microcopy Styling */
+/* Fallback Microcopy Styling with Strict Clearance */
 .download-fallback{
-  margin:25px auto 0;
+  margin:18px auto 0;
   max-width:400px;
   text-align:center;
-  font-size:12.5px !important;
-  line-height:1.4;
+  font-size:12px !important;
+  line-height:1.45;
   color:#687286;
   font-weight:500;
   letter-spacing:-0.01em;
+  position:relative;
+  z-index:1;
+}
+
+.bridge{
+  text-align:center;
+  padding:42px 12px 8px;
 }
 
 .upgrade{margin:25px 0 48px;padding:28px 25px;background:var(--dark);color:#fff;border-radius:26px;box-shadow:0 18px 50px rgba(23,20,47,.16)}
@@ -125,7 +138,7 @@ audio{width:100%;height:44px}
 .reassure{
   text-align:center;
   color:#a5a1ba;
-  font-size:12.5px !important;
+  font-size:12px !important;
   line-height:1.4;
   margin:14px 0 0;
   letter-spacing:-0.01em;
@@ -152,8 +165,12 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 }
 
 .download-fallback, .reassure{
-  font-size:12px !important;
+  font-size:11.5px !important;
   line-height:1.35;
+}
+
+.bridge{
+  padding:36px 8px 4px;
 }
 }
 
@@ -218,7 +235,11 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   </p>
 </div>
 
-<section class="bridge" style="text-align:center;padding:28px 12px 4px"><div class="eyebrow">LIKE WHAT YOU HEARD?</div><h2 style="font-size:clamp(27px,5vw,38px);line-height:1.05;letter-spacing:-.04em;margin:0 auto 9px;max-width:760px">These two phrases are useful. The full kit gives you the rest.</h2><p style="color:var(--muted);max-width:650px;margin:auto">Instead of wondering what to say in each situation, have the right Darija phrase ready before you need it.</p></section>
+<section class="bridge">
+  <div class="eyebrow">LIKE WHAT YOU HEARD?</div>
+  <h2 style="font-size:clamp(27px,5vw,38px);line-height:1.05;letter-spacing:-.04em;margin:0 auto 9px;max-width:760px">These two phrases are useful. The full kit gives you the rest.</h2>
+  <p style="color:var(--muted);max-width:650px;margin:auto">Instead of wondering what to say in each situation, have the right Darija phrase ready before you need it.</p>
+</section>
 
 <section class="upgrade" aria-label="Full Darija Survival Kit offer">
   <div class="eyebrow">THE FULL DARIJA SURVIVAL KIT</div>
