@@ -153,6 +153,10 @@ audio{width:100%;height:44px}
 .original-price{color:#aaa6be;font-size:18px;text-decoration:line-through;text-decoration-thickness:2px}
 .sale-price{color:#fff;font-size:32px;font-weight:950;letter-spacing:-.03em}
 .save-badge{background:#fff;color:var(--dark);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:950;letter-spacing:.04em}
+.urgency-banner{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;margin:0 0 16px;font-size:12px;font-weight:800;color:#fff}
+.urgency-banner .dot{width:7px;height:7px;border-radius:50%;background:#ff5a5f;flex-shrink:0;animation:pulse 1.4s ease-in-out infinite}
+.urgency-banner #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:52px;padding:13px 18px;border-radius:13px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;transition:transform .15s ease,background .15s ease}.cta:hover{transform:translateY(-1px);background:#f5f3ff}
 
 .reassure{
@@ -282,6 +286,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="kit-preview">
     <video id="premiumVideo" src="videos/kit-preview.mp4" controls muted playsinline preload="metadata"></video>
   </div>
+  <div class="urgency-banner"><span class="dot"></span> Your discount price ends in <span id="countdownTimer">--:--:--</span></div>
   <div class="price-row">
     <div class="price" aria-label="Sale price 19 dollars, originally 29 dollars">
       <span class="original-price">$29</span>
@@ -305,6 +310,43 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   const track=(name)=>{if(typeof window.clarity==='function')window.clarity('event',name)};
+
+  const countdownEl = document.getElementById('countdownTimer');
+  const urgencyBanner = document.querySelector('.urgency-banner');
+  if (countdownEl && urgencyBanner) {
+    const STORAGE_KEY = 'darija_offer_start';
+    const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+    let startTime;
+    try {
+      startTime = localStorage.getItem(STORAGE_KEY);
+      if (!startTime) {
+        startTime = Date.now();
+        localStorage.setItem(STORAGE_KEY, startTime);
+      } else {
+        startTime = parseInt(startTime, 10);
+      }
+    } catch (e) {
+      startTime = Date.now();
+    }
+    const expiresAt = startTime + THREE_DAYS_MS;
+
+    function updateCountdown(){
+      const now = Date.now();
+      const diff = expiresAt - now;
+      if (diff <= 0) {
+        urgencyBanner.style.display = 'none';
+        clearInterval(countdownInterval);
+        return;
+      }
+      const h = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+      const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+      const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+      const days = Math.floor(diff/86400000);
+      countdownEl.textContent = days > 0 ? days+'d '+h+':'+m+':'+s : h+':'+m+':'+s;
+    }
+    updateCountdown();
+    var countdownInterval = setInterval(updateCountdown, 1000);
+  }
   document.querySelectorAll('audio').forEach((audio,index)=>{
     audio.addEventListener('play',()=>track(index===0?'audio_1_play':'audio_2_play'),{once:true});
     audio.addEventListener('error',()=>track(index===0?'audio_1_error':'audio_2_error'),{once:true});
