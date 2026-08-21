@@ -58,6 +58,10 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .original-price{color:#aaa6be;font-size:16px;text-decoration:line-through}
 .sale-price{color:#fff;font-size:28px;font-weight:950;letter-spacing:-.03em}
 .save-badge{background:#fff;color:var(--dark);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:950}
+.urgency-banner{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;margin:0 0 16px;font-size:12px;font-weight:800;color:#fff}
+.urgency-banner .dot{width:7px;height:7px;border-radius:50%;background:#ff5a5f;flex-shrink:0;animation:pulse 1.4s ease-in-out infinite}
+.urgency-banner #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .upgrade-cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:50px;padding:13px 16px;border-radius:13px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;font-size:14px}
 .upgrade-cta:hover{background:#f5f3ff}
 .reassure{text-align:center;color:#aaa6be;font-size:11px;margin:12px 0 0}
@@ -99,13 +103,14 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
     <div class="kit-preview">
       <video src="videos/kit-preview.mp4" autoplay muted loop playsinline></video>
     </div>
+    <div class="urgency-banner"><span class="dot"></span> Your discount price ends in <span id="countdownTimer">--:--:--</span></div>
     <div class="price-row">
-      <div class="price" aria-label="Sale price 39 dollars, originally 59 dollars">
-        <span class="original-price">$59</span>
-        <span class="sale-price">$39</span>
-        <span class="save-badge">SAVE $20</span>
+      <div class="price" aria-label="Sale price 19 dollars, originally 29 dollars">
+        <span class="original-price">$29</span>
+        <span class="sale-price">$19</span>
+        <span class="save-badge">SAVE $10</span>
       </div>
-      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" target="_blank" rel="noopener" aria-label="Get the full Darija Survival Kit for 39 dollars">Get the Full Survival Kit</a>
+      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" target="_blank" rel="noopener" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Full Survival Kit</a>
     </div>
     <p class="reassure">Instant access · One-time payment · Built for Morocco travelers</p>
   </section>
@@ -121,6 +126,43 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   const track=n=>{if(typeof window.clarity==='function')window.clarity('event',n)};
+
+  const countdownEl = document.getElementById('countdownTimer');
+  const urgencyBanner = document.querySelector('.urgency-banner');
+  if (countdownEl && urgencyBanner) {
+    const STORAGE_KEY = 'darija_offer_start';
+    const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+    let startTime;
+    try {
+      startTime = localStorage.getItem(STORAGE_KEY);
+      if (!startTime) {
+        startTime = Date.now();
+        localStorage.setItem(STORAGE_KEY, startTime);
+      } else {
+        startTime = parseInt(startTime, 10);
+      }
+    } catch (e) {
+      startTime = Date.now();
+    }
+    const expiresAt = startTime + THREE_DAYS_MS;
+
+    function updateCountdown(){
+      const now = Date.now();
+      const diff = expiresAt - now;
+      if (diff <= 0) {
+        urgencyBanner.style.display = 'none';
+        clearInterval(countdownInterval);
+        return;
+      }
+      const h = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+      const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+      const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+      const days = Math.floor(diff/86400000);
+      countdownEl.textContent = days > 0 ? days+'d '+h+':'+m+':'+s : h+':'+m+':'+s;
+    }
+    updateCountdown();
+    var countdownInterval = setInterval(updateCountdown, 1000);
+  }
   track('online_pdf_view');
   document.querySelectorAll('a[href="Darija-Free-Wallet-Cards.pdf"]').forEach(a=>a.addEventListener('click',()=>track('online_pdf_download')));
   document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(a=>a.addEventListener('click',()=>track('premium_click')));
