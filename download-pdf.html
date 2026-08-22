@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloading Your Cards... | LocalTalkKit</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f7f8fc;
+      color: #171b2d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 32px 24px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      max-width: 420px;
+      width: 100%;
+    }
+    h1 { font-size: 20px; margin-bottom: 8px; }
+    p { color: #687286; font-size: 14px; margin-bottom: 20px; }
+    .btn {
+      display: inline-block;
+      background: #5b3df5;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Downloading Your PDF...</h1>
+  <p>Your download should start automatically in a moment. If it doesn't, click the button below.</p>
+  
+  <a id="downloadLink" href="Darija-Free-Wallet-Cards.pdf" download="Darija-Free-Wallet-Cards.pdf" class="btn">
+    Click Here to Download PDF
+  </a>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // 1. Force immediate download trigger
+    const link = document.getElementById('downloadLink');
+    link.click();
+
+    // 2. Redirect to read-cards page after 2.5 seconds
+    setTimeout(() => {
+      window.location.href = 'read-cards.html?downloaded=true';
+    }, 2500);
+  });
+</script>
+
+</body>
+</html>
