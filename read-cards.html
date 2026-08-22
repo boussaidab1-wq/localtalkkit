@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Read the Free Darija Cards Online | LocalTalkKit</title>
-<meta name="description" content="Read all five pages of the free Moroccan Darija travel cards online. No download required.">
+<meta name="description" content="Read all five pages of the free Moroccan Darija travel cards online. Included tipping guide and practical travel tips.">
 <style>
 :root{--ink:#171b2d;--muted:#687286;--bg:#f7f8fc;--surface:#fff;--line:#e6e9f1;--purple:#5b3df5;--purple-dark:#452dcc;--soft:#f0edff;--dark:#17142f}
 *{box-sizing:border-box}
@@ -12,24 +12,53 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .wrap{width:min(900px,calc(100% - 24px));margin:0 auto;padding-bottom:30px}
-.top{padding:14px 0 8px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.brand{font-size:13px;font-weight:950;letter-spacing:.02em}
-.back{padding:8px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);color:#4532bb;text-decoration:none;font-size:12px;font-weight:900}
+.top{padding:16px 0 10px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:12px}
+.brand{font-size:15px;font-weight:950;letter-spacing:.02em;color:var(--purple)}
+
+.inbox-alert {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  color: #3730a3;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin: 12px 0 16px;
+}
+.inbox-alert span { display: block; font-size: 11px; opacity: 0.85; font-weight: 500; margin-top: 2px; }
+
 .hero{text-align:center;padding:10px 0 18px}
 .eyebrow{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
 h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin:0 0 8px}
 .hero p{color:var(--muted);font-size:14px;max-width:680px;margin:0 auto}
-.actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:0 0 17px}
-.download,.back-top{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 17px;border-radius:12px;text-decoration:none;font-weight:950;font-size:13px}
-.download{background:var(--purple);color:#fff;box-shadow:0 10px 24px rgba(91,61,245,.18)}
-.download:hover{background:var(--purple-dark)}
-.back-top{background:#fff;color:#4532bb;border:1px solid #d8d2f8}
+
 .reader{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:0 14px 38px rgba(20,25,45,.08)}
 .page{margin:0 auto 16px;max-width:760px;border-radius:12px;overflow:hidden;background:#101116;border:1px solid #22242b;box-shadow:0 8px 22px rgba(20,25,45,.08)}
 .page:last-child{margin-bottom:0}
 .page img{display:block;width:100%;height:auto;cursor:zoom-in}
 .page-label{text-align:center;background:#fff;border-top:1px solid var(--line);padding:8px;color:var(--muted);font-size:11px;font-weight:800}
-.page-hint{text-align:center;color:var(--muted);font-size:10px;font-weight:700;padding:5px 0 0}
+
+/* Integrated Tipping Section */
+.tipping-section { margin-top: 28px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 22px 18px; box-shadow: 0 10px 30px rgba(20,25,45,.05); }
+.tipping-section h2 { font-size: 20px; margin: 0 0 12px; letter-spacing: -0.02em; }
+.tip-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+.tip-table td{padding:10px 0;border-bottom:1px solid var(--line)}
+.tip-table td:first-child{color:var(--muted)}
+.tip-table td:last-child{text-align:right;font-weight:800;color:var(--ink)}
+.tip-table tr:last-child td{border-bottom:none}
+
+.pronunciation-warning {
+  background: var(--soft);
+  border: 1px solid #d8d2f8;
+  border-radius: 16px;
+  padding: 18px;
+  margin: 28px 0 10px;
+  text-align: center;
+}
+.pronunciation-warning h3 { font-size: 17px; margin: 0 0 6px; color: var(--purple-dark); }
+.pronunciation-warning p { margin: 0; font-size: 13px; color: var(--ink); line-height: 1.45; }
+
 .zoom-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,12,20,.92);display:none;align-items:center;justify-content:center;padding:54px 12px 24px}
 .zoom-modal.open{display:flex}
 .zoom-modal img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
@@ -38,9 +67,7 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .zoom-prev,.zoom-next{top:50%;transform:translateY(-50%);width:44px;height:44px;font-size:24px}
 .zoom-prev{left:12px}.zoom-next{right:12px}
 .zoom-count{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;font-weight:900;background:rgba(0,0,0,.35);padding:5px 10px;border-radius:999px}
-.note{text-align:center;color:var(--muted);font-size:11px;margin:10px auto 0;max-width:620px}
-.bottom{text-align:center;padding:18px 0 0}
-.bottom p{color:var(--muted);font-size:12px;margin:8px 0 0}
+
 .bridge{text-align:center;padding:30px 12px 4px}
 .bridge h2{font-size:clamp(24px,5vw,34px);line-height:1.08;letter-spacing:-.035em;margin:0 auto 9px;max-width:700px}
 .bridge p{color:var(--muted);max-width:600px;margin:auto;font-size:14px}
@@ -50,9 +77,6 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .upgrade .lead{color:#d8d5e9;max-width:700px;margin:0 0 17px;font-size:14px}
 .kit-preview{display:block;width:100%;max-width:420px;margin:0 auto 17px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
 .kit-preview video,.kit-preview img{display:block;width:100%;height:auto}
-.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0 0 17px}
-.benefit{padding:9px 11px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(255,255,255,.055)}
-.benefit strong{display:block;font-size:12px;line-height:1.25}
 .price-row{padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
 .price{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:13px}
 .original-price{color:#aaa6be;font-size:16px;text-decoration:line-through}
@@ -65,19 +89,25 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .upgrade-cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:50px;padding:13px 16px;border-radius:13px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;font-size:14px}
 .upgrade-cta:hover{background:#f5f3ff}
 .reassure{text-align:center;color:#aaa6be;font-size:11px;margin:12px 0 0}
-@media(max-width:600px){.benefits{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:9px;margin-bottom:11px}.hero{padding-top:8px}.actions{margin-bottom:12px}.page-hint{font-size:9px}.zoom-modal{padding:50px 8px 18px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:6px}.zoom-next{right:6px}}
+@media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:9px;margin-bottom:11px}.hero{padding-top:8px}.zoom-modal{padding:50px 8px 18px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:6px}.zoom-next{right:6px}}
 </style>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");</script>
 </head>
 <body>
 <main class="wrap">
-  <div class="top"><div class="brand">LocalTalkKit</div><a class="back" href="index.html">← Back to free cards</a></div>
+  <div class="top"><div class="brand">LocalTalkKit</div></div>
+
+  <div class="inbox-alert">
+    📩 Your printable PDF cards have been sent directly to your inbox.
+    <span>(Please check your spam or promotions folder if you don't see them right away)</span>
+  </div>
+
   <header class="hero">
     <div class="eyebrow">FREE DARIJA TRAVEL CARDS</div>
     <h1>Read the full cards online</h1>
-    <p>No download needed. Scroll through all 5 categories directly on your phone or laptop.</p>
+    <p>Scroll through all 5 categories directly on your phone or tap any image to zoom in.</p>
   </header>
+
   <section class="reader" aria-label="All five pages of the free Darija cards">
     <div class="page"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="page-label">1 of 5 · Greetings</div></div>
     <div class="page"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="page-label">2 of 5 · Shopping</div></div>
@@ -85,21 +115,35 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
     <div class="page"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="page-label">4 of 5 · Social Interaction</div></div>
     <div class="page"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="page-label">5 of 5 · Emergency</div></div>
   </section>
-  <div class="bottom">
-    <a class="download" href="Darija-Free-Wallet-Cards.pdf" download>Download the Full Cards</a>
-    <p>Keep the PDF on your phone or print it before your Morocco trip.</p>
+
+  <!-- Added Extra Value: Tipping Guide -->
+  <section class="tipping-section" aria-label="Quick Tipping Guide">
+    <h2>💡 Quick Tipping & Billing Cheat Sheet</h2>
+    <table class="tip-table">
+      <tr><td>Restaurants (no service charge)</td><td>10%</td></tr>
+      <tr><td>Restaurants (service charge included)</td><td>Round up / 5%</td></tr>
+      <tr><td>Cafes (coffee, tea)</td><td>3–5 MAD</td></tr>
+      <tr><td>Taxis</td><td>Round up to nearest 5–10 MAD</td></tr>
+      <tr><td>Riad staff (per stay)</td><td>50–100 MAD</td></tr>
+    </table>
+  </section>
+
+  <!-- Pronunciation Hook pointing to Premium -->
+  <div class="pronunciation-warning">
+    <h3>⚠️ Reading Darija is not the same as pronouncing it correctly</h3>
+    <p>Moroccan Darija features distinct glottal stops, rolled R's, and subtle emphasis that standard letters can't capture. Saying a phrase incorrectly often leads to confusion. Listening to actual native audio is the only way to speak with confidence.</p>
   </div>
 
   <section class="bridge" aria-label="Bridge to premium kit">
-    <div class="eyebrow">LIKE WHAT YOU SAW?</div>
-    <h2>These 5 cards are useful. The full kit gives you the rest.</h2>
-    <p>Instead of wondering what to say in each situation, have the right Darija phrase ready before you need it.</p>
+    <div class="eyebrow">HEAR THE ACTUAL NATIVE AUDIO</div>
+    <h2>These 5 cards give you text. The Survival Kit gives you real pronunciation.</h2>
+    <p>Instead of guessing how to pronounce words in real situations, listen to clear native audio for every single phrase before you land in Morocco.</p>
   </section>
 
   <section class="upgrade" aria-label="Full Darija Survival Kit offer">
     <div class="eyebrow">THE FULL DARIJA SURVIVAL KIT</div>
     <h2>Go beyond a few phrases. Learn the Darija you'll actually use.</h2>
-    <p class="lead">A practical travel kit built around real situations in Morocco: taxis, shopping, food, hotels, directions, social conversations and more.</p>
+    <p class="lead">A practical travel kit built around real situations in Morocco: taxis, shopping, food, hotels, directions, social conversations and more — complete with clear audio guides.</p>
     <div class="kit-preview">
       <video src="videos/kit-preview.mp4" autoplay muted loop playsinline></video>
     </div>
@@ -110,11 +154,12 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
         <span class="sale-price">$19</span>
         <span class="save-badge">SAVE $10</span>
       </div>
-      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" target="_blank" rel="noopener" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Full Survival Kit</a>
+      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" target="_blank" rel="noopener" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Full Survival Kit + Native Audio</a>
     </div>
     <p class="reassure">Instant access · One-time payment · Built for Morocco travelers</p>
   </section>
 </main>
+
 <div class="zoom-modal" id="zoomModal" aria-hidden="true" role="dialog" aria-label="Card preview">
   <button class="zoom-close" id="zoomClose" aria-label="Close preview">×</button>
   <div class="zoom-count" id="zoomCount">1 of 5</div>
@@ -164,7 +209,6 @@ document.addEventListener('DOMContentLoaded',function(){
     var countdownInterval = setInterval(updateCountdown, 1000);
   }
   track('online_pdf_view');
-  document.querySelectorAll('a[href="Darija-Free-Wallet-Cards.pdf"]').forEach(a=>a.addEventListener('click',()=>track('online_pdf_download')));
   document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(a=>a.addEventListener('click',()=>track('premium_click')));
 
   const cards=[...document.querySelectorAll('.page img')];
