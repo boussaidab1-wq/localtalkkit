@@ -36,11 +36,12 @@ a{color:inherit}
 audio{width:100%;height:44px}
 .note{font-size:12px;color:var(--muted);margin:7px 0 0}
 
-.guide-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:18px 0 4px}
-.guide-banner p{margin:0;font-size:14px;font-weight:700;color:var(--ink)}
-.guide-banner span{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
-.guide-banner a{flex-shrink:0;display:inline-flex;align-items:center;min-height:44px;padding:11px 18px;border-radius:12px;background:var(--purple);color:#fff;text-decoration:none;font-weight:900;font-size:13px;white-space:nowrap}
-.guide-banner a:hover{background:var(--purple-dark)}
+/* Integrated Tipping Section Styles */
+.tip-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;background:#fff;border-radius:12px;padding:10px}
+.tip-table td{padding:10px 12px;border-bottom:1px solid var(--line)}
+.tip-table td:first-child{color:var(--muted)}
+.tip-table td:last-child{text-align:right;font-weight:800}
+.tip-table tr:last-child td{border-bottom:none}
 
 /* Lead Magnet Form Styles */
 .lead-box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 24px;max-width:540px;margin:32px auto;box-shadow:0 12px 32px rgba(20,25,45,.05);text-align:center}
@@ -81,7 +82,6 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 .testimonial blockquote{margin:0 auto 8px;max-width:680px;font-size:15px;line-height:1.45;font-weight:600;color:var(--ink)}
 .testimonial-author{font-size:12px;color:var(--muted);font-weight:800}
 
-@media(max-width:500px){.guide-banner{flex-direction:column;align-items:stretch;text-align:center}.guide-banner a{justify-content:center}}
 @media(max-width:600px){
 .wrap{width:min(100% - 22px,900px)}.hero{padding:35px 0 4px}.hero + .lesson{margin-top:8px}.hero h1{font-size:38px}.trust-line{font-size:12px}.lesson{padding:22px 16px;margin-top:19px}.lesson h2{font-size:29px}.phrase{padding:18px 12px}.audio-box{padding:15px}.price-row{display:block}.price{margin-bottom:13px}.cta{width:100%}.upgrade{padding:24px 16px;margin-top:21px}.upgrade .lead{font-size:14px;margin-bottom:15px}.upgrade h2{font-size:28px}
 .section-divider {margin: 28px auto 0;max-width: 80%}
@@ -101,11 +101,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="trust-line"></div>
 </header>
 
-<div class="guide-banner">
-  <p>Came here for the bill/tipping cheat sheet?<span>See exactly what to say and how much to tip in Morocco.</span></p>
-  <a href="tipping-guide.html" id="tippingGuideBannerLink">Open the Tipping Guide</a>
-</div>
-
+<!-- Audio Phrase 1: Taxi -->
 <section class="card lesson" id="phrase-audio" aria-label="Darija pronunciation lesson: taxi phrase">
   <div class="eyebrow">TRY ONE PHRASE NOW</div>
   <h2>Don’t just read Darija. Hear how it sounds.</h2>
@@ -114,6 +110,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/aafak-kheddem-lkountour.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Hear it. Repeat it. Then use it when you need it.</p></div>
 </section>
 
+<!-- Audio Phrase 2: Bargaining -->
 <section class="card lesson" aria-label="Darija pronunciation lesson: bargaining phrase">
   <div class="eyebrow">ANOTHER PHRASE WORTH KNOWING</div>
   <h2>A second phrase worth having ready.</h2>
@@ -122,13 +119,40 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/ghali-bzaf.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Listen. Repeat it. Then use it when a price needs a little negotiation.</p></div>
 </section>
 
+<!-- Audio Phrase 3: Asking for the bill -->
+<section class="card lesson" aria-label="Darija pronunciation lesson: bill phrase">
+  <div class="eyebrow">AT THE RESTAURANT</div>
+  <h2>Asking for the bill easily.</h2>
+  <p class="intro">Say this when you're ready to pay at cafes or restaurants.</p>
+  <div class="phrase"><div class="darija"><span class="flag" aria-hidden="true">🇲🇦</span>L-hsab, afak</div><div class="translation"><span class="flag" aria-hidden="true">🇬🇧</span>The bill, please</div></div>
+  <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/l-hsab-afak.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Waiters respond much faster to this than to hand gestures.</p></div>
+</section>
+
+<!-- Tipping Guide Section + Audio Phrase 4 -->
+<section class="card lesson" aria-label="Morocco Tipping Guide">
+  <div class="eyebrow">QUICK TIPPING GUIDE</div>
+  <h2>How much to tip in Morocco?</h2>
+  <p class="intro">Tipping culture can be confusing. Here is a realistic baseline for your trip:</p>
+  
+  <table class="tip-table">
+    <tr><td>Restaurants (no service charge)</td><td>10%</td></tr>
+    <tr><td>Restaurants (service charge included)</td><td>Round up / 5%</td></tr>
+    <tr><td>Cafes (coffee, tea)</td><td>3–5 MAD</td></tr>
+    <tr><td>Taxis</td><td>Round up to nearest 5–10 MAD</td></tr>
+    <tr><td>Riad staff (per stay)</td><td>50–100 MAD</td></tr>
+  </table>
+
+  <p class="intro" style="margin-top:20px; margin-bottom:8px; font-weight:700; color:var(--ink)">If something looks wrong on the bill:</p>
+  <div class="phrase"><div class="darija"><span class="flag" aria-hidden="true">🇲🇦</span>Ma fhemtsh had ttaman</div><div class="translation"><span class="flag" aria-hidden="true">🇬🇧</span>I don't understand this price</div></div>
+  <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/ma-fhemtsh-had-ttaman.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Calmly saying this gets billing errors fixed immediately.</p></div>
+</section>
+
 <!-- Integrated Kit Email Form -->
 <div class="lead-box" id="download">
   <div class="eyebrow">FREE DOWNLOAD</div>
   <h3>Get the Free Darija Wallet Cards</h3>
   <p>Enter your email to instantly read the full card set online + get the printable PDF sent to your inbox.</p>
 
-  <!-- Hidden iframe targeting prevents ConvertKit redirect on mobile -->
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
   <form id="leadForm" action="https://app.kit.com/forms/9831459/subscriptions" method="POST" target="hidden_iframe" class="lead-form">
@@ -143,7 +167,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 
 <section class="bridge">
   <div class="eyebrow">LIKE WHAT YOU HEARD?</div>
-  <h2 style="font-size:clamp(27px,5vw,38px);line-height:1.05;letter-spacing:-.04em;margin:0 auto 9px;max-width:760px">These two phrases are useful. The full kit gives you the rest.</h2>
+  <h2 style="font-size:clamp(27px,5vw,38px);line-height:1.05;letter-spacing:-.04em;margin:0 auto 9px;max-width:760px">These 4 phrases are useful. The full kit gives you the rest.</h2>
   <p style="color:var(--muted);max-width:650px;margin:auto">Instead of wondering what to say in each situation, have the right Darija phrase ready before you need it.</p>
 </section>
 
@@ -217,25 +241,21 @@ document.addEventListener('DOMContentLoaded',function(){
   }
 
   document.querySelectorAll('audio').forEach((audio,index)=>{
-    audio.addEventListener('play',()=>track(index===0?'audio_1_play':'audio_2_play'),{once:true});
-    audio.addEventListener('error',()=>track(index===0?'audio_1_error':'audio_2_error'),{once:true});
+    audio.addEventListener('play',()=>track('audio_'+(index+1)+'_play'),{once:true});
+    audio.addEventListener('error',()=>track('audio_'+(index+1)+'_error'),{once:true});
   });
 
-  /* Guaranteed Navigation via Iframe Submissions */
   const leadForm = document.getElementById('leadForm');
   const submitBtn = document.getElementById('submitLeadBtn');
-  let formSubmitted = false;
 
   if (leadForm) {
     leadForm.addEventListener('submit', function() {
       track('lead_form_submit');
-      formSubmitted = true;
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerText = 'Redirecting...';
       }
 
-      // Immediately navigate the main window to your page after form POSTs to iframe
       setTimeout(function() {
         window.location.href = 'https://localtalkkit.com/read-cards.html?submitted=true';
       }, 500);
@@ -264,7 +284,6 @@ document.addEventListener('DOMContentLoaded',function(){
   }
 
   document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(link=>link.addEventListener('click',()=>track('premium_click')));
-  document.querySelectorAll('a[href="tipping-guide.html"]').forEach(link=>link.addEventListener('click',()=>track('tipping_guide_click')));
   
   const fired={25:false,50:false,75:false,90:false};
   window.addEventListener('scroll',()=>{
@@ -275,6 +294,5 @@ document.addEventListener('DOMContentLoaded',function(){
   },{passive:true});
 });
 </script>
-
 </body>
 </html>
