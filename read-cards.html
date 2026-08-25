@@ -80,7 +80,7 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .upgrade-cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:50px;padding:13px 16px;border-radius:13px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;font-size:14px}
 .upgrade-cta:hover{background:#f5f3ff}
 .reassure{text-align:center;color:#aaa6be;font-size:11px;margin:12px 0 0}
-@media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:8px;margin-bottom:11px}.hero{padding-top:8px}.zoom-modal{padding:50px 8px 18px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:6px}.zoom-next{right:6px}}
+@media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:10px;margin-bottom:11px}.hero{padding-top:8px}.zoom-modal{padding:50px 8px 18px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:6px}.zoom-next{right:6px}}
 </style>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");</script>
 </head>
@@ -132,9 +132,10 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
         <span class="sale-price">$19</span>
         <span class="save-badge">SAVE $10</span>
       </div>
-      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" target="_blank" rel="noopener" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Full Survival Kit + Native Audio</a>
+      <!-- Gumroad Overlay Checkout applied here -->
+      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Full Survival Kit + Native Audio</a>
     </div>
-    <p class="reassure">Apple Pay only works if opened in Safari — tap ⋮ → Open in Browser first.</p>
+    <p class="reassure">Instant access · One-time payment · Built for Morocco travelers</p>
   </section>
 </main>
 
@@ -220,5 +221,6 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 </script>
+<script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
 </html>
