@@ -44,7 +44,7 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
   border: 1px solid #d8d2f8;
   border-radius: 16px;
   padding: 18px;
-  margin: 28px 0 10px;
+  margin: 0 0 24px;
   text-align: center;
 }
 .pronunciation-warning h3 { font-size: 17px; margin: 0 0 6px; color: var(--purple-dark); }
@@ -59,10 +59,7 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .zoom-prev{left:12px}.zoom-next{right:12px}
 .zoom-count{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;font-weight:900;background:rgba(0,0,0,.35);padding:5px 10px;border-radius:999px}
 
-.bridge{text-align:center;padding:30px 12px 4px}
-.bridge h2{font-size:clamp(24px,5vw,34px);line-height:1.08;letter-spacing:-.035em;margin:0 auto 9px;max-width:700px}
-.bridge p{color:var(--muted);max-width:600px;margin:auto;font-size:14px}
-.upgrade{margin:20px 0 36px;padding:26px 22px;background:var(--dark);color:#fff;border-radius:22px;box-shadow:0 16px 40px rgba(23,20,47,.16)}
+.upgrade{margin:0 0 36px;padding:26px 22px;background:var(--dark);color:#fff;border-radius:22px;box-shadow:0 16px 40px rgba(23,20,47,.16)}
 .upgrade .eyebrow{color:#b9adff}
 .kit-preview{display:block;width:100%;max-width:420px;margin:0 auto 17px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
 .kit-preview video,.kit-preview img{display:block;width:100%;height:auto}
@@ -84,6 +81,7 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 </head>
 <body>
 <main class="wrap">
+  <div class="top"><div class="brand">LocalTalkKit</div></div>
 
   <div class="inbox-alert">
     📩 Your printable PDF cards have been sent directly to your inbox.
@@ -91,24 +89,16 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
   </div>
 
   <header class="hero">
-    <h1>Read the full cards online</h1>
-    <p>Scroll through all 5 categories directly on your phone or tap any image to zoom in.</p>
+    <h1>Your free cards are below.</h1>
+    <p>But before you scroll down to read them, please read this quick warning...</p>
   </header>
-
-  <section class="reader" aria-label="All five pages of the free Darija cards">
-    <div class="page"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="page-label">1 of 5 · Greetings</div></div>
-    <div class="page"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="page-label">2 of 5 · Shopping</div></div>
-    <div class="page"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="page-label">3 of 5 · Numbers</div></div>
-    <div class="page"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="page-label">4 of 5 · Social Interaction</div></div>
-    <div class="page"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="page-label">5 of 5 · Emergency</div></div>
-  </section>
 
   <div class="pronunciation-warning">
     <h3>⚠️ Reading Darija is not the same as pronouncing it correctly</h3>
     <p>Moroccan Darija features distinct glottal stops, rolled R's, and subtle emphasis that standard letters can't capture. Saying a phrase incorrectly often leads to confusion. Listening to actual native audio is the only way to speak with confidence.</p>
   </div>
 
-  <!-- NEW HIGH-CONVERTING UPGRADE SECTION -->
+  <!-- UPGRADE SECTION MOVED TO TOP -->
   <section class="upgrade" aria-label="Full Darija Survival Kit offer">
     <div class="eyebrow">YOUR ULTIMATE TRAVEL CHEAT CODE</div>
     <h2 style="font-size:clamp(28px,5vw,38px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px;max-width:760px">
@@ -118,8 +108,7 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
       Reading text is a good start, but stepping into the Medina with native audio in your pocket is a superpower. This isn't a boring language course—it's a fast-track travel investment. Using these exact phrases just once will save you more than the cost of the kit on your very first day.
     </p>
     
-
-    <!-- New High-Value Benefits Grid -->
+    <!-- High-Value Benefits Grid -->
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin:0 0 20px; text-align:left;">
       <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
         <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🎧 Offline Native Audio</strong>
@@ -154,6 +143,22 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
     </div>
     <p class="reassure">Instant Notion Access · One-time payment · Future Updates Included</p>
   </section>
+
+  <!-- FREE CARDS DISPLAY -->
+  <div style="text-align:center; padding: 20px 0 16px;">
+    <div class="eyebrow">YOUR FREE DOWNLOAD</div>
+    <h2 style="font-size:clamp(24px,5vw,34px);line-height:1.08;letter-spacing:-.035em;margin:0 auto 6px;">Read the Free Cards Online</h2>
+    <p style="color:var(--muted); font-size:14px; max-width:600px; margin:0 auto;">Scroll through all 5 categories directly on your phone or tap any image to zoom in.</p>
+  </div>
+
+  <section class="reader" aria-label="All five pages of the free Darija cards">
+    <div class="page"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="page-label">1 of 5 · Greetings</div></div>
+    <div class="page"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="page-label">2 of 5 · Shopping</div></div>
+    <div class="page"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="page-label">3 of 5 · Numbers</div></div>
+    <div class="page"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="page-label">4 of 5 · Social Interaction</div></div>
+    <div class="page"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="page-label">5 of 5 · Emergency</div></div>
+  </section>
+
 </main>
 
 <div class="zoom-modal" id="zoomModal" aria-hidden="true" role="dialog" aria-label="Card preview">
