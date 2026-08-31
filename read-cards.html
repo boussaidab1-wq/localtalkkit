@@ -30,26 +30,50 @@ a{color:inherit}
 
 .hero{text-align:center;padding:10px 0 18px}
 .eyebrow{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
-h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin:0 0 8px}
-.hero p{color:var(--muted);font-size:14px;max-width:680px;margin:0 auto}
+h1{font-size:clamp(28px,6vw,40px);line-height:1.04;letter-spacing:-.045em;margin:0 0 8px; font-weight:900}
+.hero p{color:var(--muted);font-size:15px;max-width:680px;margin:0 auto; font-weight:500}
+
+.pronunciation-warning {
+  background: #fff0f0;
+  border: 1px solid #ffcaca;
+  border-radius: 16px;
+  padding: 18px;
+  margin: 0 0 24px;
+  text-align: center;
+}
+.pronunciation-warning h3 { font-size: 18px; margin: 0 0 6px; color: #cc0000; font-weight:900; letter-spacing:-0.02em}
+.pronunciation-warning p { margin: 0; font-size: 14px; color: var(--ink); line-height: 1.45; font-weight:600}
+
+.upgrade{margin:0 0 36px;padding:26px 22px;background:var(--dark);color:#fff;border-radius:22px;box-shadow:0 16px 40px rgba(23,20,47,.16)}
+.upgrade .eyebrow{color:#b9adff; letter-spacing:0.1em; font-size:11px}
+.upgrade h2{font-size:clamp(26px,5vw,34px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px;max-width:760px; font-weight:900}
+.upgrade .lead{color:#d8d5e9;max-width:760px;margin:0 0 22px;font-size:15px;line-height:1.4; font-weight:500}
+
+.benefits-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin:0 0 20px; text-align:left;}
+.benefit-card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;}
+.benefit-title{display:block; color:#b9adff; font-size:14px; margin-bottom:4px; font-weight:800}
+.benefit-text{font-size:13px; color:#aaa6be; line-height:1.4; display:block; font-weight:500}
+
+.kit-preview{display:block;width:100%;max-width:420px;margin:0 auto 17px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
+.kit-preview video{display:block;width:100%;height:auto}
+.price-row{padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
+.price{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:13px}
+.original-price{color:#aaa6be;font-size:16px;text-decoration:line-through; font-weight:700}
+.sale-price{color:#fff;font-size:32px;font-weight:950;letter-spacing:-.03em}
+.save-badge{background:#fff;color:var(--dark);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:950; letter-spacing:0.02em}
+.urgency-banner{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;margin:0 0 16px;font-size:13px;font-weight:800;color:#fff}
+.urgency-banner .dot{width:8px;height:8px;border-radius:50%;background:#ff5a5f;flex-shrink:0;animation:pulse 1.4s ease-in-out infinite}
+.urgency-banner #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8; font-weight:900}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.upgrade-cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:54px;padding:13px 16px;border-radius:14px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;font-size:15px; text-transform:uppercase; letter-spacing:0.02em}
+.upgrade-cta:hover{background:#f5f3ff; transform:translateY(-1px); transition:all 0.15s ease}
+.reassure{text-align:center;color:#aaa6be;font-size:12px;margin:14px 0 0; font-weight:600}
 
 .reader{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:0 14px 38px rgba(20,25,45,.08)}
 .page{margin:0 auto 16px;max-width:760px;border-radius:8px;overflow:hidden;background:#101116;border:1px solid #22242b;box-shadow:0 8px 22px rgba(20,25,45,.08)}
 .page:last-child{margin-bottom:0}
 .page img{display:block;width:100%;height:auto;cursor:zoom-in}
 .page-label{text-align:center;background:#fff;border-top:1px solid var(--line);padding:8px;color:var(--muted);font-size:11px;font-weight:800}
-
-.pronunciation-warning {
-  background: var(--soft);
-  border: 1px solid #d8d2f8;
-  border-radius: 16px;
-  padding: 18px;
-  margin: 0 0 24px;
-  text-align: center;
-}
-.pronunciation-warning h3 { font-size: 17px; margin: 0 0 6px; color: var(--purple-dark); }
-.pronunciation-warning p { margin: 0; font-size: 13px; color: var(--ink); line-height: 1.45; }
-
 .zoom-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,12,20,.92);display:none;align-items:center;justify-content:center;padding:54px 12px 24px}
 .zoom-modal.open{display:flex}
 .zoom-modal img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
@@ -58,23 +82,6 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
 .zoom-prev,.zoom-next{top:50%;transform:translateY(-50%);width:44px;height:44px;font-size:24px}
 .zoom-prev{left:12px}.zoom-next{right:12px}
 .zoom-count{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;font-weight:900;background:rgba(0,0,0,.35);padding:5px 10px;border-radius:999px}
-
-.upgrade{margin:0 0 36px;padding:26px 22px;background:var(--dark);color:#fff;border-radius:22px;box-shadow:0 16px 40px rgba(23,20,47,.16)}
-.upgrade .eyebrow{color:#b9adff}
-.kit-preview{display:block;width:100%;max-width:420px;margin:0 auto 17px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
-.kit-preview video,.kit-preview img{display:block;width:100%;height:auto}
-.price-row{padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
-.price{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:13px}
-.original-price{color:#aaa6be;font-size:16px;text-decoration:line-through}
-.sale-price{color:#fff;font-size:28px;font-weight:950;letter-spacing:-.03em}
-.save-badge{background:#fff;color:var(--dark);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:950}
-.urgency-banner{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;margin:0 0 16px;font-size:12px;font-weight:800;color:#fff}
-.urgency-banner .dot{width:7px;height:7px;border-radius:50%;background:#ff5a5f;flex-shrink:0;animation:pulse 1.4s ease-in-out infinite}
-.urgency-banner #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.upgrade-cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:50px;padding:13px 16px;border-radius:13px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;font-size:14px}
-.upgrade-cta:hover{background:#f5f3ff}
-.reassure{text-align:center;color:#aaa6be;font-size:11px;margin:12px 0 0}
 @media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:8px;margin-bottom:11px}.hero{padding-top:8px}.zoom-modal{padding:50px 8px 18px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:6px}.zoom-next{right:6px}}
 </style>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");</script>
@@ -84,47 +91,41 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
   <div class="top"><div class="brand">LocalTalkKit</div></div>
 
   <div class="inbox-alert">
-    📩 Your printable PDF cards have been sent directly to your inbox.
-    <span>(Please check your spam or promotions folder if you don't see them right away)</span>
+    📩 Your printable PDF cards were just sent to your inbox.
+    <span>(Check your spam or promotions folder if you don't see them)</span>
   </div>
 
   <header class="hero">
     <h1>Your free cards are below.</h1>
-    <p>But before you scroll down to read them, please read this quick warning...</p>
+    <p>But before you read them, please read this warning...</p>
   </header>
 
   <div class="pronunciation-warning">
-    <h3>⚠️ Reading Darija is not the same as pronouncing it correctly</h3>
-    <p>Moroccan Darija features distinct glottal stops, rolled R's, and subtle emphasis that standard letters can't capture. Saying a phrase incorrectly often leads to confusion. Listening to actual native audio is the only way to speak with confidence.</p>
+    <h3>⚠️ Reading Darija is NOT speaking it.</h3>
+    <p>Moroccan Darija features glottal stops and heavy emphasis that English letters cannot capture. Saying a phrase incorrectly causes instant confusion. <strong>Listening to native audio is the only way to speak with confidence.</strong></p>
   </div>
 
-  <!-- UPGRADE SECTION MOVED TO TOP -->
   <section class="upgrade" aria-label="Full Darija Survival Kit offer">
-    <div class="eyebrow">YOUR ULTIMATE TRAVEL CHEAT CODE</div>
-    <h2 style="font-size:clamp(28px,5vw,38px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px;max-width:760px">
-      Stop guessing. Speak with confidence and experience the <em>real</em> Morocco.
-    </h2>
-    <p class="lead" style="color:#d8d5e9;max-width:760px;margin:0 0 22px;font-size:15px;line-height:1.5;">
-      Reading text is a good start, but stepping into the Medina with native audio in your pocket is a superpower. This isn't a boring language course—it's a fast-track travel investment. Using these exact phrases just once will save you more than the cost of the kit on your very first day.
-    </p>
+    <div class="eyebrow">YOUR TRAVEL CHEAT CODE</div>
+    <h2>Stop guessing. Speak with confidence. Experience the real Morocco.</h2>
+    <p class="lead">Reading text is a start, but offline native audio in your pocket is a superpower. This isn't a boring language class—it's a fast-track travel tool[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span). Using these exact audio hacks just once will save you more than the cost of the kit on your very first day.</p>
     
-    <!-- High-Value Benefits Grid -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin:0 0 20px; text-align:left;">
-      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
-        <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🎧 Offline Native Audio</strong>
-        <span style="font-size:13px; color:#aaa6be; line-height:1.4; display:block;">Hear exactly how locals speak so you command respect instantly. Works offline in the Medinas without needing WiFi.</span>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <strong class="benefit-title">🎧 Offline Native Audio</strong>
+        <span class="benefit-text">Hear exactly how locals speak. Commands instant respect. Works perfectly offline in the Medinas.</span>
       </div>
-      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
-        <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🗣️ Interactive Roleplays</strong>
-        <span style="font-size:13px; color:#aaa6be; line-height:1.4; display:block;">Don't just talk. Interactive roleplays ensure you know exactly what vendors and taxi drivers will say back to you.</span>
+      <div class="benefit-card">
+        <strong class="benefit-title">🗣️ Interactive Roleplays</strong>
+        <span class="benefit-text">Don't just talk. Know exactly what taxi drivers and vendors will say back to you.</span>
       </div>
-      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
-        <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🛡️ The "Tourist Tax" Shield</strong>
-        <span style="font-size:13px; color:#aaa6be; line-height:1.4; display:block;">Complete guides to avoid taxi overcharging and stop paying inflated tourist prices.</span>
+      <div class="benefit-card">
+        <strong class="benefit-title">🛡️ The "Tourist Tax" Shield</strong>
+        <span class="benefit-text">Exact scripts to avoid taxi overcharging and stop paying inflated tourist prices in the souks.</span>
       </div>
-      <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
-        <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🔄 Free Lifetime Updates</strong>
-        <span style="font-size:13px; color:#aaa6be; line-height:1.4; display:block;">As I add new travel scenarios and audio phrases, your dashboard updates automatically.</span>
+      <div class="benefit-card">
+        <strong class="benefit-title">🔄 Free Lifetime Updates</strong>
+        <span class="benefit-text">I add new travel scenarios and audio constantly. Your dashboard updates automatically.</span>
       </div>
     </div>
     
@@ -139,16 +140,15 @@ h1{font-size:clamp(29px,6vw,45px);line-height:1.04;letter-spacing:-.045em;margin
         <span class="sale-price">$19</span>
         <span class="save-badge">SAVE $10 - Limited Offer</span>
       </div>
-      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Full Survival Kit + Native Audio</a>
+      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">GET THE NATIVE AUDIO KIT NOW</a>
     </div>
-    <p class="reassure">Instant Notion Access · One-time payment · Future Updates Included</p>
+    <p class="reassure">Instant Notion Access · One-time Payment · Future Updates Included</p>
   </section>
 
-  <!-- FREE CARDS DISPLAY -->
-  <div style="text-align:center; padding: 20px 0 16px;">
-    <div class="eyebrow">YOUR FREE DOWNLOAD</div>
-    <h2 style="font-size:clamp(24px,5vw,34px);line-height:1.08;letter-spacing:-.035em;margin:0 auto 6px;">Read the Free Cards Online</h2>
-    <p style="color:var(--muted); font-size:14px; max-width:600px; margin:0 auto;">Scroll through all 5 categories directly on your phone or tap any image to zoom in.</p>
+  <div style="text-align:center; padding: 10px 0 16px;">
+    <div class="eyebrow" style="color:var(--purple)">YOUR FREE DOWNLOAD</div>
+    <h2 style="font-size:clamp(22px,5vw,30px);line-height:1.08;letter-spacing:-.035em;margin:0 auto 4px; font-weight:900">Read the Free Cards Online</h2>
+    <p style="color:var(--muted); font-size:14px; max-width:600px; margin:0 auto; font-weight:500">Scroll through all 5 categories or tap any image to zoom in.</p>
   </div>
 
   <section class="reader" aria-label="All five pages of the free Darija cards">
