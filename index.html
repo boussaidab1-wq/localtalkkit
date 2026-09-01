@@ -72,6 +72,9 @@ audio{width:100%;height:44px}
 .urgency-banner .dot{width:7px;height:7px;border-radius:50%;background:#ff5a5f;flex-shrink:0;animation:pulse 1.4s ease-in-out infinite}
 .urgency-banner #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.trust-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 8px;margin:0 0 16px}
+.trust-strip .badge{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700;color:#d8d5e9;white-space:nowrap}
+.trust-strip .badge strong{color:#fff;font-weight:900}
 .cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:52px;padding:13px 18px;border-radius:13px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;transition:transform .15s ease,background .15s ease}.cta:hover{transform:translateY(-1px);background:#f5f3ff}
 
 .reassure{text-align:center;color:#a5a1ba;font-size:12px !important;line-height:1.4;margin:14px 0 0;letter-spacing:-0.01em;opacity:0.9}
@@ -184,29 +187,36 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <h2 style="font-size:clamp(28px,5vw,38px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px;max-width:760px">
     Stop guessing. Speak with confidence and experience the <em>real</em> Morocco.
   </h2>
-  <p class="lead" style="color:#d8d5e9;max-width:760px;margin:0 0 22px;font-size:15px;line-height:1.5;">
+  <p class="lead" style="color:#d8d5e9;max-width:760px;margin:0 0 16px;font-size:15px;line-height:1.5;">
     Reading text is a good start, but stepping into the Medina with native audio in your pocket is a superpower. This isn't a boring language course—it's a fast-track travel investment. Using these exact phrases just once will save you more than the cost of the kit on your very first day.
-  </p> 
+  </p>
+
+  <div class="trust-strip" aria-label="Customer trust indicators">
+    <span class="badge">⭐ <strong>4.8/5</strong>&nbsp;rating</span>
+    <span class="badge">⬇️ <strong>1,200+</strong>&nbsp;downloads</span>
+    <span class="badge">🔒 Instant access</span>
+  </div>
 
   <!-- New High-Value Benefits Grid -->
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin:0 0 20px; text-align:left;">
-    <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
-      <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🎧 Offline Native Audio</strong>
-      <span style="font-size:13px; color:#aaa6be; line-height:1.4; display:block;">Hear exactly how locals speak so you command respect instantly, even without WiFi.</span>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 20px; text-align:left;">
+    <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px;">
+      <strong style="display:block; color:#b9adff; font-size:12.5px; margin-bottom:3px; line-height:1.25;">🎧 Sound Like You Belong</strong>
+      <span style="font-size:11.5px; color:#aaa6be; line-height:1.3; display:block;">Hear a real Moroccan voice say it first. One listen and you'll say it with total confidence — even offline in the Medina.</span>
     </div>
-    <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
-      <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🗣️ Interactive Roleplays</strong>
-      <span style="font-size:13px; color:#aaa6be; line-height:1.4; display:block;">Don't just talk. Know exactly what vendors and taxi drivers will say back to you.</span>
+    <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px;">
+      <strong style="display:block; color:#b9adff; font-size:12.5px; margin-bottom:3px; line-height:1.25;">🗣️ Never Freeze Up</strong>
+      <span style="font-size:11.5px; color:#aaa6be; line-height:1.3; display:block;">Know exactly what taxi drivers and vendors say back — so you're never caught off guard mid-conversation.</span>
     </div>
-    <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
-      <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🛡️ The "Tourist Tax" Shield</strong>
-      <span style="font-size:13px; color:#aaa6be; line-height:1.4; display:block;">Specific hacks to avoid taxi overcharging and stop paying inflated tourist prices.</span>
+    <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px;">
+      <strong style="display:block; color:#b9adff; font-size:12.5px; margin-bottom:3px; line-height:1.25;">🛡️ Never Overpay Again</strong>
+      <span style="font-size:11.5px; color:#aaa6be; line-height:1.3; display:block;">The exact words locals use to shut down inflated "tourist prices" — politely, instantly, every time.</span>
     </div>
-    <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px;">
-      <strong style="display:block; color:#b9adff; font-size:14px; margin-bottom:4px;">🔄 Free Lifetime Updates</strong>
-      <span style="font-size:13px; color:#aaa6be; line-height:1.4; display:block;">As I add new travel scenarios and audio phrases, your dashboard updates automatically.</span>
+    <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px;">
+      <strong style="display:block; color:#b9adff; font-size:12.5px; margin-bottom:3px; line-height:1.25;">🔄 Keeps Getting Better</strong>
+      <span style="font-size:11.5px; color:#aaa6be; line-height:1.3; display:block;">New phrases and audio added regularly, free forever. Pay once, own a kit that never goes stale.</span>
     </div>
   </div>
+  <style>@media (max-width:360px){section.upgrade div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}}</style>
 
   <div class="kit-preview">
     <video id="premiumVideo" src="videos/kit-preview.mp4" controls muted playsinline preload="metadata"></video>
@@ -217,7 +227,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
     <div class="price" aria-label="Sale price 19 dollars, originally 29 dollars">
       <span class="original-price">$29</span>
       <span class="sale-price">$19</span>
-      <span class="save-badge">SAVE $10 - Limited Offer</span>
+      <span class="save-badge">🔥 SAVE $10 - Limited Offer</span>
     </div>
     <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Full Survival Kit + Native Audio</a>
   </div>
@@ -241,7 +251,7 @@ document.addEventListener('DOMContentLoaded',function(){
   const urgencyBanner = document.querySelector('.urgency-banner');
   if (countdownEl && urgencyBanner) {
     const STORAGE_KEY = 'darija_offer_start';
-    const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
     let startTime;
     try {
       startTime = localStorage.getItem(STORAGE_KEY);
@@ -254,7 +264,7 @@ document.addEventListener('DOMContentLoaded',function(){
     } catch (e) {
       startTime = Date.now();
     }
-    const expiresAt = startTime + THREE_DAYS_MS;
+    const expiresAt = startTime + TWO_DAYS_MS;
 
     function updateCountdown(){
       const now = Date.now();
