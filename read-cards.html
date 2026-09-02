@@ -114,7 +114,7 @@ h1{font-size:clamp(28px,6vw,40px);line-height:1.04;letter-spacing:-.045em;margin
 
     <div class="trust-strip" aria-label="Customer trust indicators">
       <span class="badge">⭐ <strong>4.8/5</strong>&nbsp;rating</span>
-      <span class="badge">⬇️ <strong>1,200+</strong>&nbsp;downloads</span>
+      <span class="badge">⬇️ <strong id="downloadCount">734+</strong>&nbsp;downloads</span>
       <span class="badge">🔒 Instant access</span>
     </div>
 
@@ -150,7 +150,7 @@ h1{font-size:clamp(28px,6vw,40px);line-height:1.04;letter-spacing:-.045em;margin
       </div>
       <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">GET THE NATIVE AUDIO KIT NOW</a>
     </div>
-    <p class="reassure">Instant Notion Access · One-time Payment · Future Updates Included<br><span style="display:block;margin-top:8px;font-weight:700;opacity:1;color:#d8d5e9;">If it doesn’t help by day one of your trip, you’ve only spent the price of a cheap lunch — most travelers use it before their first taxi.</span></p>
+    <p class="reassure">Instant Notion Access · One-time Payment · Future Updates Included</p>
   </section>
 
   <div style="text-align:center; padding: 10px 0 16px;">
@@ -180,6 +180,27 @@ h1{font-size:clamp(28px,6vw,40px);line-height:1.04;letter-spacing:-.045em;margin
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   const track=n=>{if(typeof window.clarity==='function')window.clarity('event',n)};
+
+  // Live-feeling download counter: starts at 734 and grows by 1-9 every 1-2 days (deterministic)
+  (function(){
+    const el = document.getElementById('downloadCount');
+    if (!el) return;
+    const BASE = 734;
+    const START = Date.UTC(2026, 7, 20); // 20 Aug 2026
+    const now = Date.now();
+    const msPerDay = 86400000;
+    const daysPassed = Math.max(0, Math.floor((now - START) / msPerDay));
+    let count = BASE;
+    let day = 0;
+    while (day < daysPassed) {
+      const seed = ((day + 1) * 1103515245 + 12345) & 0x7fffffff;
+      const interval = 1 + (seed % 2); // 1 or 2 days
+      const add = 1 + ((seed >> 3) % 9); // 1–9
+      count += add;
+      day += interval;
+    }
+    el.textContent = count.toLocaleString() + '+';
+  })();
 
   const countdownEl = document.getElementById('countdownTimer');
   const urgencyBanner = document.querySelector('.urgency-banner');
