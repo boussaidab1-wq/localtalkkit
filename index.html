@@ -182,7 +182,6 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="trust-line"></div>
 </header>
 
-<!-- Audio Phrase 1: Taxi -->
 <section class="card lesson" id="phrase-audio" aria-label="Darija pronunciation lesson: taxi phrase">
   <div class="eyebrow">TRY ONE PHRASE NOW</div>
   <h2>Don’t just read Darija. Hear how it sounds.</h2>
@@ -191,7 +190,6 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/aafak-kheddem-lkountour.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Hear it. Repeat it. Then use it when you need it.</p></div>
 </section>
 
-<!-- Audio Phrase 2: Bargaining -->
 <section class="card lesson" aria-label="Darija pronunciation lesson: bargaining phrase">
   <div class="eyebrow">ANOTHER PHRASE WORTH KNOWING</div>
   <h2>A second phrase worth having ready.</h2>
@@ -200,7 +198,6 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/ghali-bzaf.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Listen. Repeat it. Then use it when a price needs a little negotiation.</p></div>
 </section>
 
-<!-- Audio Phrase 3: Asking for the bill -->
 <section class="card lesson" aria-label="Darija pronunciation lesson: bill phrase">
   <div class="eyebrow">AT THE RESTAURANT</div>
   <h2>Asking for the bill easily.</h2>
@@ -209,7 +206,6 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/l-hsab-afak.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Waiters respond much faster to this than to hand gestures.</p></div>
 </section>
 
-<!-- Tipping Guide Section + Audio Phrase 4 -->
 <section class="card lesson" aria-label="Morocco Tipping Guide">
   <div class="eyebrow">QUICK TIPPING GUIDE</div>
   <h2>How much to tip in Morocco?</h2>
@@ -233,8 +229,6 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
   <div class="audio-box"><div class="audio-label">Listen to the Darija pronunciation</div><audio controls preload="metadata"><source src="audio/ma-fhemtsh-had-ttaman.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio><p class="note">Calmly saying this gets billing errors fixed immediately.</p></div>
 </section>
 
-
-<!-- Integrated Kit Email Form -->
 <div class="lead-box" id="download">
   <div class="lead-badge">FREE DOWNLOAD</div>
   <h3>Download the Free Darija Wallet Cards</h3>
@@ -325,5 +319,122 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 30px}
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  const trac
+(function(){
+  const track=(name)=>{if(typeof window.clarity==='function')window.clarity('event',name)};
+
+  // Live-feeling download counter
+  const counterEl = document.getElementById('downloadCount');
+  if (counterEl) {
+    const BASE = 734;
+    const START = Date.UTC(2026, 7, 20); 
+    const daysPassed = Math.max(0, Math.floor((Date.now() - START) / 86400000));
+    let count = BASE;
+    let day = 0;
+    while (day < daysPassed) {
+      const seed = ((day + 1) * 1103515245 + 12345) & 0x7fffffff;
+      count += 1 + ((seed >> 3) % 9); 
+      day += 1 + (seed % 2); 
+    }
+    counterEl.textContent = count.toLocaleString() + '+';
+  }
+
+  // Evergreen 2-Day Countdown Timer
+  const countdownEl = document.getElementById('countdownTimer');
+  if (countdownEl) {
+    const STORAGE_KEY = 'darija_offer_start';
+    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
+    
+    let startTime;
+    try {
+      startTime = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+    } catch (e) {
+      startTime = NaN;
+    }
+
+    // Reset loop: if timestamp is invalid or older than 2 days, restart it automatically
+    if (isNaN(startTime) || (Date.now() - startTime > TWO_DAYS_MS)) {
+      startTime = Date.now();
+      try { localStorage.setItem(STORAGE_KEY, startTime); } catch(e) {}
+    }
+
+    const expiresAt = startTime + TWO_DAYS_MS;
+
+    function updateCountdown(){
+      const diff = expiresAt - Date.now();
+      
+      if (diff <= 0) {
+        countdownEl.textContent = '00:00:00';
+        return;
+      }
+      
+      const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+      const days = Math.floor(diff / 86400000);
+      
+      countdownEl.textContent = days > 0 ? days + 'd ' + h + ':' + m + ':' + s : h + ':' + m + ':' + s;
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  // Audio Playback Tracking
+  document.querySelectorAll('audio').forEach((audio,index)=>{
+    audio.addEventListener('play',()=>track('audio_'+(index+1)+'_play'),{once:true});
+    audio.addEventListener('error',()=>track('audio_'+(index+1)+'_error'),{once:true});
+  });
+
+  // Lead Magnet Logic
+  const leadForm = document.getElementById('leadForm');
+  const submitBtn = document.getElementById('submitLeadBtn');
+  if (leadForm) {
+    leadForm.addEventListener('submit', function() {
+      track('lead_form_submit');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Redirecting...';
+      }
+      setTimeout(function() {
+        window.location.href = 'https://localtalkkit.com/read-cards.html?submitted=true';
+      }, 500);
+    });
+  }
+
+  // Video Autoplay & Intersection
+  const premiumVideo = document.getElementById('premiumVideo');
+  if (premiumVideo) {
+    premiumVideo.addEventListener('play', () => track('premium_video_play'));
+    premiumVideo.addEventListener('pause', () => track('premium_video_pause'));
+    premiumVideo.addEventListener('error', () => track('premium_video_error'));
+
+    let hasAutoplayed = false;
+    // Crash prevention: Wrap IntersectionObserver in a feature detection check
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasAutoplayed) {
+            hasAutoplayed = true;
+            premiumVideo.play().catch(err => console.warn('Autoplay restricted by browser:', err));
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(premiumVideo);
+    }
+  }
+
+  // Clicks & Scrolls
+  document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(link=>link.addEventListener('click',()=>track('premium_click')));
+  
+  const fired={25:false,50:false,75:false,90:false};
+  window.addEventListener('scroll',()=>{
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    if(max<=0)return;
+    const pct=(window.scrollY/max)*100;
+    [25,50,75,90].forEach(mark=>{if(!fired[mark]&&pct>=mark){fired[mark]=true;track('scroll_'+mark)}});
+  },{passive:true});
+})();
+</script>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+</body>
+</html>
