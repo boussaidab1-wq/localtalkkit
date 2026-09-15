@@ -10,87 +10,91 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{width:min(900px,calc(100% - 24px));margin:0 auto;padding-bottom:30px}
-.top{padding:16px 0 10px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:12px}
-.brand{font-size:15px;font-weight:950;letter-spacing:.02em;color:var(--purple)}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(860px,calc(100% - 20px));margin:0 auto;padding-bottom:28px}
+.top{padding:14px 0 8px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:10px}
+.brand{font-size:14px;font-weight:950;letter-spacing:.02em;color:var(--purple)}
 
-.inbox-alert {
-  background: #eef2ff;
-  border: 1px solid #c7d2fe;
-  color: #3730a3;
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
-  margin: 12px 0 16px;
-}
-.inbox-alert span { display: block; font-size: 11px; opacity: 0.85; font-weight: 500; margin-top: 2px; }
+.inbox-alert{background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;padding:10px 14px;border-radius:12px;font-size:13px;font-weight:600;text-align:center;margin:10px 0 12px}
+.inbox-alert span{display:block;font-size:11px;opacity:.85;font-weight:500;margin-top:2px}
 
-.hero{text-align:center;padding:10px 0 18px}
-.eyebrow{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
-h1{font-size:clamp(28px,6vw,40px);line-height:1.04;letter-spacing:-.045em;margin:0 0 8px; font-weight:900}
-.hero p{color:var(--muted);font-size:15px;max-width:680px;margin:0 auto; font-weight:500}
+.hero{text-align:center;padding:6px 0 12px}
+.hero h1{font-size:clamp(24px,5.5vw,34px);line-height:1.08;letter-spacing:-.04em;margin:0 0 4px;font-weight:900}
+.hero p{color:var(--muted);font-size:14px;margin:0;font-weight:500}
 
-.pronunciation-warning {
-  background: #fff0f0;
-  border: 1px solid #ffcaca;
-  border-radius: 16px;
-  padding: 18px;
-  margin: 0 0 24px;
-  text-align: center;
-}
-.pronunciation-warning h3 { font-size: 18px; margin: 0 0 6px; color: #cc0000; font-weight:900; letter-spacing:-0.02em}
-.pronunciation-warning p { margin: 0; font-size: 14px; color: var(--ink); line-height: 1.45; font-weight:600}
+.warning{background:#fff5f5;border:1px solid #ffd0d0;border-radius:12px;padding:12px 14px;margin:0 0 16px;text-align:center}
+.warning strong{color:#c00;font-size:14px}
+.warning p{margin:4px 0 0;font-size:13px;color:var(--ink);line-height:1.4;font-weight:500}
 
-.upgrade{margin:0 0 36px;padding:26px 22px;background:var(--dark);color:#fff;border-radius:22px;box-shadow:0 16px 40px rgba(23,20,47,.16)}
-.upgrade .eyebrow{color:#b9adff; letter-spacing:0.1em; font-size:11px}
-.upgrade h2{font-size:clamp(26px,5vw,34px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px;max-width:760px; font-weight:900}
-.upgrade .lead{color:#d8d5e9;max-width:760px;margin:0 0 22px;font-size:15px;line-height:1.4; font-weight:500}
+/* Free cards — very compact, 1–2 rows */
+.free-section{margin:0 0 18px}
+.free-header{text-align:center;margin-bottom:8px}
+.free-header .eyebrow{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:2px}
+.free-header h2{font-size:clamp(17px,4vw,22px);margin:0;font-weight:900;letter-spacing:-.03em}
+.free-header p{color:var(--muted);font-size:12px;margin:3px 0 0;font-weight:500}
 
-.benefits-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 20px; text-align:left;}
-.benefit-card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px;}
-.benefit-title{display:block; color:#b9adff; font-size:12.5px; margin-bottom:3px; font-weight:800; line-height:1.25}
-.benefit-text{font-size:11.5px; color:#aaa6be; line-height:1.3; display:block; font-weight:500}
-@media (max-width:360px){.benefits-grid{grid-template-columns:1fr}}
+.cards-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.card-thumb{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:zoom-in;box-shadow:0 2px 10px rgba(20,25,45,.05);transition:transform .15s ease,box-shadow .15s ease;width:72px;flex-shrink:0}
+.card-thumb:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(20,25,45,.1)}
+.card-thumb img{display:block;width:100%;height:96px;object-fit:cover}
+.card-thumb .label{text-align:center;padding:3px 2px;font-size:9px;font-weight:800;color:var(--muted);background:#fff;border-top:1px solid var(--line);line-height:1.2}
+@media(max-width:400px){.card-thumb{width:64px}.card-thumb img{height:86px}}
 
-.kit-preview{display:block;width:100%;max-width:420px;margin:0 auto 17px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
-.kit-preview video{display:block;width:100%;height:auto}
-.price-row{padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
-.price{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:13px}
-.original-price{color:#aaa6be;font-size:16px;text-decoration:line-through; font-weight:700}
-.sale-price{color:#fff;font-size:32px;font-weight:950;letter-spacing:-.03em}
-.save-badge{background:#fff;color:var(--dark);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:950; letter-spacing:0.02em}
-.urgency-banner{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;margin:0 0 16px;font-size:13px;font-weight:800;color:#fff}
-.urgency-banner .dot{width:8px;height:8px;border-radius:50%;background:#ff5a5f;flex-shrink:0;animation:pulse 1.4s ease-in-out infinite}
-.urgency-banner #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8; font-weight:900}
-.trust-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 8px;margin:0 0 16px}
-.trust-strip .badge{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700;color:#d8d5e9;white-space:nowrap}
-.trust-strip .badge strong{color:#fff;font-weight:900}
+/* Compact premium */
+.premium{margin:0 0 20px;padding:20px 16px;background:var(--dark);color:#fff;border-radius:18px;box-shadow:0 12px 32px rgba(23,20,47,.14)}
+.premium .eyebrow{color:#b9adff;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.premium h2{font-size:clamp(20px,4.5vw,26px);line-height:1.15;letter-spacing:-.03em;margin:0 0 8px;font-weight:900}
+.premium .lead{color:#c8c4db;font-size:13.5px;line-height:1.4;margin:0 0 14px;font-weight:500}
+
+.benefits{display:flex;flex-direction:column;gap:0;margin:0 0 16px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
+.benefit{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
+.benefit:last-child{border-bottom:0}
+.benefit .icon{flex-shrink:0;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:1px}
+.benefit .txt strong{display:block;color:#e2e0f0;font-size:13px;font-weight:800;margin-bottom:1px;letter-spacing:-.01em}
+.benefit .txt span{font-size:12px;color:#9b97b0;line-height:1.35;font-weight:500}
+
+.cat-label{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#8b85a8;margin:0 0 8px;text-align:center}
+.categories{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 16px}
+@media(max-width:360px){.categories{grid-template-columns:1fr}}
+.cat{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:8px 10px;font-size:12px;font-weight:650;color:#d4d0e6;line-height:1.25}
+.cat .emoji{flex-shrink:0;font-size:14px;width:18px;text-align:center}
+
+.price-row{text-align:center;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+.price{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.original{color:#aaa6be;font-size:15px;text-decoration:line-through;font-weight:700}
+.sale{color:#fff;font-size:28px;font-weight:950;letter-spacing:-.03em}
+.badge{background:#fff;color:var(--dark);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:950}
+.urgency{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:6px 12px;font-size:12px;font-weight:800;color:#fff;margin-bottom:10px}
+.urgency .dot{width:7px;height:7px;border-radius:50%;background:#ff5a5f;animation:pulse 1.4s ease-in-out infinite}
+.urgency #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8;font-weight:900}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.upgrade-cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:54px;padding:13px 16px;border-radius:14px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;font-size:15px; text-transform:uppercase; letter-spacing:0.02em}
-.upgrade-cta:hover{background:#f5f3ff; transform:translateY(-1px); transition:all 0.15s ease}
-.reassure{text-align:center;color:#aaa6be;font-size:12px;margin:14px 0 0; font-weight:600}
-.testimonial{margin:0 0 20px;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 28px rgba(20,25,45,.05);text-align:center}
-.testimonial-stars{font-size:18px;letter-spacing:2px;color:#f5b800;margin-bottom:7px}
-.testimonial blockquote{margin:0 auto 8px;max-width:680px;font-size:15px;line-height:1.45;font-weight:600;color:var(--ink)}
-.testimonial-author{font-size:12px;color:var(--muted);font-weight:800}
 
-.reader{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:0 14px 38px rgba(20,25,45,.08)}
-.page{margin:0 auto 16px;max-width:760px;border-radius:8px;overflow:hidden;background:#101116;border:1px solid #22242b;box-shadow:0 8px 22px rgba(20,25,45,.08)}
-.page:last-child{margin-bottom:0}
-.page img{display:block;width:100%;height:auto;cursor:zoom-in}
-.page-label{text-align:center;background:#fff;border-top:1px solid var(--line);padding:8px;color:var(--muted);font-size:11px;font-weight:800}
-.zoom-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,12,20,.92);display:none;align-items:center;justify-content:center;padding:54px 12px 24px}
+.cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:48px;padding:12px 14px;border-radius:12px;background:#fff;color:var(--dark);font-weight:950;font-size:14px;text-transform:uppercase;letter-spacing:.02em;transition:background .15s,transform .15s}
+.cta:hover{background:#f5f3ff;transform:translateY(-1px)}
+.reassure{text-align:center;color:#aaa6be;font-size:11.5px;margin:10px 0 0;font-weight:600;line-height:1.35}
+
+.trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.trust .tbadge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;color:#d8d5e9}
+.trust .tbadge strong{color:#fff;font-weight:900}
+
+/* Short testimonials */
+.testimonials{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 8px}
+@media(max-width:560px){.testimonials{grid-template-columns:1fr}}
+.testi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 6px 18px rgba(20,25,45,.04)}
+.testi .stars{font-size:14px;color:#f5b800;letter-spacing:1px;margin-bottom:4px}
+.testi blockquote{margin:0;font-size:13px;line-height:1.4;font-weight:600;color:var(--ink)}
+.testi .author{font-size:11px;color:var(--muted);font-weight:800;margin-top:6px}
+
+/* Zoom modal */
+.zoom-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,12,20,.92);display:none;align-items:center;justify-content:center;padding:50px 10px 20px}
 .zoom-modal.open{display:flex}
 .zoom-modal img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
 .zoom-close,.zoom-prev,.zoom-next{position:absolute;border:0;background:rgba(255,255,255,.94);color:var(--ink);font-weight:950;cursor:pointer;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.2)}
-.zoom-close{top:14px;right:14px;width:42px;height:42px;font-size:24px}
-.zoom-prev,.zoom-next{top:50%;transform:translateY(-50%);width:44px;height:44px;font-size:24px}
-.zoom-prev{left:12px}.zoom-next{right:12px}
-.zoom-count{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;font-weight:900;background:rgba(0,0,0,.35);padding:5px 10px;border-radius:999px}
-@media(max-width:600px){.wrap{width:min(100% - 14px,900px)}.top{padding-top:10px}.reader{padding:6px;border-radius:15px}.page{border-radius:8px;margin-bottom:11px}.hero{padding-top:8px}.zoom-modal{padding:50px 8px 18px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:6px}.zoom-next{right:6px}}
+.zoom-close{top:12px;right:12px;width:40px;height:40px;font-size:22px}
+.zoom-prev,.zoom-next{top:50%;transform:translateY(-50%);width:42px;height:42px;font-size:22px}
+.zoom-prev{left:10px}.zoom-next{right:10px}
+.zoom-count{position:absolute;top:16px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;font-weight:900;background:rgba(0,0,0,.35);padding:4px 10px;border-radius:999px}
+@media(max-width:600px){.zoom-modal{padding:46px 6px 16px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:4px}.zoom-next{right:4px}}
 </style>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");</script>
 </head>
@@ -99,89 +103,118 @@ h1{font-size:clamp(28px,6vw,40px);line-height:1.04;letter-spacing:-.045em;margin
 
   <div class="inbox-alert">
     📩 Your printable PDF cards were just sent to your inbox.
-    <span>(Check your spam or promotions folder if you don't see them)</span>
+    <span>(Check spam/promotions if you don’t see them)</span>
   </div>
 
   <header class="hero">
     <h1>Your free cards are below.</h1>
-    <p>But before you read them, please read this warning...</p>
+    <p>Tap any card to zoom · Scroll for the full audio kit</p>
   </header>
 
-  <div class="pronunciation-warning">
-    <h3>⚠️ Reading Darija is NOT speaking it.</h3>
-    <p>Written transliterations can't capture Darija's real sounds — one wrong stress and you get blank stares instead of directions. The Premium Kit skips grammar drills and lessons entirely: just <strong>native audio for the exact phrases you'll actually say</strong>, so you sound right the first time — not a classic language course.</p>
+  <div class="warning">
+    <strong>⚠️ Reading Darija ≠ speaking it.</strong>
+    <p>Transliterations miss the real sounds. One wrong stress and you get blank stares. The Premium Kit gives you <strong>native audio</strong> for the exact phrases you’ll use — no grammar drills.</p>
   </div>
 
-  <section class="upgrade" aria-label="Full Darija Survival Kit offer">
-    <h2>Stop guessing. Speak with confidence. Experience the real Morocco.</h2>
-    <p class="lead">Reading text is a start, but offline native audio in your pocket is a superpower. This isn't a boring language class—it's a fast-track travel tool. Using these exact audio hacks just once will save you more than the cost of the kit on your very first day.</p>
+  <!-- FREE CARDS FIRST & COMPACT -->
+  <section class="free-section" aria-label="Free Darija cards">
+    <div class="free-header">
+      <div class="eyebrow">Your free download</div>
+      <h2>Read the free cards online</h2>
+      <p>Tap any card to zoom</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card-thumb"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="label">Greetings</div></div>
+      <div class="card-thumb"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="label">Shopping</div></div>
+      <div class="card-thumb"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="label">Numbers</div></div>
+      <div class="card-thumb"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="label">Social</div></div>
+      <div class="card-thumb"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="label">Emergency</div></div>
+    </div>
+  </section>
 
-    <div class="trust-strip" aria-label="Customer trust indicators">
-      <span class="badge">⭐ <strong>4.8/5</strong></span>
-      <span class="badge">⬇️ <strong id="downloadCount">734+</strong>&nbsp;downloads</span>
-      <span class="badge">🔒 Instant access</span>
+  <!-- COMPACT PREMIUM -->
+  <section class="premium" aria-label="Full Darija Survival Kit offer">
+    <div class="eyebrow">Upgrade · Native audio</div>
+    <h2>Stop guessing. Speak with confidence.</h2>
+    <p class="lead">Offline native audio in your pocket. Exact phrases for taxis, markets &amp; real conversations — so you sound right the first time.</p>
+
+    <div class="trust" aria-label="Trust indicators">
+      <span class="tbadge">⭐ <strong>4.8/5</strong></span>
+      <span class="tbadge">⬇️ <strong id="downloadCount">734+</strong> downloads</span>
+      <span class="tbadge">🔒 Instant access</span>
     </div>
 
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <strong class="benefit-title">🎧 Sound Like You Belong</strong>
-        <span class="benefit-text">Hear a real Moroccan voice say it first. One listen and you'll say it with total confidence — even offline in the Medina.</span>
+    <div class="benefits">
+      <div class="benefit">
+        <span class="icon">🎧</span>
+        <div class="txt">
+          <strong>Sound like you belong</strong>
+          <span>Hear a real Moroccan voice. One listen → confidence offline in the Medina.</span>
+        </div>
       </div>
-      <div class="benefit-card">
-        <strong class="benefit-title">🗣️ Never Freeze Up</strong>
-        <span class="benefit-text">Know exactly what taxi drivers and vendors say back — so you're never caught off guard mid-conversation.</span>
+      <div class="benefit">
+        <span class="icon">🗣️</span>
+        <div class="txt">
+          <strong>Never freeze up</strong>
+          <span>Know what drivers &amp; vendors say back — no more blank stares.</span>
+        </div>
       </div>
-      <div class="benefit-card">
-        <strong class="benefit-title">🛡️ Never Overpay Again</strong>
-        <span class="benefit-text">The exact words locals use to shut down inflated "tourist prices" — politely, instantly, every time.</span>
+      <div class="benefit">
+        <span class="icon">🛡️</span>
+        <div class="txt">
+          <strong>Never overpay</strong>
+          <span>Exact local words that shut down tourist prices, politely.</span>
+        </div>
       </div>
-      <div class="benefit-card">
-        <strong class="benefit-title">🔄 Keeps Getting Better</strong>
-        <span class="benefit-text">New phrases and audio added regularly, free forever. Pay once, own a kit that never goes stale.</span>
+      <div class="benefit">
+        <span class="icon">🔄</span>
+        <div class="txt">
+          <strong>Lifetime updates</strong>
+          <span>New phrases &amp; audio free forever. Pay once.</span>
+        </div>
       </div>
     </div>
-    
-    <div class="kit-preview">
-      <video src="videos/kit-preview.mp4" autoplay muted loop playsinline></video>
+
+    <div class="cat-label">What’s inside the kit</div>
+    <div class="categories" aria-label="What's inside">
+      <div class="cat"><span class="emoji">🤝</span> Make Locals Like You</div>
+      <div class="cat"><span class="emoji">🔢</span> Never Confused by Prices</div>
+      <div class="cat"><span class="emoji">🚕</span> Avoid Taxi Overcharging</div>
+      <div class="cat"><span class="emoji">🍽</span> Eat Like a Local</div>
+      <div class="cat"><span class="emoji">🛍</span> Stop Paying Tourist Prices</div>
+      <div class="cat"><span class="emoji">🏨</span> Hotels &amp; Riads</div>
+      <div class="cat"><span class="emoji">🧭</span> Never Get Lost in Medina</div>
+      <div class="cat"><span class="emoji">🆘</span> Get Help Fast</div>
+      <div class="cat"><span class="emoji">👥</span> Make Moroccan Friends</div>
+      <div class="cat"><span class="emoji">🕌</span> Avoid Cultural Mistakes</div>
+      <div class="cat"><span class="emoji">⚡</span> Must-Know NOW</div>
+      <div class="cat"><span class="emoji">🧠</span> Test Your Skills</div>
     </div>
-    
-    <div class="urgency-banner"><span class="dot"></span> Your discount price ends in <span id="countdownTimer">--:--:--</span></div>
+
     <div class="price-row">
+      <div class="urgency"><span class="dot"></span> Discount ends in <span id="countdownTimer">--:--:--</span></div>
       <div class="price" aria-label="Sale price 19 dollars, originally 29 dollars">
-        <span class="original-price">$29</span>
-        <span class="sale-price">$19</span>
-        <span class="save-badge">🔥 SAVE $10 - Limited Offer</span>
+        <span class="original">$29</span>
+        <span class="sale">$19</span>
+        <span class="badge">🔥 SAVE $10</span>
       </div>
-      <a class="upgrade-cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">GET THE NATIVE AUDIO KIT NOW</a>
+      <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Native Audio Kit — $19</a>
+      <p class="reassure">Instant Notion access · One-time payment · Updates included<br>Most travelers use it before their first taxi.</p>
     </div>
-    <p class="reassure">Instant Notion Access · One-time Payment · Future Updates Included<br><span style="display:block;margin-top:8px;font-weight:700;opacity:1;color:#d8d5e9;">If it doesn’t help by day one of your trip, you’ve only spent the price of a cheap lunch — most travelers use it before their first taxi.</span></p>
   </section>
 
-  <section class="testimonial" aria-label="Customer testimonial">
-    <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-    <blockquote>“I felt so much more confident from day one. Locals actually responded and helped when I used the phrases — instead of the usual blank stares you get as a tourist.”</blockquote>
-    <div class="testimonial-author">Sarah · Texas, USA</div>
-  </section>
-
-  <section class="testimonial" aria-label="Customer testimonial" style="margin-top:-6px;">
-    <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-    <blockquote>“The bargaining phrases alone paid for the kit three times over in the souks. One conversation with a taxi driver saved me more than the $19 cost.”</blockquote>
-    <div class="testimonial-author">James · London, UK</div>
-  </section>
-
-  <div style="text-align:center; padding: 10px 0 16px;">
-    <div class="eyebrow" style="color:var(--purple)">YOUR FREE DOWNLOAD</div>
-    <h2 style="font-size:clamp(22px,5vw,30px);line-height:1.08;letter-spacing:-.035em;margin:0 auto 4px; font-weight:900">Read the Free Cards Online</h2>
-    <p style="color:var(--muted); font-size:14px; max-width:600px; margin:0 auto; font-weight:500">Scroll through all 5 categories or tap any image to zoom in.</p>
+  <div class="testimonials">
+    <div class="testi">
+      <div class="stars">★★★★★</div>
+      <blockquote>“Locals actually responded and helped when I used the phrases — instead of the usual blank stares.”</blockquote>
+      <div class="author">Sarah · Texas, USA</div>
+    </div>
+    <div class="testi">
+      <div class="stars">★★★★★</div>
+      <blockquote>“Bargaining phrases alone paid for the kit three times over. One taxi chat saved more than $19.”</blockquote>
+      <div class="author">James · London, UK</div>
+    </div>
   </div>
-
-  <section class="reader" aria-label="All five pages of the free Darija cards">
-    <div class="page"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="page-label">1 of 5 · Greetings</div></div>
-    <div class="page"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="page-label">2 of 5 · Shopping</div></div>
-    <div class="page"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="page-label">3 of 5 · Numbers</div></div>
-    <div class="page"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="page-label">4 of 5 · Social Interaction</div></div>
-    <div class="page"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="page-label">5 of 5 · Emergency</div></div>
-  </section>
 
 </main>
 
@@ -197,12 +230,12 @@ h1{font-size:clamp(28px,6vw,40px);line-height:1.04;letter-spacing:-.045em;margin
 document.addEventListener('DOMContentLoaded',function(){
   const track=n=>{if(typeof window.clarity==='function')window.clarity('event',n)};
 
-  // Live-feeling download counter: starts at 734 and grows by 1-9 every 1-2 days (deterministic)
+  // Live-feeling download counter
   (function(){
     const el = document.getElementById('downloadCount');
     if (!el) return;
     const BASE = 734;
-    const START = Date.UTC(2026, 7, 20); // 20 Aug 2026
+    const START = Date.UTC(2026, 7, 20);
     const now = Date.now();
     const msPerDay = 86400000;
     const daysPassed = Math.max(0, Math.floor((now - START) / msPerDay));
@@ -210,8 +243,8 @@ document.addEventListener('DOMContentLoaded',function(){
     let day = 0;
     while (day < daysPassed) {
       const seed = ((day + 1) * 1103515245 + 12345) & 0x7fffffff;
-      const interval = 1 + (seed % 2); // 1 or 2 days
-      const add = 1 + ((seed >> 3) % 9); // 1–9
+      const interval = 1 + (seed % 2);
+      const add = 1 + ((seed >> 3) % 9);
       count += add;
       day += interval;
     }
@@ -219,7 +252,7 @@ document.addEventListener('DOMContentLoaded',function(){
   })();
 
   const countdownEl = document.getElementById('countdownTimer');
-  const urgencyBanner = document.querySelector('.urgency-banner');
+  const urgencyBanner = document.querySelector('.urgency');
   if (countdownEl && urgencyBanner) {
     const STORAGE_KEY = 'darija_offer_start';
     const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
@@ -254,10 +287,11 @@ document.addEventListener('DOMContentLoaded',function(){
     updateCountdown();
     var countdownInterval = setInterval(updateCountdown, 1000);
   }
+
   track('online_pdf_view');
   document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(a=>a.addEventListener('click',()=>track('premium_click')));
 
-  const cards=[...document.querySelectorAll('.page img')];
+  const cards=[...document.querySelectorAll('.card-thumb img')];
   const modal=document.getElementById('zoomModal');
   const zoomImage=document.getElementById('zoomImage');
   const zoomCount=document.getElementById('zoomCount');
