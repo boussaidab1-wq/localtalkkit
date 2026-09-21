@@ -22,16 +22,16 @@ a{color:inherit;text-decoration:none}
 .hero h1{font-size:clamp(24px,5.5vw,34px);line-height:1.08;letter-spacing:-.04em;margin:0 0 4px;font-weight:900}
 .hero p{color:var(--muted);font-size:14px;margin:0;font-weight:500}
 
-.warning{background:#fff5f5;border:1px solid #ffd0d0;border-radius:12px;padding:12px 14px;margin:0 0 16px;text-align:center}
-.warning strong{color:#c00;font-size:14px}
-.warning p{margin:4px 0 0;font-size:13px;color:var(--ink);line-height:1.4;font-weight:500}
+.warning{background:#fff5f5;border:1px solid #ffd0d0;border-radius:12px;padding:10px 12px;margin:0 0 14px;text-align:center}
+.warning strong{color:#c00;font-size:13.5px}
+.warning p{margin:3px 0 0;font-size:12.5px;color:var(--ink);line-height:1.4;font-weight:500}
 
 /* Free cards — very compact, 1–2 rows */
-.free-section{margin:0 0 18px}
-.free-header{text-align:center;margin-bottom:8px}
+.free-section{margin:0 0 16px}
+.free-header{text-align:center;margin-bottom:6px}
 .free-header .eyebrow{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:2px}
-.free-header h2{font-size:clamp(17px,4vw,22px);margin:0;font-weight:900;letter-spacing:-.03em}
-.free-header p{color:var(--muted);font-size:12px;margin:3px 0 0;font-weight:500}
+.free-header h2{font-size:clamp(16px,3.8vw,21px);margin:0;font-weight:900;letter-spacing:-.03em}
+.free-header p{color:var(--muted);font-size:12px;margin:2px 0 0;font-weight:500}
 
 .cards-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
 .card-thumb{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:zoom-in;box-shadow:0 2px 10px rgba(20,25,45,.05);transition:transform .15s ease,box-shadow .15s ease;width:72px;flex-shrink:0}
@@ -41,17 +41,17 @@ a{color:inherit;text-decoration:none}
 @media(max-width:400px){.card-thumb{width:64px}.card-thumb img{height:86px}}
 
 /* Compact premium */
-.premium{margin:0 0 20px;padding:20px 16px;background:var(--dark);color:#fff;border-radius:18px;box-shadow:0 12px 32px rgba(23,20,47,.14)}
-.premium .eyebrow{color:#b9adff;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
-.premium h2{font-size:clamp(20px,4.5vw,26px);line-height:1.15;letter-spacing:-.03em;margin:0 0 8px;font-weight:900}
-.premium .lead{color:#c8c4db;font-size:13.5px;line-height:1.4;margin:0 0 14px;font-weight:500}
+.premium{margin:0 0 18px;padding:18px 14px;background:var(--dark);color:#fff;border-radius:18px;box-shadow:0 12px 32px rgba(23,20,47,.14)}
+.premium .eyebrow{color:#b9adff;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.premium h2{font-size:clamp(19px,4.3vw,25px);line-height:1.15;letter-spacing:-.03em;margin:0 0 6px;font-weight:900}
+.premium .lead{color:#c8c4db;font-size:13.5px;line-height:1.4;margin:0 0 10px;font-weight:500}
 
-.benefits{display:flex;flex-direction:column;gap:0;margin:0 0 16px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
-.benefit{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
-.benefit:last-child{border-bottom:0}
-.benefit .icon{flex-shrink:0;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:1px}
-.benefit .txt strong{display:block;color:#e2e0f0;font-size:13px;font-weight:800;margin-bottom:1px;letter-spacing:-.01em}
-.benefit .txt span{font-size:12px;color:#9b97b0;line-height:1.35;font-weight:500}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 14px}
+.benefit{display:flex;align-items:flex-start;gap:8px;padding:9px 10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px}
+.benefit .icon{flex-shrink:0;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:1px}
+.benefit .txt strong{display:block;color:#e2e0f0;font-size:12px;font-weight:800;margin-bottom:1px;letter-spacing:-.01em;line-height:1.2}
+.benefit .txt span{font-size:11px;color:#9b97b0;line-height:1.3;font-weight:500}
+@media(max-width:360px){.benefits{grid-template-columns:1fr}}
 
 .cat-label{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#8b85a8;margin:0 0 8px;text-align:center}
 .categories{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 16px}
@@ -73,7 +73,7 @@ a{color:inherit;text-decoration:none}
 .cta:hover{background:#f5f3ff;transform:translateY(-1px)}
 .reassure{text-align:center;color:#aaa6be;font-size:11.5px;margin:10px 0 0;font-weight:600;line-height:1.35}
 
-.trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 10px}
 .trust .tbadge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;color:#d8d5e9}
 .trust .tbadge strong{color:#fff;font-weight:900}
 
@@ -149,28 +149,28 @@ a{color:inherit;text-decoration:none}
         <span class="icon">🎧</span>
         <div class="txt">
           <strong>Sound like you belong</strong>
-          <span>Hear a real Moroccan voice. One listen → confidence offline in the Medina.</span>
+          <span>Real Moroccan voice. One listen → offline confidence.</span>
         </div>
       </div>
       <div class="benefit">
         <span class="icon">🗣️</span>
         <div class="txt">
           <strong>Never freeze up</strong>
-          <span>Know what drivers &amp; vendors say back — no more blank stares.</span>
+          <span>Know what they say back — no blank stares.</span>
         </div>
       </div>
       <div class="benefit">
         <span class="icon">🛡️</span>
         <div class="txt">
           <strong>Never overpay</strong>
-          <span>Exact local words that shut down tourist prices, politely.</span>
+          <span>Local words that shut down tourist prices.</span>
         </div>
       </div>
       <div class="benefit">
         <span class="icon">🔄</span>
         <div class="txt">
           <strong>Lifetime updates</strong>
-          <span>New phrases &amp; audio free forever. Pay once.</span>
+          <span>New phrases &amp; audio free forever.</span>
         </div>
       </div>
     </div>
@@ -198,7 +198,7 @@ a{color:inherit;text-decoration:none}
         <span class="sale">$19</span>
         <span class="badge">🔥 SAVE $10</span>
       </div>
-      <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Native Audio Kit — $19</a>
+      <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Native Audio Kit — $19</a>
       <p class="reassure">Instant Notion access · One-time payment · Updates included<br>Most travelers use it before their first taxi.</p>
     </div>
   </section>
@@ -251,41 +251,43 @@ document.addEventListener('DOMContentLoaded',function(){
     el.textContent = count.toLocaleString() + '+';
   })();
 
+  // Evergreen 2-Day Countdown Timer (robust)
   const countdownEl = document.getElementById('countdownTimer');
   const urgencyBanner = document.querySelector('.urgency');
-  if (countdownEl && urgencyBanner) {
+  if (countdownEl) {
     const STORAGE_KEY = 'darija_offer_start';
     const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
-    let startTime;
+    let startTime = null;
+
     try {
-      startTime = localStorage.getItem(STORAGE_KEY);
-      if (!startTime) {
-        startTime = Date.now();
-        localStorage.setItem(STORAGE_KEY, startTime);
-      } else {
-        startTime = parseInt(startTime, 10);
-      }
-    } catch (e) {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) startTime = parseInt(stored, 10);
+    } catch (e) {}
+
+    // Reset if missing, invalid, or expired
+    if (!startTime || isNaN(startTime) || (Date.now() - startTime > TWO_DAYS_MS)) {
       startTime = Date.now();
+      try { localStorage.setItem(STORAGE_KEY, String(startTime)); } catch (e) {}
     }
+
     const expiresAt = startTime + TWO_DAYS_MS;
 
-    function updateCountdown(){
-      const now = Date.now();
-      const diff = expiresAt - now;
+    function updateCountdown() {
+      const diff = expiresAt - Date.now();
       if (diff <= 0) {
-        urgencyBanner.style.display = 'none';
-        clearInterval(countdownInterval);
+        if (urgencyBanner) urgencyBanner.style.display = 'none';
+        countdownEl.textContent = '00:00:00';
         return;
       }
-      const h = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
-      const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
-      const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
-      const days = Math.floor(diff/86400000);
-      countdownEl.textContent = days > 0 ? days+'d '+h+':'+m+':'+s : h+':'+m+':'+s;
+      const days = Math.floor(diff / 86400000);
+      const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+      countdownEl.textContent = days > 0 ? days + 'd ' + h + ':' + m + ':' + s : h + ':' + m + ':' + s;
     }
+
     updateCountdown();
-    var countdownInterval = setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown, 1000);
   }
 
   track('online_pdf_view');
