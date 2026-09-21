@@ -268,7 +268,7 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 24px}
       <span class="sale-price">$19</span>
       <span class="save-badge">🔥 SAVE $10</span>
     </div>
-    <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=True" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Native Audio Kit — $19</a>
+    <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Native Audio Kit — $19</a>
     <p class="reassure">Instant Notion access · One-time payment · Updates included<br>Most travelers use it before their first taxi.</p>
   </div>
 </section>
@@ -309,38 +309,77 @@ footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 24px}
     counterEl.textContent = count.toLocaleString() + '+';
   }
 
-  // Evergreen 2-Day Countdown Timer
+  // Evergreen 2-Day Countdown Timer (robust)
   const countdownEl = document.getElementById('countdownTimer');
   if (countdownEl) {
     const STORAGE_KEY = 'darija_offer_start';
     const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
-    
-    let startTime;
-    try {
-      startTime = parseInt(localStorage.getItem(STORAGE_KEY), 10);
-    } catch (e) {
-      startTime = NaN;
-    }
+    let startTime = null;
 
-    // Reset loop: if timestamp is invalid or older than 2 days, restart it automatically
-    if (isNaN(startTime) || (Date.now() - startTime > TWO_DAYS_MS)) {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) startTime = parseInt(stored, 10);
+    } catch (e) {}
+
+    // Reset if missing, invalid, or expired
+    if (!startTime || isNaN(startTime) || (Date.now() - startTime > TWO_DAYS_MS)) {
       startTime = Date.now();
-      try { localStorage.setItem(STORAGE_KEY, startTime); } catch(e) {}
+      try { localStorage.setItem(STORAGE_KEY, String(startTime)); } catch (e) {}
     }
 
     const expiresAt = startTime + TWO_DAYS_MS;
 
-    function updateCountdown(){
+    function updateCountdown() {
       const diff = expiresAt - Date.now();
-      
       if (diff <= 0) {
         countdownEl.textContent = '00:00:00';
         return;
       }
-      
+      const days = Math.floor(diff / 86400000);
       const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
       const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
       const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-      const days = Math.floor(diff / 86400000);
-      
-      countdownEl.textContent = days > 0 ? days +
+      countdownEl.textContent = days > 0 ? days + 'd ' + h + ':' + m + ':' + s : h + ':' + m + ':' + s;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  // Audio Playback Tracking
+  document.querySelectorAll('audio').forEach((audio,index)=>{
+    audio.addEventListener('play',()=>track('audio_'+(index+1)+'_play'),{once:true});
+    audio.addEventListener('error',()=>track('audio_'+(index+1)+'_error'),{once:true});
+  });
+
+  // Lead Magnet Logic
+  const leadForm = document.getElementById('leadForm');
+  const submitBtn = document.getElementById('submitLeadBtn');
+  if (leadForm) {
+    leadForm.addEventListener('submit', function() {
+      track('lead_form_submit');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Redirecting...';
+      }
+      setTimeout(function() {
+        window.location.href = 'https://localtalkkit.com/read-cards.html?submitted=true';
+      }, 500);
+    });
+  }
+
+  // Clicks & Scrolls
+  document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(link=>link.addEventListener('click',()=>track('premium_click')));
+  
+  const fired={25:false,50:false,75:false,90:false};
+  window.addEventListener('scroll',()=>{
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    if(max<=0)return;
+    const pct=(window.scrollY/max)*100;
+    [25,50,75,90].forEach(mark=>{if(!fired[mark]&&pct>=mark){fired[mark]=true;track('scroll_'+mark)}});
+  },{passive:true});
+})();
+</script>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+</body>
+</html>
