@@ -217,29 +217,31 @@ document
 .getElementById("loginForm")
 .addEventListener("submit", function(e){
 
-e.preventDefault();
+    e.preventDefault();
 
-const email =
-document.getElementById("email").value;
+    const email =
+    document.getElementById("email").value;
 
-const password =
-document.getElementById("password").value;
+    const password =
+    document.getElementById("password").value;
 
-if(
-email === "demo@localtalkkit.com" &&
-password === "Morocco2026"
-){
+    // Temporary credentials
+    if(
+        email === "demo@localtalkkit.com" &&
+        password === "Morocco2026"
+    ){
 
-window.location.href =
-"/dashboard.html";
+        // Save login session
+        sessionStorage.setItem("ltk_auth","true");
 
-}
-else{
+        // Redirect to categories dashboard
+        window.location.href = "dashboard.html";
 
-document.getElementById("errorBox")
-.style.display = "block";
+    } else {
 
-}
+        document.getElementById("errorBox")
+        .style.display = "block";
+    }
 
 });
 
