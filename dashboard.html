@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Darija Survival Kit</title>
+
+<style>
+
+:root{
+--bg:#f7f8fc;
+--card:#ffffff;
+--purple:#5b3df5;
+--line:#e6e9f1;
+--ink:#171b2d;
+--muted:#687286;
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Inter,system-ui,sans-serif;
+background:var(--bg);
+padding:25px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:40px;
+}
+
+.header h1{
+font-size:42px;
+font-weight:900;
+color:var(--ink);
+margin-bottom:10px;
+}
+
+.header p{
+color:var(--muted);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+display:block;
+text-decoration:none;
+background:var(--card);
+padding:25px;
+border-radius:18px;
+border:1px solid var(--line);
+transition:.2s;
+color:var(--ink);
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+border-color:var(--purple);
+}
+
+.emoji{
+font-size:34px;
+margin-bottom:15px;
+}
+
+.title{
+font-weight:800;
+font-size:19px;
+margin-bottom:8px;
+}
+
+.desc{
+font-size:14px;
+color:var(--muted);
+line-height:1.5;
+}
+
+.logout{
+margin-top:40px;
+text-align:center;
+}
+
+.logout button{
+border:none;
+background:#eee;
+padding:12px 18px;
+border-radius:10px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<script>
+
+if(sessionStorage.getItem("ltk_auth") !== "true"){
+    window.location.href="login.html";
+}
+
+</script>
+
+<div class="container">
+
+<div class="header">
+<h1>🇲🇦 Darija Survival Kit</h1>
+<p>Choose a category and start learning.</p>
+</div>
+
+<div class="grid">
+
+<a class="card" href="categories/locals.html">
+<div class="emoji">🤝</div>
+<div class="title">Make Locals Like You Instantly</div>
+<div class="desc">
+Greetings, politeness, building rapport and making a positive first impression.
+</div>
+</a>
+
+<a class="card" href="categories/prices.html">
+<div class="emoji">🔢</div>
+<div class="title">Never Get Confused By Prices Again</div>
+<div class="desc">
+Numbers, prices, amounts and understanding costs.
+</div>
+</a>
+
+<a class="card" href="categories/taxi.html">
+<div class="emoji">🚕</div>
+<div class="title">Avoid Taxi Confusion & Overcharging</div>
+<div class="desc">
+Essential phrases for taxis, directions and meter discussions.
+</div>
+</a>
+
+<a class="card" href="categories/food.html">
+<div class="emoji">🍽️</div>
+<div class="title">Eat Like A Local</div>
+<div class="desc">
+Ordering food, understanding menus and restaurant conversations.
+</div>
+</a>
+
+<a class="card" href="categories/tourist-prices.html">
+<div class="emoji">🛍️</div>
+<div class="title">Stop Paying Tourist Prices</div>
+<div class="desc">
+Negotiation phrases and marketplace confidence.
+</div>
+</a>
+
+<a class="card" href="categories/hotels.html">
+<div class="emoji">🏨</div>
+<div class="title">Handle Hotels & Riads Easily</div>
+<div class="desc">
+Check-in, requests, problems and assistance.
+</div>
+</a>
+
+<a class="card" href="categories/medina.html">
+<div class="emoji">🧭</div>
+<div class="title">Never Get Lost In The Medina</div>
+<div class="desc">
+Getting directions and moving around confidently.
+</div>
+</a>
+
+<a class="card" href="categories/help.html">
+<div class="emoji">🆘</div>
+<div class="title">Get Help Fast When Things Go Wrong</div>
+<div class="desc">
+Emergency phrases and practical assistance.
+</div>
+</a>
+
+<a class="card" href="categories/friends.html">
+<div class="emoji">👥</div>
+<div class="title">Make Moroccan Friends</div>
+<div class="desc">
+Natural conversation starters and social phrases.
+</div>
+</a>
+
+<a class="card" href="categories/culture.html">
+<div class="emoji">🕌</div>
+<div class="title">Avoid Cultural Mistakes</div>
+<div class="desc">
+Cultural etiquette and local customs.
+</div>
+</a>
+
+<a class="card" href="categories/mustknow.html">
+<div class="emoji">⚡</div>
+<div class="title">Must-Know NOW</div>
+<div class="desc">
+The most useful phrases for your first day in Morocco.
+</div>
+</a>
+
+<a class="card" href="categories/quiz.html">
+<div class="emoji">🧠</div>
+<div class="title">Test Your Darija Skills</div>
+<div class="desc">
+Quick quizzes to reinforce everything you've learned.
+</div>
+</a>
+
+</div>
+
+<div class="logout">
+<button onclick="logout()">Logout</button>
+</div>
+
+</div>
+
+<script>
+
+function logout(){
+    sessionStorage.removeItem("ltk_auth");
+    window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>
