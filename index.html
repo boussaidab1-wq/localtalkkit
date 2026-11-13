@@ -3,17 +3,100 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Free Morocco Survival Cards & Quiz | LocalTalkKit</title>
-<meta name="description" content="Get your free Moroccan Darija travel cards and test your medina survival skills.">
+<title>Free Morocco Survival Cards &amp; Quiz | LocalTalkKit</title>
+<meta name="description" content="Get your free Moroccan Darija travel cards, test your ear with native audio, and read all the cards online.">
 <style>
-:root{--ink:#171b2d;--muted:#687286;--bg:#f7f8fc;--surface:#fff;--line:#e6e9f1;--purple:#5b3df5;--purple-dark:#452dcc;--soft:#f0edff;--dark:#17142f;--dark2:#24203f}
+:root{--ink:#171b2d;--muted:#687286;--bg:#f7f8fc;--surface:#fff;--line:#e6e9f1;--purple:#5b3df5;--purple-dark:#452dcc;--soft:#f0edff;--dark:#17142f}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(860px,calc(100% - 24px));margin:0 auto;padding-bottom:40px}
+.wrap{width:min(860px,calc(100% - 20px));margin:0 auto;padding-bottom:28px}
+.top{padding:14px 0 8px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:10px}
+.brand{font-size:14px;font-weight:950;letter-spacing:.02em;color:var(--purple)}
 
-/* Step 1 */
+.inbox-alert{background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;padding:10px 14px;border-radius:12px;font-size:13px;font-weight:600;text-align:center;margin:10px 0 12px}
+.inbox-alert span{display:block;font-size:11px;opacity:.85;font-weight:500;margin-top:2px}
+
+.hero{text-align:center;padding:6px 0 12px}
+.hero h1{font-size:clamp(24px,5.5vw,34px);line-height:1.08;letter-spacing:-.04em;margin:0 0 4px;font-weight:900}
+.hero p{color:var(--muted);font-size:14px;margin:0;font-weight:500}
+
+.warning{background:#fff5f5;border:1px solid #ffd0d0;border-radius:12px;padding:10px 12px;margin:0 0 14px;text-align:center}
+.warning strong{color:#c00;font-size:13.5px}
+.warning p{margin:3px 0 0;font-size:12.5px;color:var(--ink);line-height:1.4;font-weight:500}
+
+/* Free cards — very compact, 1–2 rows */
+.free-section{margin:0 0 16px}
+.free-header{text-align:center;margin-bottom:6px}
+.free-header .eyebrow{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:2px}
+.free-header h2{font-size:clamp(16px,3.8vw,21px);margin:0;font-weight:900;letter-spacing:-.03em}
+.free-header p{color:var(--muted);font-size:12px;margin:2px 0 0;font-weight:500}
+
+.cards-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.card-thumb{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:zoom-in;box-shadow:0 2px 10px rgba(20,25,45,.05);transition:transform .15s ease,box-shadow .15s ease;width:72px;flex-shrink:0}
+.card-thumb:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(20,25,45,.1)}
+.card-thumb img{display:block;width:100%;height:96px;object-fit:cover}
+.card-thumb .label{text-align:center;padding:3px 2px;font-size:9px;font-weight:800;color:var(--muted);background:#fff;border-top:1px solid var(--line);line-height:1.2}
+@media(max-width:400px){.card-thumb{width:64px}.card-thumb img{height:86px}}
+
+/* Compact premium */
+.premium{margin:0 0 18px;padding:18px 14px;background:var(--dark);color:#fff;border-radius:18px;box-shadow:0 12px 32px rgba(23,20,47,.14)}
+.premium .eyebrow{color:#b9adff;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.premium h2{font-size:clamp(19px,4.3vw,25px);line-height:1.15;letter-spacing:-.03em;margin:0 0 6px;font-weight:900}
+.premium .lead{color:#c8c4db;font-size:13.5px;line-height:1.4;margin:0 0 10px;font-weight:500}
+
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 14px}
+.benefit{display:flex;align-items:flex-start;gap:8px;padding:9px 10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px}
+.benefit .icon{flex-shrink:0;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:1px}
+.benefit .txt strong{display:block;color:#e2e0f0;font-size:12px;font-weight:800;margin-bottom:1px;letter-spacing:-.01em;line-height:1.2}
+.benefit .txt span{font-size:11px;color:#9b97b0;line-height:1.3;font-weight:500}
+@media(max-width:360px){.benefits{grid-template-columns:1fr}}
+
+.cat-label{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#8b85a8;margin:0 0 8px;text-align:center}
+.categories{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 16px}
+@media(max-width:360px){.categories{grid-template-columns:1fr}}
+.cat{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:8px 10px;font-size:12px;font-weight:650;color:#d4d0e6;line-height:1.25}
+.cat .emoji{flex-shrink:0;font-size:14px;width:18px;text-align:center}
+
+.price-row{text-align:center;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+.price{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.original{color:#aaa6be;font-size:15px;text-decoration:line-through;font-weight:700}
+.sale{color:#fff;font-size:28px;font-weight:950;letter-spacing:-.03em}
+.badge{background:#fff;color:var(--dark);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:950}
+.urgency{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:6px 12px;font-size:12px;font-weight:800;color:#fff;margin-bottom:10px}
+.urgency .dot{width:7px;height:7px;border-radius:50%;background:#ff5a5f;animation:pulse 1.4s ease-in-out infinite}
+.urgency #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8;font-weight:900}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:48px;padding:12px 14px;border-radius:12px;background:#fff;color:var(--dark);font-weight:950;font-size:14px;text-transform:uppercase;letter-spacing:.02em;transition:background .15s,transform .15s}
+.cta:hover{background:#f5f3ff;transform:translateY(-1px)}
+.reassure{text-align:center;color:#aaa6be;font-size:11.5px;margin:10px 0 0;font-weight:600;line-height:1.35}
+
+.trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.trust .tbadge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;color:#d8d5e9}
+.trust .tbadge strong{color:#fff;font-weight:900}
+
+/* Short testimonials */
+.testimonials{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 8px}
+@media(max-width:560px){.testimonials{grid-template-columns:1fr}}
+.testi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 6px 18px rgba(20,25,45,.04)}
+.testi .stars{font-size:14px;color:#f5b800;letter-spacing:1px;margin-bottom:4px}
+.testi blockquote{margin:0;font-size:13px;line-height:1.4;font-weight:600;color:var(--ink)}
+.testi .author{font-size:11px;color:var(--muted);font-weight:800;margin-top:6px}
+
+/* Zoom modal */
+.zoom-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,12,20,.92);display:none;align-items:center;justify-content:center;padding:50px 10px 20px}
+.zoom-modal.open{display:flex}
+.zoom-modal img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.zoom-close,.zoom-prev,.zoom-next{position:absolute;border:0;background:rgba(255,255,255,.94);color:var(--ink);font-weight:950;cursor:pointer;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.zoom-close{top:12px;right:12px;width:40px;height:40px;font-size:22px}
+.zoom-prev,.zoom-next{top:50%;transform:translateY(-50%);width:42px;height:42px;font-size:22px}
+.zoom-prev{left:10px}.zoom-next{right:10px}
+.zoom-count{position:absolute;top:16px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;font-weight:900;background:rgba(0,0,0,.35);padding:4px 10px;border-radius:999px}
+@media(max-width:600px){.zoom-modal{padding:46px 6px 16px}.zoom-modal img{max-width:94vw;max-height:80vh}.zoom-prev{left:4px}.zoom-next{right:4px}}
+
+/* Step 1: lead capture */
 .lead-box{background:linear-gradient(180deg,#f4f1ff 0%,#fff 100%);border:2px solid var(--purple);border-radius:18px;padding:32px 18px 24px;max-width:520px;margin:40px auto;box-shadow:0 12px 32px rgba(91,61,245,.12);text-align:center;position:relative}
 .lead-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;font-size:10px;font-weight:900;letter-spacing:.12em;padding:5px 14px;border-radius:999px;white-space:nowrap}
 .lead-box h1{margin:0 0 8px;font-size:24px;letter-spacing:-.02em;color:var(--dark);font-weight:900}
@@ -23,52 +106,25 @@ a{color:inherit;text-decoration:none}
 .lead-input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(91,61,245,.15)}
 .lead-btn{min-height:48px;padding:10px 14px;border-radius:11px;background:var(--purple);color:#fff;border:none;font-size:15px;font-weight:900;cursor:pointer;transition:all .15s ease}
 .lead-btn:hover{background:var(--purple-dark);transform:translateY(-1px)}
-.download-fallback{margin-top:12px;font-size:11.5px;color:var(--muted);font-weight:600}
-
-/* Step 2 */
+.lead-box .download-fallback{margin:12px 0 0;font-size:11.5px;color:var(--muted);font-weight:600}
+/* Step 2: quiz */
 .quiz-container{max-width:520px;margin:40px auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 18px;box-shadow:0 10px 32px rgba(20,25,45,.06);text-align:center}
 .quiz-header{font-size:13px;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-.quiz-question{font-size:18px;font-weight:800;color:var(--dark);margin:0 0 20px;line-height:1.3}
+.quiz-question{font-size:18px;font-weight:800;color:var(--dark);margin:0 0 16px;line-height:1.3}
+.audio-box{background:var(--soft);border:1px solid #d9d2ff;border-radius:12px;padding:12px;margin:0 0 16px}
+.audio-box audio{width:100%}
+.audio-box .tr{display:none;font-size:15px;font-weight:800;color:var(--dark);margin-top:8px}
+.audio-box .tr.show{display:block}
 .quiz-options{display:flex;flex-direction:column;gap:10px}
 .quiz-option{background:var(--bg);border:1px solid var(--line);padding:14px;border-radius:12px;font-size:14.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:all .15s;text-align:left}
 .quiz-option:hover{background:var(--soft);border-color:var(--purple)}
 .quiz-option.correct{background:#10b981;color:#fff;border-color:#10b981}
 .quiz-option.incorrect{background:#ef4444;color:#fff;border-color:#ef4444}
 .quiz-feedback{margin-top:16px;font-size:13.5px;font-weight:700;min-height:20px}
-.audio-box{background:var(--soft);border:1px solid #d9d2ff;border-radius:12px;padding:14px;margin:0 0 18px}
-.audio-box audio{width:100%}
-.audio-box .say{font-size:17px;font-weight:800;color:var(--dark);margin:0}
-.audio-box .tag{font-size:11px;color:var(--muted);font-weight:600;margin-top:6px}
-
-/* Step 3 */
-.pitch-container{max-width:600px;margin:40px auto;text-align:center}
-.warning{background:#fff5f5;border:1px solid #ffd0d0;border-radius:12px;padding:14px 16px;margin:0 0 24px}
-.warning strong{color:#c00;font-size:15px;display:block;margin-bottom:4px}
-.warning p{margin:0;font-size:13.5px;color:var(--ink);font-weight:500}
-.premium{padding:24px 18px;background:var(--dark);color:#fff;border-radius:18px;box-shadow:0 12px 32px rgba(23,20,47,.14)}
-.premium .eyebrow{color:#b9adff;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
-.premium h2{font-size:clamp(20px,4.5vw,26px);line-height:1.15;letter-spacing:-.03em;margin:0 0 8px;font-weight:900}
-.premium .lead{color:#c8c4db;font-size:13.5px;line-height:1.4;margin:0 0 16px;font-weight:500}
-.benefits{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 16px;text-align:left}
-.benefit{display:flex;align-items:flex-start;gap:8px;padding:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px}
-.benefit .icon{flex-shrink:0;font-size:14px}
-.benefit .txt strong{display:block;color:#e2e0f0;font-size:12.5px;font-weight:800;margin-bottom:2px}
-.benefit .txt span{font-size:11.5px;color:#9b97b0;line-height:1.3;font-weight:500}
-@media(max-width:400px){.benefits{grid-template-columns:1fr}}
-.inside{margin:0 0 16px;padding:12px;background:rgba(255,255,255,.06);border-radius:10px;font-size:12.5px;color:#e2e0f0;font-weight:700}
-.preview{margin:0 0 16px;text-align:left}
-.preview .plabel{font-size:11px;color:#b9adff;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
-.preview audio{width:100%}
-.price-row{padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
-.price{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px}
-.original{color:#aaa6be;font-size:16px;text-decoration:line-through;font-weight:700}
-.sale{color:#fff;font-size:32px;font-weight:950;letter-spacing:-.03em}
-.badge{background:#fff;color:var(--dark);border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:950}
-.cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:52px;border-radius:12px;background:#fff;color:var(--dark);font-weight:950;font-size:15px;text-transform:uppercase;letter-spacing:.02em;transition:transform .15s}
-.cta:hover{transform:translateY(-1px);background:#f5f3ff}
-.guarantee{margin-top:10px;font-size:12px;color:#c8c4db;font-weight:600}
+.score-head{text-align:center;margin:14px 0 10px;font-size:22px;font-weight:900;letter-spacing:-.03em}
 .hidden{display:none !important}
 </style>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");</script>
 </head>
 <body>
 <main class="wrap">
@@ -88,198 +144,329 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 
-  <!-- STEP 2: QUIZ -->
+  <!-- STEP 2: AUDIO QUIZ -->
   <div id="step2" class="hidden">
     <div class="quiz-container">
-      <div class="quiz-header" id="quizProgress">Question 1 of 3</div>
+      <div class="quiz-header" id="quizProgress">Question 1 of 4</div>
       <h2 class="quiz-question" id="questionText">Loading...</h2>
-      <div id="audioSlot"></div>
+      <div class="audio-box"><audio id="quizAudio" controls preload="auto"></audio><div class="tr" id="quizTr"></div></div>
       <div class="quiz-options" id="optionsContainer"></div>
       <div class="quiz-feedback" id="quizFeedback"></div>
     </div>
   </div>
 
-  <!-- STEP 3: THE PITCH -->
+  <!-- STEP 3: RESULTS + CARDS + KIT -->
   <div id="step3" class="hidden">
-    <div class="pitch-container">
-      <h2 style="margin:0 0 16px;font-weight:900;letter-spacing:-.03em;">You scored <span id="finalScore"></span>/3.</h2>
+    <div class="inbox-alert">
+      📩 Your printable PDF cards were just sent to your inbox.
+      <span>(Check spam/promotions if you don’t see them)</span>
+    </div>
+    <div class="score-head">You scored <span id="finalScore"></span>/4</div>
+    <div class="warning">
+      <strong id="warnTitle"></strong>
+      <p id="warnBody"></p>
+    </div>
 
-      <div class="warning">
-        <strong id="warnTitle"></strong>
-        <p id="warnBody"></p>
+    <!-- FREE CARDS FIRST & COMPACT -->
+  <section class="free-section" aria-label="Free Darija cards">
+    <div class="free-header">
+      <div class="eyebrow">Your free download</div>
+      <h2>Read the free cards online</h2>
+      <p>Tap any card to zoom</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card-thumb"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="label">Greetings</div></div>
+      <div class="card-thumb"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="label">Shopping</div></div>
+      <div class="card-thumb"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="label">Numbers</div></div>
+      <div class="card-thumb"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="label">Social</div></div>
+      <div class="card-thumb"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="label">Emergency</div></div>
+    </div>
+  </section>
+
+  <!-- COMPACT PREMIUM -->
+  <section class="premium" aria-label="Full Darija Survival Kit offer">
+    <div class="eyebrow">Upgrade · Native audio</div>
+    <h2>Stop guessing. Speak with confidence.</h2>
+    <p class="lead">Offline native audio in your pocket. Exact phrases for taxis, markets &amp; real conversations — so you sound right the first time.</p>
+
+    <div class="trust" aria-label="Trust indicators">
+      <span class="tbadge">⭐ <strong>4.8/5</strong></span>
+      <span class="tbadge">⬇️ <strong id="downloadCount">734+</strong> downloads</span>
+      <span class="tbadge">🔒 Instant access</span>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <span class="icon">🎧</span>
+        <div class="txt">
+          <strong>Sound like you belong</strong>
+          <span>Real Moroccan voice. One listen → offline confidence.</span>
+        </div>
       </div>
-
-      <div class="premium">
-        <div class="eyebrow">Upgrade · Native audio</div>
-        <h2>Stop guessing. Speak with confidence.</h2>
-        <p class="lead">Offline native audio in your pocket. Exact phrases for taxis, markets & real conversations — so you sound right the first time.</p>
-
-        <div class="benefits">
-          <div class="benefit"><span class="icon">🎧</span><div class="txt"><strong>Sound like you belong</strong><span>Real Moroccan voice.</span></div></div>
-          <div class="benefit"><span class="icon">🗣️</span><div class="txt"><strong>Never freeze up</strong><span>Know what they say back.</span></div></div>
-          <div class="benefit"><span class="icon">🛡️</span><div class="txt"><strong>Never overpay</strong><span>Shut down tourist prices.</span></div></div>
-          <div class="benefit"><span class="icon">🔄</span><div class="txt"><strong>Lifetime offline access</strong><span>Works in medina deadzones.</span></div></div>
+      <div class="benefit">
+        <span class="icon">🗣️</span>
+        <div class="txt">
+          <strong>Never freeze up</strong>
+          <span>Know what they say back — no blank stares.</span>
         </div>
-
-        <div class="inside hidden" id="insideLine"></div>
-        <div class="preview hidden" id="previewBox">
-          <div class="plabel">🎧 Free preview</div>
-          <audio controls preload="none" id="previewAudio"></audio>
+      </div>
+      <div class="benefit">
+        <span class="icon">🛡️</span>
+        <div class="txt">
+          <strong>Never overpay</strong>
+          <span>Local words that shut down tourist prices.</span>
         </div>
-
-        <div class="price-row">
-          <div class="price">
-            <span class="original">$29</span>
-            <span class="sale">$19</span>
-            <span class="badge">🔥 LAUNCH PRICE</span>
-          </div>
-          <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true">Get the Premium Audio Kit — $19</a>
-          <div class="guarantee hidden" id="guaranteeLine"></div>
+      </div>
+      <div class="benefit">
+        <span class="icon">🔄</span>
+        <div class="txt">
+          <strong>Lifetime updates</strong>
+          <span>New phrases &amp; audio free forever.</span>
         </div>
       </div>
     </div>
+
+    <div class="cat-label">What’s inside the kit</div>
+    <div class="categories" aria-label="What's inside">
+      <div class="cat"><span class="emoji">🤝</span> Make Locals Like You</div>
+      <div class="cat"><span class="emoji">🔢</span> Never Confused by Prices</div>
+      <div class="cat"><span class="emoji">🚕</span> Avoid Taxi Overcharging</div>
+      <div class="cat"><span class="emoji">🍽</span> Eat Like a Local</div>
+      <div class="cat"><span class="emoji">🛍</span> Stop Paying Tourist Prices</div>
+      <div class="cat"><span class="emoji">🏨</span> Hotels &amp; Riads</div>
+      <div class="cat"><span class="emoji">🧭</span> Never Get Lost in Medina</div>
+      <div class="cat"><span class="emoji">🆘</span> Get Help Fast</div>
+      <div class="cat"><span class="emoji">👥</span> Make Moroccan Friends</div>
+      <div class="cat"><span class="emoji">🕌</span> Avoid Cultural Mistakes</div>
+      <div class="cat"><span class="emoji">⚡</span> Must-Know NOW</div>
+      <div class="cat"><span class="emoji">🧠</span> Test Your Skills</div>
+    </div>
+
+    <div class="price-row">
+      <!--<div class="urgency"><span class="dot"></span> Discount ends in <span id="countdownTimer">--:--:--</span></div> -->
+      <div class="price" aria-label="Sale price 19 dollars, originally 29 dollars">
+        <span class="original">$29</span>
+        <span class="sale">$19</span>
+        <span class="badge">🔥 SAVE $10</span>
+      </div>
+      <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Premium Kit — $19</a>
+      <p class="reassure">Instant Notion access · One-time payment · Updates included<br>Most travelers use it before their first taxi.</p>
+    </div>
+  </section>
+
+  <div class="testimonials">
+    <div class="testi">
+      <div class="stars">★★★★★</div>
+      <blockquote>“Locals actually responded and helped when I used the phrases — instead of the usual blank stares.”</blockquote>
+      <div class="author">Sarah · Texas, USA</div>
+    </div>
+    <div class="testi">
+      <div class="stars">★★★★★</div>
+      <blockquote>“Bargaining phrases alone paid for the kit three times over. One taxi chat saved more than $19.”</blockquote>
+      <div class="author">James · London, UK</div>
+    </div>
+  </div>
+
+
   </div>
 
 </main>
 
+<div class="zoom-modal" id="zoomModal" aria-hidden="true" role="dialog" aria-label="Card preview">
+  <button class="zoom-close" id="zoomClose" aria-label="Close preview">×</button>
+  <div class="zoom-count" id="zoomCount">1 of 5</div>
+  <button class="zoom-prev" id="zoomPrev" aria-label="Previous card">‹</button>
+  <img id="zoomImage" src="" alt="Zoomed Darija card">
+  <button class="zoom-next" id="zoomNext" aria-label="Next card">›</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const track=n=>{if(typeof window.clarity==='function')window.clarity('event',n)};
+
+  // Live-feeling download counter
+  (function(){
+    const el = document.getElementById('downloadCount');
+    if (!el) return;
+    const BASE = 734;
+    const START = Date.UTC(2026, 7, 20);
+    const now = Date.now();
+    const msPerDay = 86400000;
+    const daysPassed = Math.max(0, Math.floor((now - START) / msPerDay));
+    let count = BASE;
+    let day = 0;
+    while (day < daysPassed) {
+      const seed = ((day + 1) * 1103515245 + 12345) & 0x7fffffff;
+      const interval = 1 + (seed % 2);
+      const add = 1 + ((seed >> 3) % 9);
+      count += add;
+      day += interval;
+    }
+    el.textContent = count.toLocaleString() + '+';
+  })();
+
+  // Evergreen 2-Day Countdown Timer (robust)
+  const countdownEl = document.getElementById('countdownTimer');
+  const urgencyBanner = document.querySelector('.urgency');
+  if (countdownEl) {
+    const STORAGE_KEY = 'darija_offer_start';
+    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
+    let startTime = null;
+
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) startTime = parseInt(stored, 10);
+    } catch (e) {}
+
+    // Reset if missing, invalid, or expired
+    if (!startTime || isNaN(startTime) || (Date.now() - startTime > TWO_DAYS_MS)) {
+      startTime = Date.now();
+      try { localStorage.setItem(STORAGE_KEY, String(startTime)); } catch (e) {}
+    }
+
+    const expiresAt = startTime + TWO_DAYS_MS;
+
+    function updateCountdown() {
+      const diff = expiresAt - Date.now();
+      if (diff <= 0) {
+        if (urgencyBanner) urgencyBanner.style.display = 'none';
+        countdownEl.textContent = '00:00:00';
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+      countdownEl.textContent = days > 0 ? days + 'd ' + h + ':' + m + ':' + s : h + ':' + m + ':' + s;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  
+  document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(a=>a.addEventListener('click',()=>track('premium_click')));
+
+  const cards=[...document.querySelectorAll('.card-thumb img')];
+  const modal=document.getElementById('zoomModal');
+  const zoomImage=document.getElementById('zoomImage');
+  const zoomCount=document.getElementById('zoomCount');
+  let current=0;
+  function showCard(i){
+    current=(i+cards.length)%cards.length;
+    zoomImage.src=cards[current].src;
+    zoomImage.alt=cards[current].alt;
+    zoomCount.textContent=(current+1)+' of '+cards.length;
+    track('online_card_zoom');
+  }
+  function openCard(i){
+    showCard(i); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+  }
+  function closeCard(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; zoomImage.src='';
+  }
+  cards.forEach((img,i)=>img.addEventListener('click',()=>openCard(i)));
+  document.getElementById('zoomClose').addEventListener('click',closeCard);
+  document.getElementById('zoomPrev').addEventListener('click',e=>{e.stopPropagation();showCard(current-1)});
+  document.getElementById('zoomNext').addEventListener('click',e=>{e.stopPropagation();showCard(current+1)});
+  modal.addEventListener('click',e=>{if(e.target===modal)closeCard()});
+  document.addEventListener('keydown',e=>{
+    if(!modal.classList.contains('open'))return;
+    if(e.key==='Escape')closeCard();
+    if(e.key==='ArrowLeft')showCard(current-1);
+    if(e.key==='ArrowRight')showCard(current+1);
+  });
+});
+</script>
 <script src="https://gumroad.com/js/gumroad.js"></script>
 <script>
-  /* ========= EDIT THESE ========= */
-  const CONFIG = {
-    // Quiz audio: a short native clip saying "Akher taman, mya w khamsin dirham."
-    // Leave "" to show the phrase as text instead.
-    quizAudioSrc: "",
-    // Optional 10-sec preview of the real product on the pitch page. "" = hidden.
-    previewAudioSrc: "",
-    // Only fill these in with TRUE facts. Empty = hidden.
-    insideLine: "",      // e.g. "120 phrases · 45 min of native audio · PDF + MP3"
-    guaranteeLine: ""    // e.g. "7-day money-back guarantee" (only if you offer it)
-  };
-  /* ============================== */
+  const AUDIO_BASE = './audio/';
+  const trk = n => { if (typeof window.clarity === 'function') window.clarity('event', n); };
 
   const questions = [
-    {
-      text: "You're in a taxi and the driver asks for 100 dirhams for a short trip. What do you say?",
+    { file: 'ghali-bzaf.mp3', tr: 'Ghali bzaf!',
+      text: '🎧 A tourist-price shop. Play it: what is this phrase?',
       options: [
-        { text: "That's too expensive.", isCorrect: false, feedback: "English marks you as a tourist instantly." },
-        { text: "La, ghali bzaf! Akher taman 80 dirham.", isCorrect: true, feedback: "Perfect! Firm boundary, sets the price." },
-        { text: "Get out of the car in silence.", isCorrect: false, feedback: "You lose time and look confused." }
-      ]
-    },
-    {
-      text: "A vendor in the souk won't stop following you with a carpet. What do you say?",
+        { text: 'That’s too expensive!', ok: true, fb: 'Yes. This is your first move when a price is too high.' },
+        { text: 'That’s very delicious!', ok: false, fb: 'Not quite. “Ghali bzaf” means “too expensive.”' },
+        { text: 'It’s too far away.', ok: false, fb: 'Not quite. “Ghali bzaf” means “too expensive.”' } ] },
+    { file: 'aafak-kheddem-lkountour.mp3', tr: 'Aafak, kheddem l-kountour.',
+      text: '🚕 You get in a taxi. Play it: what is this phrase for?',
       options: [
-        { text: "No thank you.", isCorrect: false, feedback: "Shows you are too polite to walk away." },
-        { text: "Walk away in silence.", isCorrect: false, feedback: "Can be seen as disrespectful and escalate things." },
-        { text: "Baraka Allah fik, ana Ghir kan shuf.", isCorrect: true, feedback: "Respectful blessing + firm boundary." }
-      ]
-    },
-    {
-      type: "listen",
-      text: "👂 Now the hard part: understanding the reply. After haggling, the vendor says this. What did he just say?",
-      say: "Akher taman, mya w khamsin dirham.",
+        { text: 'Asking the driver to turn on the meter.', ok: true, fb: 'Yes. It’s the best way to avoid taxi overcharging.' },
+        { text: 'Asking him to drive faster.', ok: false, fb: 'Not quite. It means “please turn on the meter.”' },
+        { text: 'Asking him to stop here.', ok: false, fb: 'Not quite. It means “please turn on the meter.”' } ] },
+    { file: 'ma-fhemtsh-had-ttaman.mp3', tr: 'Ma fhemtsh had t-taman.',
+      text: '🛍️ A vendor quotes a price too fast. Play it: what do you say?',
       options: [
-        { text: "Last price: 150 dirhams.", isCorrect: true, feedback: "Correct. You heard it, so you can answer it." },
-        { text: "It's only 50 dirhams, take it.", isCorrect: false, feedback: "Ouch. \"Mya w khamsin\" is 150, not 50. That mistake costs real money." },
-        { text: "Come back tomorrow for a discount.", isCorrect: false, feedback: "Not quite. He gave you a final price: 150 dirhams." }
-      ]
-    }
+        { text: 'I didn’t understand this price.', ok: true, fb: 'Yes. It makes them slow down and repeat the number.' },
+        { text: 'I don’t want to buy anything.', ok: false, fb: 'Not quite. It means “I didn’t understand this price.”' },
+        { text: 'This price is fine.', ok: false, fb: 'Dangerous mix-up! It means “I didn’t understand this price.”' } ] },
+    { file: 'l-hsab-afak.mp3', tr: 'L-hsab, aafak.',
+      text: '🍽️ You finished eating at a café. Play it: what is this phrase?',
+      options: [
+        { text: 'The bill, please.', ok: true, fb: 'Yes. Short, polite, and you’ll use it every day.' },
+        { text: 'More tea, please.', ok: false, fb: 'Not quite. “L-hsab, aafak” means “the bill, please.”' },
+        { text: 'Where is the toilet?', ok: false, fb: 'Not quite. “L-hsab, aafak” means “the bill, please.”' } ] }
   ];
 
-  let currentQ = 0, score = 0, isAnswering = false, audioMissed = false;
+  let currentQ = 0, score = 0, isAnswering = false, missed = 0;
+  const $ = id => document.getElementById(id);
+  const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
-  const step1 = document.getElementById('step1');
-  const step2 = document.getElementById('step2');
-  const step3 = document.getElementById('step3');
-
-  function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
-
-  document.getElementById('leadForm').addEventListener('submit', function() {
-    document.getElementById('submitLeadBtn').innerText = 'Preparing your test...';
-    setTimeout(() => {
-      step1.classList.add('hidden');
-      step2.classList.remove('hidden');
-      loadQuestion();
-    }, 1200);
+  $('leadForm').addEventListener('submit', () => {
+    $('submitLeadBtn').innerText = 'Preparing your test...';
+    trk('lead_submit');
+    setTimeout(() => { $('step1').classList.add('hidden'); $('step2').classList.remove('hidden'); loadQuestion(); }, 1200);
   });
 
   function loadQuestion() {
     isAnswering = false;
     const q = questions[currentQ];
-    document.getElementById('quizProgress').innerText = `Question ${currentQ + 1} of ${questions.length}`;
-    document.getElementById('questionText').innerText = q.text;
-    document.getElementById('quizFeedback').innerText = '';
-
-    const slot = document.getElementById('audioSlot');
-    slot.innerHTML = '';
-    if (q.type === 'listen') {
-      const box = document.createElement('div');
-      box.className = 'audio-box';
-      if (CONFIG.quizAudioSrc) {
-        const a = document.createElement('audio');
-        a.controls = true; a.preload = 'auto'; a.src = CONFIG.quizAudioSrc;
-        box.appendChild(a);
-      } else {
-        box.innerHTML = '<p class="say"></p><div class="tag">Native audio plays in the full kit</div>';
-        box.querySelector('.say').innerText = '“' + q.say + '”';
-      }
-      slot.appendChild(box);
-    }
-
-    const container = document.getElementById('optionsContainer');
-    container.innerHTML = '';
+    $('quizProgress').innerText = `Question ${currentQ + 1} of ${questions.length}`;
+    $('questionText').innerText = q.text;
+    $('quizFeedback').innerText = '';
+    const tr = $('quizTr'); tr.className = 'tr'; tr.innerText = '“' + q.tr + '”';
+    const a = $('quizAudio');
+    a.onerror = () => tr.classList.add('show');   // audio failed to load: show the phrase as text
+    a.src = AUDIO_BASE + q.file;
+    const c = $('optionsContainer'); c.innerHTML = '';
     shuffle(q.options.slice()).forEach(opt => {
-      const btn = document.createElement('div');
-      btn.className = 'quiz-option';
-      btn.innerText = opt.text;
-      btn.onclick = () => handleAnswer(opt, btn, q);
-      container.appendChild(btn);
+      const b = document.createElement('div');
+      b.className = 'quiz-option'; b.innerText = opt.text;
+      b.onclick = () => handleAnswer(opt, b);
+      c.appendChild(b);
     });
   }
 
-  function handleAnswer(opt, btnEl, q) {
+  function handleAnswer(opt, el) {
     if (isAnswering) return;
     isAnswering = true;
-    if (opt.isCorrect) { btnEl.classList.add('correct'); score++; }
-    else { btnEl.classList.add('incorrect'); if (q.type === 'listen') audioMissed = true; }
-
-    const fb = document.getElementById('quizFeedback');
-    fb.innerText = opt.feedback;
-    fb.style.color = opt.isCorrect ? '#10b981' : '#ef4444';
-
-    setTimeout(() => {
-      currentQ++;
-      currentQ < questions.length ? loadQuestion() : showPitch();
-    }, 2000);
+    if (opt.ok) { el.classList.add('correct'); score++; } else { el.classList.add('incorrect'); missed++; }
+    $('quizTr').classList.add('show');
+    const fb = $('quizFeedback'); fb.innerText = opt.fb; fb.style.color = opt.ok ? '#10b981' : '#ef4444';
+    setTimeout(() => { currentQ++; currentQ < questions.length ? loadQuestion() : showResults(); }, 2200);
   }
 
-  function showPitch() {
-    step2.classList.add('hidden');
-    step3.classList.remove('hidden');
-    document.getElementById('finalScore').innerText = score;
-
-    const total = questions.length;
-    let title, body;
+  function showResults() {
+    $('quizAudio').pause();
+    $('step2').classList.add('hidden');
+    $('step3').classList.remove('hidden');
+    $('finalScore').innerText = score;
+    let t, b;
     if (score <= 1) {
-      title = "⚠️ You'd overpay within your first hour.";
-      body = "Your cards are on the way, but knowing a few words isn't the same as saying them right. Taxi drivers and vendors can tell instantly, and the price goes up.";
-    } else if (score < total) {
-      title = "⚠️ Close, but not medina-ready.";
-      body = "Your cards are on the way. You've got the basics, but one misheard number or a clumsy accent and you're back to the tourist price.";
+      t = '⚠️ Locals would talk right over you.';
+      b = 'Your cards are on the way, but reading a phrase isn’t the same as recognizing it at speed. In the medina that’s where the tourist price comes from. The Premium Kit trains your ear with native audio.';
+    } else if (score < questions.length) {
+      t = '⚠️ Close, but one mix-up costs real money.';
+      b = 'Your cards are on the way. You caught most of it, but a single misheard phrase or price and you’re back to the tourist price. The Premium Kit gives you native audio for every phrase so nothing surprises you.';
     } else {
-      title = "⚠️ You know what to say. Can you understand the reply?";
-      body = "Your cards are on the way. Speaking is half of it. Locals answer fast and in their own accent, and cards can't teach your ear that.";
+      t = '⚠️ Great ear. Now imagine hearing it at full speed.';
+      b = 'Your cards are on the way. You got every clip, but real conversations are faster and come with replies you haven’t heard yet. The Premium Kit covers what they say back, too.';
     }
-    if (audioMissed) {
-      body += " You also missed the listening question, which is exactly what the audio kit trains.";
-    }
-    document.getElementById('warnTitle').innerText = title;
-    document.getElementById('warnBody').innerText = body;
-
-    if (CONFIG.insideLine) { const e = document.getElementById('insideLine'); e.innerText = CONFIG.insideLine; e.classList.remove('hidden'); }
-    if (CONFIG.previewAudioSrc) { document.getElementById('previewAudio').src = CONFIG.previewAudioSrc; document.getElementById('previewBox').classList.remove('hidden'); }
-    if (CONFIG.guaranteeLine) { const g = document.getElementById('guaranteeLine'); g.innerText = '🛡️ ' + CONFIG.guaranteeLine; g.classList.remove('hidden'); }
-
+    $('warnTitle').innerText = t; $('warnBody').innerText = b;
+    trk('quiz_complete_score_' + score);
+    trk('online_pdf_view');
     window.scrollTo(0, 0);
   }
 </script>
