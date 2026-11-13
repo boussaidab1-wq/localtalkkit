@@ -13,7 +13,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-se
 a{color:inherit;text-decoration:none}
 .wrap{width:min(860px,calc(100% - 24px));margin:0 auto;padding-bottom:40px}
 
-/* Lead Magnet (Step 1) */
+/* Step 1 */
 .lead-box{background:linear-gradient(180deg,#f4f1ff 0%,#fff 100%);border:2px solid var(--purple);border-radius:18px;padding:32px 18px 24px;max-width:520px;margin:40px auto;box-shadow:0 12px 32px rgba(91,61,245,.12);text-align:center;position:relative}
 .lead-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;font-size:10px;font-weight:900;letter-spacing:.12em;padding:5px 14px;border-radius:999px;white-space:nowrap}
 .lead-box h1{margin:0 0 8px;font-size:24px;letter-spacing:-.02em;color:var(--dark);font-weight:900}
@@ -25,7 +25,7 @@ a{color:inherit;text-decoration:none}
 .lead-btn:hover{background:var(--purple-dark);transform:translateY(-1px)}
 .download-fallback{margin-top:12px;font-size:11.5px;color:var(--muted);font-weight:600}
 
-/* Quiz (Step 2) */
+/* Step 2 */
 .quiz-container{max-width:520px;margin:40px auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 18px;box-shadow:0 10px 32px rgba(20,25,45,.06);text-align:center}
 .quiz-header{font-size:13px;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
 .quiz-question{font-size:18px;font-weight:800;color:var(--dark);margin:0 0 20px;line-height:1.3}
@@ -35,8 +35,12 @@ a{color:inherit;text-decoration:none}
 .quiz-option.correct{background:#10b981;color:#fff;border-color:#10b981}
 .quiz-option.incorrect{background:#ef4444;color:#fff;border-color:#ef4444}
 .quiz-feedback{margin-top:16px;font-size:13.5px;font-weight:700;min-height:20px}
+.audio-box{background:var(--soft);border:1px solid #d9d2ff;border-radius:12px;padding:14px;margin:0 0 18px}
+.audio-box audio{width:100%}
+.audio-box .say{font-size:17px;font-weight:800;color:var(--dark);margin:0}
+.audio-box .tag{font-size:11px;color:var(--muted);font-weight:600;margin-top:6px}
 
-/* Sales Pitch (Step 3) */
+/* Step 3 */
 .pitch-container{max-width:600px;margin:40px auto;text-align:center}
 .warning{background:#fff5f5;border:1px solid #ffd0d0;border-radius:12px;padding:14px 16px;margin:0 0 24px}
 .warning strong{color:#c00;font-size:15px;display:block;margin-bottom:4px}
@@ -45,12 +49,16 @@ a{color:inherit;text-decoration:none}
 .premium .eyebrow{color:#b9adff;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
 .premium h2{font-size:clamp(20px,4.5vw,26px);line-height:1.15;letter-spacing:-.03em;margin:0 0 8px;font-weight:900}
 .premium .lead{color:#c8c4db;font-size:13.5px;line-height:1.4;margin:0 0 16px;font-weight:500}
-.benefits{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 20px;text-align:left}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 16px;text-align:left}
 .benefit{display:flex;align-items:flex-start;gap:8px;padding:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px}
 .benefit .icon{flex-shrink:0;font-size:14px}
 .benefit .txt strong{display:block;color:#e2e0f0;font-size:12.5px;font-weight:800;margin-bottom:2px}
 .benefit .txt span{font-size:11.5px;color:#9b97b0;line-height:1.3;font-weight:500}
 @media(max-width:400px){.benefits{grid-template-columns:1fr}}
+.inside{margin:0 0 16px;padding:12px;background:rgba(255,255,255,.06);border-radius:10px;font-size:12.5px;color:#e2e0f0;font-weight:700}
+.preview{margin:0 0 16px;text-align:left}
+.preview .plabel{font-size:11px;color:#b9adff;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.preview audio{width:100%}
 .price-row{padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
 .price{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px}
 .original{color:#aaa6be;font-size:16px;text-decoration:line-through;font-weight:700}
@@ -58,7 +66,7 @@ a{color:inherit;text-decoration:none}
 .badge{background:#fff;color:var(--dark);border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:950}
 .cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:52px;border-radius:12px;background:#fff;color:var(--dark);font-weight:950;font-size:15px;text-transform:uppercase;letter-spacing:.02em;transition:transform .15s}
 .cta:hover{transform:translateY(-1px);background:#f5f3ff}
-
+.guarantee{margin-top:10px;font-size:12px;color:#c8c4db;font-weight:600}
 .hidden{display:none !important}
 </style>
 </head>
@@ -71,10 +79,7 @@ a{color:inherit;text-decoration:none}
       <div class="lead-badge">FREE DOWNLOAD</div>
       <h1>Get Your Morocco Survival Cards</h1>
       <p>Enter your email to instantly receive the printable Darija cheat sheet.</p>
-      
-      <!-- Hidden iframe to submit ConvertKit form without reloading the page -->
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-      
       <form id="leadForm" action="https://app.kit.com/forms/9831459/subscriptions" method="POST" target="hidden_iframe" class="lead-form">
         <input type="email" name="email_address" class="lead-input" placeholder="Enter your email address..." required>
         <button type="submit" class="lead-btn" id="submitLeadBtn">Send Me The Cards →</button>
@@ -88,6 +93,7 @@ a{color:inherit;text-decoration:none}
     <div class="quiz-container">
       <div class="quiz-header" id="quizProgress">Question 1 of 3</div>
       <h2 class="quiz-question" id="questionText">Loading...</h2>
+      <div id="audioSlot"></div>
       <div class="quiz-options" id="optionsContainer"></div>
       <div class="quiz-feedback" id="quizFeedback"></div>
     </div>
@@ -97,10 +103,10 @@ a{color:inherit;text-decoration:none}
   <div id="step3" class="hidden">
     <div class="pitch-container">
       <h2 style="margin:0 0 16px;font-weight:900;letter-spacing:-.03em;">You scored <span id="finalScore"></span>/3.</h2>
-      
+
       <div class="warning">
-        <strong>⚠️ Reading Darija ≠ speaking it.</strong>
-        <p>Your cards are on the way to your inbox, but transliterations miss the real sounds. If you freeze or mispronounce it, you get the blank stare.</p>
+        <strong id="warnTitle"></strong>
+        <p id="warnBody"></p>
       </div>
 
       <div class="premium">
@@ -115,13 +121,20 @@ a{color:inherit;text-decoration:none}
           <div class="benefit"><span class="icon">🔄</span><div class="txt"><strong>Lifetime offline access</strong><span>Works in medina deadzones.</span></div></div>
         </div>
 
+        <div class="inside hidden" id="insideLine"></div>
+        <div class="preview hidden" id="previewBox">
+          <div class="plabel">🎧 Free preview</div>
+          <audio controls preload="none" id="previewAudio"></audio>
+        </div>
+
         <div class="price-row">
           <div class="price">
             <span class="original">$29</span>
             <span class="sale">$19</span>
-            <span class="badge">🔥 SAVE $10</span>
+            <span class="badge">🔥 LAUNCH PRICE</span>
           </div>
           <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true">Get the Premium Audio Kit — $19</a>
+          <div class="guarantee hidden" id="guaranteeLine"></div>
         </div>
       </div>
     </div>
@@ -131,7 +144,19 @@ a{color:inherit;text-decoration:none}
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
 <script>
-  // Quiz Data
+  /* ========= EDIT THESE ========= */
+  const CONFIG = {
+    // Quiz audio: a short native clip saying "Akher taman, mya w khamsin dirham."
+    // Leave "" to show the phrase as text instead.
+    quizAudioSrc: "",
+    // Optional 10-sec preview of the real product on the pitch page. "" = hidden.
+    previewAudioSrc: "",
+    // Only fill these in with TRUE facts. Empty = hidden.
+    insideLine: "",      // e.g. "120 phrases · 45 min of native audio · PDF + MP3"
+    guaranteeLine: ""    // e.g. "7-day money-back guarantee" (only if you offer it)
+  };
+  /* ============================== */
+
   const questions = [
     {
       text: "You're in a taxi and the driver asks for 100 dirhams for a short trip. What do you say?",
@@ -150,30 +175,27 @@ a{color:inherit;text-decoration:none}
       ]
     },
     {
-      text: "You want to buy a lantern, but you don't want the 'tourist price'. What is your first move?",
+      type: "listen",
+      text: "👂 Now the hard part: understanding the reply. After haggling, the vendor says this. What did he just say?",
+      say: "Akher taman, mya w khamsin dirham.",
       options: [
-        { text: "Nod and pay the first price they say.", isCorrect: false, feedback: "You just paid triple the real value." },
-        { text: "Hand them your phone calculator and ask: 'Wash tqdr tktbha?'", isCorrect: true, feedback: "Removes the language barrier immediately." },
-        { text: "Argue in English.", isCorrect: false, feedback: "English keeps your discount tiny." }
+        { text: "Last price: 150 dirhams.", isCorrect: true, feedback: "Correct. You heard it, so you can answer it." },
+        { text: "It's only 50 dirhams, take it.", isCorrect: false, feedback: "Ouch. \"Mya w khamsin\" is 150, not 50. That mistake costs real money." },
+        { text: "Come back tomorrow for a discount.", isCorrect: false, feedback: "Not quite. He gave you a final price: 150 dirhams." }
       ]
     }
   ];
 
-  let currentQ = 0;
-  let score = 0;
-  let isAnswering = false;
+  let currentQ = 0, score = 0, isAnswering = false, audioMissed = false;
 
-  const leadForm = document.getElementById('leadForm');
   const step1 = document.getElementById('step1');
   const step2 = document.getElementById('step2');
   const step3 = document.getElementById('step3');
-  
-  // Step 1: Form Submit Logic
-  leadForm.addEventListener('submit', function() {
-    const btn = document.getElementById('submitLeadBtn');
-    btn.innerText = 'Preparing your test...';
-    
-    // Simulate slight delay while form posts to hidden iframe
+
+  function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+  document.getElementById('leadForm').addEventListener('submit', function() {
+    document.getElementById('submitLeadBtn').innerText = 'Preparing your test...';
     setTimeout(() => {
       step1.classList.add('hidden');
       step2.classList.remove('hidden');
@@ -181,56 +203,83 @@ a{color:inherit;text-decoration:none}
     }, 1200);
   });
 
-  // Step 2: Quiz Logic
   function loadQuestion() {
     isAnswering = false;
     const q = questions[currentQ];
-    document.getElementById('quizProgress').innerText = `Question ${currentQ + 1} of 3`;
+    document.getElementById('quizProgress').innerText = `Question ${currentQ + 1} of ${questions.length}`;
     document.getElementById('questionText').innerText = q.text;
     document.getElementById('quizFeedback').innerText = '';
-    
+
+    const slot = document.getElementById('audioSlot');
+    slot.innerHTML = '';
+    if (q.type === 'listen') {
+      const box = document.createElement('div');
+      box.className = 'audio-box';
+      if (CONFIG.quizAudioSrc) {
+        const a = document.createElement('audio');
+        a.controls = true; a.preload = 'auto'; a.src = CONFIG.quizAudioSrc;
+        box.appendChild(a);
+      } else {
+        box.innerHTML = '<p class="say"></p><div class="tag">Native audio plays in the full kit</div>';
+        box.querySelector('.say').innerText = '“' + q.say + '”';
+      }
+      slot.appendChild(box);
+    }
+
     const container = document.getElementById('optionsContainer');
     container.innerHTML = '';
-    
-    q.options.forEach(opt => {
+    shuffle(q.options.slice()).forEach(opt => {
       const btn = document.createElement('div');
       btn.className = 'quiz-option';
       btn.innerText = opt.text;
-      btn.onclick = () => handleAnswer(opt, btn);
+      btn.onclick = () => handleAnswer(opt, btn, q);
       container.appendChild(btn);
     });
   }
 
-  function handleAnswer(opt, btnEl) {
-    if(isAnswering) return;
+  function handleAnswer(opt, btnEl, q) {
+    if (isAnswering) return;
     isAnswering = true;
-    
-    if(opt.isCorrect) {
-      btnEl.classList.add('correct');
-      score++;
-    } else {
-      btnEl.classList.add('incorrect');
-    }
-    
-    const feedbackEl = document.getElementById('quizFeedback');
-    feedbackEl.innerText = opt.feedback;
-    feedbackEl.style.color = opt.isCorrect ? '#10b981' : '#ef4444';
+    if (opt.isCorrect) { btnEl.classList.add('correct'); score++; }
+    else { btnEl.classList.add('incorrect'); if (q.type === 'listen') audioMissed = true; }
+
+    const fb = document.getElementById('quizFeedback');
+    fb.innerText = opt.feedback;
+    fb.style.color = opt.isCorrect ? '#10b981' : '#ef4444';
 
     setTimeout(() => {
       currentQ++;
-      if (currentQ < questions.length) {
-        loadQuestion();
-      } else {
-        showPitch();
-      }
-    }, 1800);
+      currentQ < questions.length ? loadQuestion() : showPitch();
+    }, 2000);
   }
 
-  // Step 3: Pitch Logic
   function showPitch() {
     step2.classList.add('hidden');
     step3.classList.remove('hidden');
     document.getElementById('finalScore').innerText = score;
+
+    const total = questions.length;
+    let title, body;
+    if (score <= 1) {
+      title = "⚠️ You'd overpay within your first hour.";
+      body = "Your cards are on the way, but knowing a few words isn't the same as saying them right. Taxi drivers and vendors can tell instantly, and the price goes up.";
+    } else if (score < total) {
+      title = "⚠️ Close, but not medina-ready.";
+      body = "Your cards are on the way. You've got the basics, but one misheard number or a clumsy accent and you're back to the tourist price.";
+    } else {
+      title = "⚠️ You know what to say. Can you understand the reply?";
+      body = "Your cards are on the way. Speaking is half of it. Locals answer fast and in their own accent, and cards can't teach your ear that.";
+    }
+    if (audioMissed) {
+      body += " You also missed the listening question, which is exactly what the audio kit trains.";
+    }
+    document.getElementById('warnTitle').innerText = title;
+    document.getElementById('warnBody').innerText = body;
+
+    if (CONFIG.insideLine) { const e = document.getElementById('insideLine'); e.innerText = CONFIG.insideLine; e.classList.remove('hidden'); }
+    if (CONFIG.previewAudioSrc) { document.getElementById('previewAudio').src = CONFIG.previewAudioSrc; document.getElementById('previewBox').classList.remove('hidden'); }
+    if (CONFIG.guaranteeLine) { const g = document.getElementById('guaranteeLine'); g.innerText = '🛡️ ' + CONFIG.guaranteeLine; g.classList.remove('hidden'); }
+
     window.scrollTo(0, 0);
   }
 </script>
