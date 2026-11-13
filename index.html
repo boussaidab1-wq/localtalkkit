@@ -3,382 +3,285 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Free Darija Travel Cards for Morocco | LocalTalkKit</title>
-<meta name="description" content="Free Moroccan Darija travel cards with practical phrases, pronunciation audio, and a printable PDF. No app. No account.">
+<title>Free Morocco Survival Cards & Quiz | LocalTalkKit</title>
+<meta name="description" content="Get your free Moroccan Darija travel cards and test your medina survival skills.">
 <style>
 :root{--ink:#171b2d;--muted:#687286;--bg:#f7f8fc;--surface:#fff;--line:#e6e9f1;--purple:#5b3df5;--purple-dark:#452dcc;--soft:#f0edff;--dark:#17142f;--dark2:#24203f}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{width:min(860px,calc(100% - 24px));margin:0 auto}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(860px,calc(100% - 24px));margin:0 auto;padding-bottom:40px}
 
-.hero{text-align:center;padding:28px 0 4px}
-.hero + .lesson{margin-top:6px}
-
-.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:5px}
-.bridge .eyebrow{font-size:11px;letter-spacing:.1em;margin-bottom:6px}
-.hero h1{font-size:clamp(28px,6vw,46px);line-height:1.05;letter-spacing:-.05em;max-width:780px;margin:0 auto 10px;font-weight:900}
-.hero p{font-size:clamp(14px,2.2vw,17px);color:var(--muted);max-width:640px;margin:0 auto;font-weight:500}
-.trust-line{margin:12px auto 0;font-size:13px;color:#7b8497;font-weight:700}
-.section{margin-top:18px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 32px rgba(20,25,45,.06)}
-
-.lesson{padding:16px 16px;margin-top:12px}
-.lesson h2{font-size:clamp(18px,4vw,24px);line-height:1.2;letter-spacing:-.03em;margin:0 0 6px;max-width:760px;font-weight:900}
-.lesson .intro{color:var(--muted);margin:0 0 10px;max-width:700px;font-size:13.5px;line-height:1.4}
-.phrase{background:var(--soft);border-radius:12px;padding:12px 14px 10px;text-align:center;border:1px solid #e4defe}
-.darija{font-size:clamp(18px,3.6vw,23px);font-weight:900;letter-spacing:-.02em}
-.translation{font-size:13.5px;font-weight:700;color:#4b36c8;margin-top:2px}
-.flag{font-size:.82em;vertical-align:1px;margin-right:5px}
-.phrase audio{width:100%;height:36px;margin-top:8px;display:block}
-.note{font-size:11px;color:var(--muted);margin:4px 0 0;line-height:1.3}
-
-/* Integrated Tipping Section Styles */
-.tip-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px;background:#fff;border-radius:12px}
-.tip-table td{padding:8px 12px;border-bottom:1px solid var(--line)}
-.tip-table td:first-child{color:var(--muted)}
-.tip-table td:last-child{text-align:right;font-weight:800}
-.tip-table tr:last-child td{border-bottom:none}
-
-/* Lead Magnet */
-.lead-box{background:linear-gradient(180deg,#f4f1ff 0%,#fff 100%);border:2px solid var(--purple);border-radius:18px;padding:24px 18px 20px;max-width:520px;margin:22px auto;box-shadow:0 12px 32px rgba(91,61,245,.12);text-align:center;position:relative}
-.lead-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;font-size:10px;font-weight:900;letter-spacing:.12em;padding:5px 14px;border-radius:999px;box-shadow:0 3px 10px rgba(91,61,245,.28);white-space:nowrap}
-.lead-box h3{margin:0 0 6px;font-size:20px;letter-spacing:-.02em;color:var(--dark);font-weight:900}
-.lead-box p{margin:0 0 14px;color:var(--muted);font-size:14px}
+/* Step 1 */
+.lead-box{background:linear-gradient(180deg,#f4f1ff 0%,#fff 100%);border:2px solid var(--purple);border-radius:18px;padding:32px 18px 24px;max-width:520px;margin:40px auto;box-shadow:0 12px 32px rgba(91,61,245,.12);text-align:center;position:relative}
+.lead-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;font-size:10px;font-weight:900;letter-spacing:.12em;padding:5px 14px;border-radius:999px;white-space:nowrap}
+.lead-box h1{margin:0 0 8px;font-size:24px;letter-spacing:-.02em;color:var(--dark);font-weight:900}
+.lead-box p{margin:0 0 16px;color:var(--muted);font-size:14.5px}
 .lead-form{display:flex;flex-direction:column;gap:10px}
 .lead-input{min-height:48px;padding:0 14px;border-radius:11px;border:1px solid #cbd5e1;font-size:15px;outline:none;width:100%;background:#fff}
 .lead-input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(91,61,245,.15)}
-.lead-btn{min-height:48px;padding:10px 14px;border-radius:11px;background:var(--purple);color:#fff;border:none;font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 5px 16px rgba(91,61,245,.22);transition:all .15s ease}
+.lead-btn{min-height:48px;padding:10px 14px;border-radius:11px;background:var(--purple);color:#fff;border:none;font-size:15px;font-weight:900;cursor:pointer;transition:all .15s ease}
 .lead-btn:hover{background:var(--purple-dark);transform:translateY(-1px)}
-.download-fallback{margin-top:10px;font-size:11.5px;color:var(--muted);font-weight:600}
+.download-fallback{margin-top:12px;font-size:11.5px;color:var(--muted);font-weight:600}
 
-.section-divider{border:0;height:1px;background:var(--line);max-width:400px;margin:20px auto 0;opacity:.7}
-.bridge{text-align:center;padding:16px 8px 8px}
-.bridge h2{font-size:clamp(20px,4.2vw,26px);line-height:1.15;letter-spacing:-.03em;margin:0 auto 5px;max-width:700px;font-weight:900}
-.bridge p{color:var(--muted);max-width:580px;margin:0 auto;font-size:13.5px}
+/* Step 2 */
+.quiz-container{max-width:520px;margin:40px auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 18px;box-shadow:0 10px 32px rgba(20,25,45,.06);text-align:center}
+.quiz-header{font-size:13px;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.quiz-question{font-size:18px;font-weight:800;color:var(--dark);margin:0 0 20px;line-height:1.3}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{background:var(--bg);border:1px solid var(--line);padding:14px;border-radius:12px;font-size:14.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:all .15s;text-align:left}
+.quiz-option:hover{background:var(--soft);border-color:var(--purple)}
+.quiz-option.correct{background:#10b981;color:#fff;border-color:#10b981}
+.quiz-option.incorrect{background:#ef4444;color:#fff;border-color:#ef4444}
+.quiz-feedback{margin-top:16px;font-size:13.5px;font-weight:700;min-height:20px}
+.audio-box{background:var(--soft);border:1px solid #d9d2ff;border-radius:12px;padding:14px;margin:0 0 18px}
+.audio-box audio{width:100%}
+.audio-box .say{font-size:17px;font-weight:800;color:var(--dark);margin:0}
+.audio-box .tag{font-size:11px;color:var(--muted);font-weight:600;margin-top:6px}
 
-/* Premium upgrade — matching read-cards style */
-.upgrade{margin:16px 0 24px;padding:20px 16px;background:var(--dark);color:#fff;border-radius:18px;box-shadow:0 12px 32px rgba(23,20,47,.14)}
-.upgrade .eyebrow{color:#b9adff;font-size:10px;margin-bottom:5px}
-.upgrade h2{font-size:clamp(20px,4.5vw,26px);line-height:1.15;letter-spacing:-.03em;margin:0 0 8px;font-weight:900}
-.upgrade .lead{color:#c8c4db;max-width:760px;margin:0 0 10px;font-size:13.5px;line-height:1.4;font-weight:500}
-
-.trust-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin:0 0 12px}
-.trust-strip .badge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;color:#d8d5e9}
-.trust-strip .badge strong{color:#fff;font-weight:900}
-
-.benefits{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 14px}
-.benefit{display:flex;align-items:flex-start;gap:8px;padding:9px 10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px}
-.benefit .icon{flex-shrink:0;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:1px}
-.benefit .txt strong{display:block;color:#e2e0f0;font-size:12px;font-weight:800;margin-bottom:1px;letter-spacing:-.01em;line-height:1.2}
-.benefit .txt span{font-size:11px;color:#9b97b0;line-height:1.3;font-weight:500}
-@media(max-width:360px){.benefits{grid-template-columns:1fr}}
-
-.cat-label{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#8b85a8;margin:0 0 8px;text-align:center}
-.categories{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 16px}
-@media(max-width:360px){.categories{grid-template-columns:1fr}}
-.cat{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:8px 10px;font-size:12px;font-weight:650;color:#d4d0e6;line-height:1.25}
-.cat .emoji{flex-shrink:0;font-size:14px;width:18px;text-align:center}
-
-.price-row{text-align:center;padding-top:14px;border-top:1px solid rgba(255,255,255,.12)}
-.price{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-.original-price{color:#aaa6be;font-size:15px;text-decoration:line-through;font-weight:700}
-.sale-price{color:#fff;font-size:28px;font-weight:950;letter-spacing:-.03em}
-.save-badge{background:#fff;color:var(--dark);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:950}
-.urgency-banner{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:6px 12px;margin:0 0 10px;font-size:12px;font-weight:800;color:#fff}
-.urgency-banner .dot{width:7px;height:7px;border-radius:50%;background:#ff5a5f;animation:pulse 1.4s ease-in-out infinite}
-.urgency-banner #countdownTimer{font-variant-numeric:tabular-nums;color:#ffd8a8;font-weight:900}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-
-.cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:48px;padding:12px 14px;border-radius:12px;background:#fff;color:var(--dark);text-decoration:none;font-weight:950;font-size:14px;text-transform:uppercase;letter-spacing:.02em;transition:transform .15s,background .15s}
+/* Step 3 */
+.pitch-container{max-width:600px;margin:40px auto;text-align:center}
+.warning{background:#fff5f5;border:1px solid #ffd0d0;border-radius:12px;padding:14px 16px;margin:0 0 24px}
+.warning strong{color:#c00;font-size:15px;display:block;margin-bottom:4px}
+.warning p{margin:0;font-size:13.5px;color:var(--ink);font-weight:500}
+.premium{padding:24px 18px;background:var(--dark);color:#fff;border-radius:18px;box-shadow:0 12px 32px rgba(23,20,47,.14)}
+.premium .eyebrow{color:#b9adff;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.premium h2{font-size:clamp(20px,4.5vw,26px);line-height:1.15;letter-spacing:-.03em;margin:0 0 8px;font-weight:900}
+.premium .lead{color:#c8c4db;font-size:13.5px;line-height:1.4;margin:0 0 16px;font-weight:500}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 16px;text-align:left}
+.benefit{display:flex;align-items:flex-start;gap:8px;padding:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px}
+.benefit .icon{flex-shrink:0;font-size:14px}
+.benefit .txt strong{display:block;color:#e2e0f0;font-size:12.5px;font-weight:800;margin-bottom:2px}
+.benefit .txt span{font-size:11.5px;color:#9b97b0;line-height:1.3;font-weight:500}
+@media(max-width:400px){.benefits{grid-template-columns:1fr}}
+.inside{margin:0 0 16px;padding:12px;background:rgba(255,255,255,.06);border-radius:10px;font-size:12.5px;color:#e2e0f0;font-weight:700}
+.preview{margin:0 0 16px;text-align:left}
+.preview .plabel{font-size:11px;color:#b9adff;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.preview audio{width:100%}
+.price-row{padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
+.price{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px}
+.original{color:#aaa6be;font-size:16px;text-decoration:line-through;font-weight:700}
+.sale{color:#fff;font-size:32px;font-weight:950;letter-spacing:-.03em}
+.badge{background:#fff;color:var(--dark);border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:950}
+.cta{display:flex;width:100%;align-items:center;justify-content:center;min-height:52px;border-radius:12px;background:#fff;color:var(--dark);font-weight:950;font-size:15px;text-transform:uppercase;letter-spacing:.02em;transition:transform .15s}
 .cta:hover{transform:translateY(-1px);background:#f5f3ff}
-.reassure{text-align:center;color:#aaa6be;font-size:11.5px;line-height:1.35;margin:10px 0 0;font-weight:600}
-
-footer{text-align:center;color:#8991a4;font-size:12px;padding:0 0 24px}
-
-.testimonials{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px}
-@media(max-width:560px){.testimonials{grid-template-columns:1fr}}
-.testimonial{margin:0;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 6px 18px rgba(20,25,45,.04);text-align:left}
-.testimonial-stars{font-size:14px;letter-spacing:1px;color:#f5b800;margin-bottom:4px}
-.testimonial blockquote{margin:0;font-size:13px;line-height:1.4;font-weight:600;color:var(--ink)}
-.testimonial-author{font-size:11px;color:var(--muted);font-weight:800;margin-top:6px}
-
-@media(max-width:600px){
-.wrap{width:min(100% - 16px,860px)}.hero{padding:22px 0 2px}.hero h1{font-size:clamp(26px,7.5vw,34px)}.lesson{padding:14px 12px;margin-top:10px}.lesson h2{font-size:clamp(17px,4.8vw,22px)}.upgrade{padding:16px 12px}.bridge{padding:14px 4px 6px}
-}
+.guarantee{margin-top:10px;font-size:12px;color:#c8c4db;font-weight:600}
+.hidden{display:none !important}
 </style>
-
-<script type="text/javascript">
-(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y0e6qdkje9");
-</script>
 </head>
 <body>
 <main class="wrap">
-<header class="hero">
-  <h1>Speak a little Darija.<br><em>Experience Morocco differently.</em></h1>
-  <p>Useful Moroccan phrases you can keep on your phone or print before your trip. No app. No account. Just phrases you can actually use.</p>
-  <div class="trust-line"></div>
-</header>
 
-<section class="card lesson" id="phrase-audio" aria-label="Darija pronunciation lesson: taxi phrase">
-  <div class="eyebrow">TRY ONE PHRASE NOW</div>
-  <h2>Taxi meter — don’t get overcharged</h2>
-  <p class="intro">Say this the moment you get in. Most drivers will switch it on.</p>
-  <div class="phrase">
-    <div class="darija"><span class="flag" aria-hidden="true">🇲🇦</span>Aafak, Kheddem l'kountour</div>
-    <div class="translation"><span class="flag" aria-hidden="true">🇬🇧</span>Please turn on the meter</div>
-    <audio controls preload="metadata"><source src="audio/aafak-kheddem-lkountour.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-  </div>
-</section>
-
-<section class="card lesson" aria-label="Darija pronunciation lesson: bargaining phrase">
-  <div class="eyebrow">IN THE SOUKS</div>
-  <h2>That’s too expensive</h2>
-  <p class="intro">The classic phrase that starts every real negotiation.</p>
-  <div class="phrase">
-    <div class="darija"><span class="flag" aria-hidden="true">🇲🇦</span>Ghali bzaf</div>
-    <div class="translation"><span class="flag" aria-hidden="true">🇬🇧</span>That's too expensive</div>
-    <audio controls preload="metadata"><source src="audio/ghali-bzaf.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-  </div>
-</section>
-
-<section class="card lesson" aria-label="Darija pronunciation lesson: bill phrase">
-  <div class="eyebrow">AT THE RESTAURANT</div>
-  <h2>The bill, please</h2>
-  <p class="intro">Works better than hand signals. Waiters respond immediately.</p>
-  <div class="phrase">
-    <div class="darija"><span class="flag" aria-hidden="true">🇲🇦</span>L-hsab, afak</div>
-    <div class="translation"><span class="flag" aria-hidden="true">🇬🇧</span>The bill, please</div>
-    <audio controls preload="metadata"><source src="audio/l-hsab-afak.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-  </div>
-</section>
-
-<section class="card lesson" aria-label="Morocco Tipping Guide">
-  <div class="eyebrow">QUICK TIPPING GUIDE</div>
-  <h2>How much to tip in Morocco?</h2>
-  <p class="intro">Tipping culture can be confusing. Here is a realistic baseline for your trip:</p>
-  
-  <div style="background:var(--soft); padding:9px 14px; border-radius:10px; font-size:12.5px; color:var(--purple-dark); font-weight:800; margin-bottom:10px; text-align:center; border:1px solid #d8d2f8;">
-    💡 10 MAD ≈ $1 · €1 · £0.80
-  </div>
-
-  <table class="tip-table">
-    <tr><td>Restaurants (no service charge)</td><td>10%</td></tr>
-    <tr><td>Restaurants (service charge included)</td><td>Round up / 5%</td></tr>
-    <tr><td>Cafes (coffee, tea)</td><td>3–5 MAD</td></tr>
-    <tr><td>Taxis</td><td>Round up to nearest 5–10 MAD</td></tr>
-    <tr><td>Riad staff (per stay)</td><td>50–100 MAD</td></tr>
-    <tr><td>Baggage porters (in the Medina)</td><td>10–20 MAD per bag</td></tr>
-  </table>
-
-  <p class="intro" style="margin-top:16px; margin-bottom:8px; font-weight:700; color:var(--ink)">If something looks wrong on the bill:</p>
-  <div class="phrase">
-    <div class="darija"><span class="flag" aria-hidden="true">🇲🇦</span>Ma fhemtsh had ttaman</div>
-    <div class="translation"><span class="flag" aria-hidden="true">🇬🇧</span>I don't understand this price</div>
-    <audio controls preload="metadata"><source src="audio/ma-fhemtsh-had-ttaman.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-  </div>
-</section>
-
-<div class="lead-box" id="download">
-  <div class="lead-badge">FREE DOWNLOAD</div>
-  <h3>Download the Free Darija Wallet Cards</h3>
-  <p>Enter your email to instantly read the full card set online + get the printable PDF sent to your inbox.</p>
-
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-  <form id="leadForm" action="https://app.kit.com/forms/9831459/subscriptions" method="POST" target="hidden_iframe" class="lead-form">
-    <input type="email" name="email_address" class="lead-input" placeholder="Enter your email address..." required>
-    <button type="submit" class="lead-btn" id="submitLeadBtn">Get Free Cards & Read Online →</button>
-  </form>
-  
-  <p class="download-fallback">🔒 No spam. Instant access sent immediately.</p>
-</div>
-
-<hr class="section-divider">
-
-<section class="bridge">
-  <div class="eyebrow">LIKE WHAT YOU HEARD?</div>
-  <h2>These phrases are useful. The full kit gives you the rest.</h2>
-  <p>Have the right Darija ready before you need it — taxis, markets, hotels &amp; more.</p>
-</section>
-
-<section class="upgrade" aria-label="Full Darija Survival Kit offer">
-  <div class="eyebrow">Upgrade · Native audio</div>
-  <h2>Stop guessing. Speak with confidence.</h2>
-  <p class="lead">Offline native audio in your pocket. Exact phrases for taxis, markets &amp; real conversations — so you sound right the first time.</p>
-
-  <div class="trust-strip" aria-label="Customer trust indicators">
-    <span class="badge">⭐ <strong>4.8/5</strong></span>
-    <span class="badge">⬇️ <strong id="downloadCount">734+</strong> downloads</span>
-    <span class="badge">🔒 Instant access</span>
-  </div>
-
-  <div class="benefits">
-    <div class="benefit">
-      <span class="icon">🎧</span>
-      <div class="txt">
-        <strong>Sound like you belong</strong>
-        <span>Real Moroccan voice. One listen → offline confidence.</span>
-      </div>
+  <!-- STEP 1: LEAD CAPTURE -->
+  <div id="step1">
+    <div class="lead-box">
+      <div class="lead-badge">FREE DOWNLOAD</div>
+      <h1>Get Your Morocco Survival Cards</h1>
+      <p>Enter your email to instantly receive the printable Darija cheat sheet.</p>
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+      <form id="leadForm" action="https://app.kit.com/forms/9831459/subscriptions" method="POST" target="hidden_iframe" class="lead-form">
+        <input type="email" name="email_address" class="lead-input" placeholder="Enter your email address..." required>
+        <button type="submit" class="lead-btn" id="submitLeadBtn">Send Me The Cards →</button>
+      </form>
+      <p class="download-fallback">🔒 No spam. Sent directly to your inbox.</p>
     </div>
-    <div class="benefit">
-      <span class="icon">🗣️</span>
-      <div class="txt">
-        <strong>Never freeze up</strong>
-        <span>Know what they say back — no blank stares.</span>
-      </div>
+  </div>
+
+  <!-- STEP 2: QUIZ -->
+  <div id="step2" class="hidden">
+    <div class="quiz-container">
+      <div class="quiz-header" id="quizProgress">Question 1 of 3</div>
+      <h2 class="quiz-question" id="questionText">Loading...</h2>
+      <div id="audioSlot"></div>
+      <div class="quiz-options" id="optionsContainer"></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
     </div>
-    <div class="benefit">
-      <span class="icon">🛡️</span>
-      <div class="txt">
-        <strong>Never overpay</strong>
-        <span>Local words that shut down tourist prices.</span>
+  </div>
+
+  <!-- STEP 3: THE PITCH -->
+  <div id="step3" class="hidden">
+    <div class="pitch-container">
+      <h2 style="margin:0 0 16px;font-weight:900;letter-spacing:-.03em;">You scored <span id="finalScore"></span>/3.</h2>
+
+      <div class="warning">
+        <strong id="warnTitle"></strong>
+        <p id="warnBody"></p>
       </div>
-    </div>
-    <div class="benefit">
-      <span class="icon">🔄</span>
-      <div class="txt">
-        <strong>Lifetime updates</strong>
-        <span>New phrases &amp; audio free forever.</span>
+
+      <div class="premium">
+        <div class="eyebrow">Upgrade · Native audio</div>
+        <h2>Stop guessing. Speak with confidence.</h2>
+        <p class="lead">Offline native audio in your pocket. Exact phrases for taxis, markets & real conversations — so you sound right the first time.</p>
+
+        <div class="benefits">
+          <div class="benefit"><span class="icon">🎧</span><div class="txt"><strong>Sound like you belong</strong><span>Real Moroccan voice.</span></div></div>
+          <div class="benefit"><span class="icon">🗣️</span><div class="txt"><strong>Never freeze up</strong><span>Know what they say back.</span></div></div>
+          <div class="benefit"><span class="icon">🛡️</span><div class="txt"><strong>Never overpay</strong><span>Shut down tourist prices.</span></div></div>
+          <div class="benefit"><span class="icon">🔄</span><div class="txt"><strong>Lifetime offline access</strong><span>Works in medina deadzones.</span></div></div>
+        </div>
+
+        <div class="inside hidden" id="insideLine"></div>
+        <div class="preview hidden" id="previewBox">
+          <div class="plabel">🎧 Free preview</div>
+          <audio controls preload="none" id="previewAudio"></audio>
+        </div>
+
+        <div class="price-row">
+          <div class="price">
+            <span class="original">$29</span>
+            <span class="sale">$19</span>
+            <span class="badge">🔥 LAUNCH PRICE</span>
+          </div>
+          <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true">Get the Premium Audio Kit — $19</a>
+          <div class="guarantee hidden" id="guaranteeLine"></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="cat-label">What’s inside the kit</div>
-  <div class="categories" aria-label="What's inside">
-    <div class="cat"><span class="emoji">🤝</span> Make Locals Like You</div>
-    <div class="cat"><span class="emoji">🔢</span> Never Confused by Prices</div>
-    <div class="cat"><span class="emoji">🚕</span> Avoid Taxi Overcharging</div>
-    <div class="cat"><span class="emoji">🍽</span> Eat Like a Local</div>
-    <div class="cat"><span class="emoji">🛍</span> Stop Paying Tourist Prices</div>
-    <div class="cat"><span class="emoji">🏨</span> Hotels &amp; Riads</div>
-    <div class="cat"><span class="emoji">🧭</span> Never Get Lost in Medina</div>
-    <div class="cat"><span class="emoji">🆘</span> Get Help Fast</div>
-    <div class="cat"><span class="emoji">👥</span> Make Moroccan Friends</div>
-    <div class="cat"><span class="emoji">🕌</span> Avoid Cultural Mistakes</div>
-    <div class="cat"><span class="emoji">⚡</span> Must-Know NOW</div>
-    <div class="cat"><span class="emoji">🧠</span> Test Your Skills</div>
-  </div>
-
-  <div class="price-row">
-    <div class="price" aria-label="Sale price 19 dollars, originally 29 dollars">
-      <span class="original-price">$29</span>
-      <span class="sale-price">$19</span>
-      <span class="save-badge">🔥 SAVE $10</span>
-    </div>
-    <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Premium Kit — $19</a>
-    <p class="reassure">Instant Notion access · One-time payment · Updates included<br>Most travelers use it before their first taxi.</p>
-  </div>
-</section>
-
-<div class="testimonials">
-  <div class="testimonial" aria-label="Customer testimonial">
-    <div class="testimonial-stars">★★★★★</div>
-    <blockquote>“Locals actually responded and helped when I used the phrases — instead of the usual blank stares.”</blockquote>
-    <div class="testimonial-author">Sarah · Texas, USA</div>
-  </div>
-  <div class="testimonial" aria-label="Customer testimonial">
-    <div class="testimonial-stars">★★★★★</div>
-    <blockquote>“Bargaining phrases alone paid for the kit three times over. One taxi chat saved more than $19.”</blockquote>
-    <div class="testimonial-author">James · London, UK</div>
-  </div>
-</div>
-
-<footer>localtalkkit.com · Practical Darija for travelers in Morocco</footer>
 </main>
 
+<script src="https://gumroad.com/js/gumroad.js"></script>
 <script>
-(function(){
-  const track=(name)=>{if(typeof window.clarity==='function')window.clarity('event',name)};
+  /* ========= EDIT THESE ========= */
+  const CONFIG = {
+    // Quiz audio: a short native clip saying "Akher taman, mya w khamsin dirham."
+    // Leave "" to show the phrase as text instead.
+    quizAudioSrc: "",
+    // Optional 10-sec preview of the real product on the pitch page. "" = hidden.
+    previewAudioSrc: "",
+    // Only fill these in with TRUE facts. Empty = hidden.
+    insideLine: "",      // e.g. "120 phrases · 45 min of native audio · PDF + MP3"
+    guaranteeLine: ""    // e.g. "7-day money-back guarantee" (only if you offer it)
+  };
+  /* ============================== */
 
-  // Live-feeling download counter
-  const counterEl = document.getElementById('downloadCount');
-  if (counterEl) {
-    const BASE = 734;
-    const START = Date.UTC(2026, 7, 20); 
-    const daysPassed = Math.max(0, Math.floor((Date.now() - START) / 86400000));
-    let count = BASE;
-    let day = 0;
-    while (day < daysPassed) {
-      const seed = ((day + 1) * 1103515245 + 12345) & 0x7fffffff;
-      count += 1 + ((seed >> 3) % 9); 
-      day += 1 + (seed % 2); 
+  const questions = [
+    {
+      text: "You're in a taxi and the driver asks for 100 dirhams for a short trip. What do you say?",
+      options: [
+        { text: "That's too expensive.", isCorrect: false, feedback: "English marks you as a tourist instantly." },
+        { text: "La, ghali bzaf! Akher taman 80 dirham.", isCorrect: true, feedback: "Perfect! Firm boundary, sets the price." },
+        { text: "Get out of the car in silence.", isCorrect: false, feedback: "You lose time and look confused." }
+      ]
+    },
+    {
+      text: "A vendor in the souk won't stop following you with a carpet. What do you say?",
+      options: [
+        { text: "No thank you.", isCorrect: false, feedback: "Shows you are too polite to walk away." },
+        { text: "Walk away in silence.", isCorrect: false, feedback: "Can be seen as disrespectful and escalate things." },
+        { text: "Baraka Allah fik, ana Ghir kan shuf.", isCorrect: true, feedback: "Respectful blessing + firm boundary." }
+      ]
+    },
+    {
+      type: "listen",
+      text: "👂 Now the hard part: understanding the reply. After haggling, the vendor says this. What did he just say?",
+      say: "Akher taman, mya w khamsin dirham.",
+      options: [
+        { text: "Last price: 150 dirhams.", isCorrect: true, feedback: "Correct. You heard it, so you can answer it." },
+        { text: "It's only 50 dirhams, take it.", isCorrect: false, feedback: "Ouch. \"Mya w khamsin\" is 150, not 50. That mistake costs real money." },
+        { text: "Come back tomorrow for a discount.", isCorrect: false, feedback: "Not quite. He gave you a final price: 150 dirhams." }
+      ]
     }
-    counterEl.textContent = count.toLocaleString() + '+';
-  }
+  ];
 
-  // Evergreen 2-Day Countdown Timer (robust)
-  const countdownEl = document.getElementById('countdownTimer');
-  if (countdownEl) {
-    const STORAGE_KEY = 'darija_offer_start';
-    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
-    let startTime = null;
+  let currentQ = 0, score = 0, isAnswering = false, audioMissed = false;
 
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) startTime = parseInt(stored, 10);
-    } catch (e) {}
+  const step1 = document.getElementById('step1');
+  const step2 = document.getElementById('step2');
+  const step3 = document.getElementById('step3');
 
-    // Reset if missing, invalid, or expired
-    if (!startTime || isNaN(startTime) || (Date.now() - startTime > TWO_DAYS_MS)) {
-      startTime = Date.now();
-      try { localStorage.setItem(STORAGE_KEY, String(startTime)); } catch (e) {}
-    }
+  function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 
-    const expiresAt = startTime + TWO_DAYS_MS;
-
-    function updateCountdown() {
-      const diff = expiresAt - Date.now();
-      if (diff <= 0) {
-        countdownEl.textContent = '00:00:00';
-        return;
-      }
-      const days = Math.floor(diff / 86400000);
-      const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
-      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
-      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-      countdownEl.textContent = days > 0 ? days + 'd ' + h + ':' + m + ':' + s : h + ':' + m + ':' + s;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  }
-
-  // Audio Playback Tracking
-  document.querySelectorAll('audio').forEach((audio,index)=>{
-    audio.addEventListener('play',()=>track('audio_'+(index+1)+'_play'),{once:true});
-    audio.addEventListener('error',()=>track('audio_'+(index+1)+'_error'),{once:true});
+  document.getElementById('leadForm').addEventListener('submit', function() {
+    document.getElementById('submitLeadBtn').innerText = 'Preparing your test...';
+    setTimeout(() => {
+      step1.classList.add('hidden');
+      step2.classList.remove('hidden');
+      loadQuestion();
+    }, 1200);
   });
 
-  // Lead Magnet Logic
-  const leadForm = document.getElementById('leadForm');
-  const submitBtn = document.getElementById('submitLeadBtn');
-  if (leadForm) {
-    leadForm.addEventListener('submit', function() {
-      track('lead_form_submit');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Redirecting...';
+  function loadQuestion() {
+    isAnswering = false;
+    const q = questions[currentQ];
+    document.getElementById('quizProgress').innerText = `Question ${currentQ + 1} of ${questions.length}`;
+    document.getElementById('questionText').innerText = q.text;
+    document.getElementById('quizFeedback').innerText = '';
+
+    const slot = document.getElementById('audioSlot');
+    slot.innerHTML = '';
+    if (q.type === 'listen') {
+      const box = document.createElement('div');
+      box.className = 'audio-box';
+      if (CONFIG.quizAudioSrc) {
+        const a = document.createElement('audio');
+        a.controls = true; a.preload = 'auto'; a.src = CONFIG.quizAudioSrc;
+        box.appendChild(a);
+      } else {
+        box.innerHTML = '<p class="say"></p><div class="tag">Native audio plays in the full kit</div>';
+        box.querySelector('.say').innerText = '“' + q.say + '”';
       }
-      setTimeout(function() {
-        window.location.href = 'https://localtalkkit.com/read-cards.html?submitted=true';
-      }, 500);
+      slot.appendChild(box);
+    }
+
+    const container = document.getElementById('optionsContainer');
+    container.innerHTML = '';
+    shuffle(q.options.slice()).forEach(opt => {
+      const btn = document.createElement('div');
+      btn.className = 'quiz-option';
+      btn.innerText = opt.text;
+      btn.onclick = () => handleAnswer(opt, btn, q);
+      container.appendChild(btn);
     });
   }
 
-  // Clicks & Scrolls
-  document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(link=>link.addEventListener('click',()=>track('premium_click')));
-  
-  const fired={25:false,50:false,75:false,90:false};
-  window.addEventListener('scroll',()=>{
-    const max=document.documentElement.scrollHeight-window.innerHeight;
-    if(max<=0)return;
-    const pct=(window.scrollY/max)*100;
-    [25,50,75,90].forEach(mark=>{if(!fired[mark]&&pct>=mark){fired[mark]=true;track('scroll_'+mark)}});
-  },{passive:true});
-})();
+  function handleAnswer(opt, btnEl, q) {
+    if (isAnswering) return;
+    isAnswering = true;
+    if (opt.isCorrect) { btnEl.classList.add('correct'); score++; }
+    else { btnEl.classList.add('incorrect'); if (q.type === 'listen') audioMissed = true; }
+
+    const fb = document.getElementById('quizFeedback');
+    fb.innerText = opt.feedback;
+    fb.style.color = opt.isCorrect ? '#10b981' : '#ef4444';
+
+    setTimeout(() => {
+      currentQ++;
+      currentQ < questions.length ? loadQuestion() : showPitch();
+    }, 2000);
+  }
+
+  function showPitch() {
+    step2.classList.add('hidden');
+    step3.classList.remove('hidden');
+    document.getElementById('finalScore').innerText = score;
+
+    const total = questions.length;
+    let title, body;
+    if (score <= 1) {
+      title = "⚠️ You'd overpay within your first hour.";
+      body = "Your cards are on the way, but knowing a few words isn't the same as saying them right. Taxi drivers and vendors can tell instantly, and the price goes up.";
+    } else if (score < total) {
+      title = "⚠️ Close, but not medina-ready.";
+      body = "Your cards are on the way. You've got the basics, but one misheard number or a clumsy accent and you're back to the tourist price.";
+    } else {
+      title = "⚠️ You know what to say. Can you understand the reply?";
+      body = "Your cards are on the way. Speaking is half of it. Locals answer fast and in their own accent, and cards can't teach your ear that.";
+    }
+    if (audioMissed) {
+      body += " You also missed the listening question, which is exactly what the audio kit trains.";
+    }
+    document.getElementById('warnTitle').innerText = title;
+    document.getElementById('warnBody').innerText = body;
+
+    if (CONFIG.insideLine) { const e = document.getElementById('insideLine'); e.innerText = CONFIG.insideLine; e.classList.remove('hidden'); }
+    if (CONFIG.previewAudioSrc) { document.getElementById('previewAudio').src = CONFIG.previewAudioSrc; document.getElementById('previewBox').classList.remove('hidden'); }
+    if (CONFIG.guaranteeLine) { const g = document.getElementById('guaranteeLine'); g.innerText = '🛡️ ' + CONFIG.guaranteeLine; g.classList.remove('hidden'); }
+
+    window.scrollTo(0, 0);
+  }
 </script>
-<script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
 </html>
