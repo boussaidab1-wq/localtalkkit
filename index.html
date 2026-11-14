@@ -163,6 +163,9 @@ body{padding-bottom:70px}
 .card-thumb,.card-thumb:hover{width:auto}
 .card-thumb img{height:auto;object-fit:contain;background:#fff}
 @media(max-width:400px){.card-thumb{width:auto}.card-thumb img{height:auto}}
+.inbox-note{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;border-radius:12px;padding:10px 12px;font-size:13.5px;font-weight:800;text-align:center;margin:0 0 12px}
+.inbox-note span{display:block;font-size:11.5px;font-weight:600;color:#047857}
+.bridge{text-align:center;font-size:17px;font-weight:900;letter-spacing:-.02em;color:var(--dark);margin:6px 8px 12px;line-height:1.25}
 .score-head{text-align:center;margin:14px 0 10px;font-size:22px;font-weight:900;letter-spacing:-.03em}
 .hidden{display:none !important}
 </style>
@@ -209,6 +212,24 @@ body{padding-bottom:70px}
   <div id="step3" class="hidden">
     <div class="score-head">You scored <span id="finalScore"></span>/4</div>
     <p class="score-line" id="scoreLine"></p>
+
+    <p class="inbox-note">✅ Your free PDF cards are on their way to your inbox <span>(check spam/promotions)</span></p>
+    <section class="free-section" aria-label="Free Darija cards">
+    <div class="free-header">
+      <div class="eyebrow">Your free download</div>
+      <h2>Read them online right now</h2>
+      <p>Tap any card to zoom</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card-thumb"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="label">Greetings</div></div>
+      <div class="card-thumb"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="label">Shopping</div></div>
+      <div class="card-thumb"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="label">Numbers</div></div>
+      <div class="card-thumb"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="label">Social</div></div>
+      <div class="card-thumb"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="label">Emergency</div></div>
+    </div>
+  </section>
+
+    <div class="bridge">Want to hear it and really connect with Morocco?</div>
 
     <section class="premium offer" aria-label="Premium Audio Kit">
       <div class="eyebrow">Premium Audio Kit</div>
@@ -261,22 +282,6 @@ body{padding-bottom:70px}
       <div class="author">James · London, UK</div>
     </div>
   </div>
-
-    <p class="inbox-note">📩 Your free PDF cards were also sent to your inbox (check spam/promotions).</p>
-    <section class="free-section" aria-label="Free Darija cards">
-    <div class="free-header">
-      <div class="eyebrow">Your free download</div>
-      <h2>Read the free cards online</h2>
-      <p>Tap any card to zoom</p>
-    </div>
-    <div class="cards-grid">
-      <div class="card-thumb"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="label">Greetings</div></div>
-      <div class="card-thumb"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="label">Shopping</div></div>
-      <div class="card-thumb"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="label">Numbers</div></div>
-      <div class="card-thumb"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="label">Social</div></div>
-      <div class="card-thumb"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="label">Emergency</div></div>
-    </div>
-  </section>
   </div>
 
 </main>
