@@ -135,6 +135,20 @@ a{color:inherit;text-decoration:none}
 .quiz-feedback{margin:14px 16px 0;font-size:13.5px;font-weight:700;min-height:0;padding:0;border-radius:12px;text-align:left}
 .quiz-feedback.ok{background:#ecfdf5;color:#065f46;padding:10px 12px}
 .quiz-feedback.no{background:#fef2f2;color:#991b1b;padding:10px 12px}
+
+/* Step 3 offer */
+.score-line{text-align:center;color:var(--muted);font-size:14px;font-weight:600;margin:0 auto 14px;max-width:440px;line-height:1.4}
+.offer{margin-top:0}
+.offer .categories{margin:0 0 14px}
+.try-label{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#b9adff;margin:0 0 8px;text-align:center}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 14px}
+.pills .tbadge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;color:#d8d5e9}
+.inbox-note{text-align:center;color:var(--muted);font-size:12px;font-weight:600;margin:14px 0 8px}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(247,248,252,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
+.sticky-cta.show{transform:none}
+.sticky-cta .cta{background:var(--purple);color:#fff;max-width:520px;margin:0 auto}
+.sticky-cta .cta:hover{background:var(--purple-dark)}
+body{padding-bottom:70px}
 .score-head{text-align:center;margin:14px 0 10px;font-size:22px;font-weight:900;letter-spacing:-.03em}
 .hidden{display:none !important}
 </style>
@@ -177,79 +191,23 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 
-  <!-- STEP 3: RESULTS + CARDS + KIT -->
+  <!-- STEP 3: RESULT + OFFER -->
   <div id="step3" class="hidden">
-    <div class="inbox-alert">
-      📩 Your printable PDF cards were just sent to your inbox.
-      <span>(Check spam/promotions if you don’t see them)</span>
-    </div>
     <div class="score-head">You scored <span id="finalScore"></span>/4</div>
-    <div class="warning">
-      <strong id="warnTitle"></strong>
-      <p id="warnBody"></p>
-    </div>
+    <p class="score-line" id="scoreLine"></p>
 
-    <!-- FREE CARDS FIRST & COMPACT -->
-  <section class="free-section" aria-label="Free Darija cards">
-    <div class="free-header">
-      <div class="eyebrow">Your free download</div>
-      <h2>Read the free cards online</h2>
-      <p>Tap any card to zoom</p>
-    </div>
-    <div class="cards-grid">
-      <div class="card-thumb"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="label">Greetings</div></div>
-      <div class="card-thumb"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="label">Shopping</div></div>
-      <div class="card-thumb"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="label">Numbers</div></div>
-      <div class="card-thumb"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="label">Social</div></div>
-      <div class="card-thumb"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="label">Emergency</div></div>
-    </div>
-  </section>
+    <section class="premium offer" aria-label="Premium Audio Kit">
+      <div class="eyebrow">Premium Audio Kit</div>
+      <h2>Your Moroccan guide, in your pocket.</h2>
+      <p class="lead">Tap a phrase. Hear a native speaker. Say it with confidence.</p>
 
-  <!-- COMPACT PREMIUM -->
-  <section class="premium" aria-label="Full Darija Survival Kit offer">
-    <div class="eyebrow">Upgrade · Native audio</div>
-    <h2>Stop guessing. Speak with confidence.</h2>
-    <p class="lead">Offline native audio in your pocket. Exact phrases for taxis, markets &amp; real conversations — so you sound right the first time.</p>
-
-    <div class="trust" aria-label="Trust indicators">
-      <span class="tbadge">⭐ <strong>4.8/5</strong></span>
-      <span class="tbadge">⬇️ <strong id="downloadCount">734+</strong> downloads</span>
-      <span class="tbadge">🔒 Instant access</span>
-    </div>
-
-    <div class="benefits">
-      <div class="benefit">
-        <span class="icon">🎧</span>
-        <div class="txt">
-          <strong>Sound like you belong</strong>
-          <span>Real Moroccan voice. One listen → offline confidence.</span>
-        </div>
+      <div class="trust" aria-label="Trust indicators">
+        <span class="tbadge">⭐ <strong>4.8/5</strong></span>
+        <span class="tbadge">⬇️ <strong id="downloadCount">734+</strong> downloads</span>
       </div>
-      <div class="benefit">
-        <span class="icon">🗣️</span>
-        <div class="txt">
-          <strong>Never freeze up</strong>
-          <span>Know what they say back — no blank stares.</span>
-        </div>
-      </div>
-      <div class="benefit">
-        <span class="icon">🛡️</span>
-        <div class="txt">
-          <strong>Never overpay</strong>
-          <span>Local words that shut down tourist prices.</span>
-        </div>
-      </div>
-      <div class="benefit">
-        <span class="icon">🔄</span>
-        <div class="txt">
-          <strong>Lifetime updates</strong>
-          <span>New phrases &amp; audio free forever.</span>
-        </div>
-      </div>
-    </div>
 
-    <div class="cat-label">What’s inside the kit</div>
-    <div class="categories" aria-label="What's inside">
+      <div class="try-label">What’s inside the kit</div>
+      <div class="categories" aria-label="What's inside">
       <div class="cat"><span class="emoji">🤝</span> Make Locals Like You</div>
       <div class="cat"><span class="emoji">🔢</span> Never Confused by Prices</div>
       <div class="cat"><span class="emoji">🚕</span> Avoid Taxi Overcharging</div>
@@ -264,19 +222,20 @@ a{color:inherit;text-decoration:none}
       <div class="cat"><span class="emoji">🧠</span> Test Your Skills</div>
     </div>
 
-    <div class="price-row">
-      <!--<div class="urgency"><span class="dot"></span> Discount ends in <span id="countdownTimer">--:--:--</span></div> -->
-      <div class="price" aria-label="Sale price 19 dollars, originally 29 dollars">
-        <span class="original">$29</span>
-        <span class="sale">$19</span>
-        <span class="badge">🔥 SAVE $10</span>
-      </div>
-      <a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true" aria-label="Get the full Darija Survival Kit for 19 dollars">Get the Premium Kit — $19</a>
-      <p class="reassure">Instant Notion access · One-time payment · Updates included<br>Most travelers use it before their first taxi.</p>
-    </div>
-  </section>
+      <div class="pills"><span class="tbadge">📴 Works offline</span><span class="tbadge">♾ Lifetime updates</span><span class="tbadge">🔒 Instant access</span></div>
 
-  <div class="testimonials">
+      <div class="price-row">
+        <div class="price" aria-label="Sale price 19 dollars, originally 29 dollars">
+          <span class="original">$29</span>
+          <span class="sale">$19</span>
+          <span class="badge">🔥 SAVE $10</span>
+        </div>
+        <a class="cta" id="mainCta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true">Get the Audio Kit — $19</a>
+        <p class="reassure">One-time payment · Instant Notion access</p>
+      </div>
+    </section>
+
+    <div class="testimonials">
     <div class="testi">
       <div class="stars">★★★★★</div>
       <blockquote>“Locals actually responded and helped when I used the phrases — instead of the usual blank stares.”</blockquote>
@@ -289,10 +248,27 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 
-
+    <p class="inbox-note">📩 Your free PDF cards were also sent to your inbox (check spam/promotions).</p>
+    <section class="free-section" aria-label="Free Darija cards">
+    <div class="free-header">
+      <div class="eyebrow">Your free download</div>
+      <h2>Read the free cards online</h2>
+      <p>Tap any card to zoom</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card-thumb"><img src="./images/1.jpg?v=2" alt="Greetings Darija card"><div class="label">Greetings</div></div>
+      <div class="card-thumb"><img src="./images/2.jpg?v=2" alt="Shopping Darija card"><div class="label">Shopping</div></div>
+      <div class="card-thumb"><img src="./images/3.jpg?v=2" alt="Numbers Darija card"><div class="label">Numbers</div></div>
+      <div class="card-thumb"><img src="./images/4.jpg?v=2" alt="Social Interaction Darija card"><div class="label">Social</div></div>
+      <div class="card-thumb"><img src="./images/5.jpg?v=2" alt="Emergency Darija card"><div class="label">Emergency</div></div>
+    </div>
+  </section>
   </div>
 
 </main>
+
+<div class="sticky-cta" id="stickyCta"><a class="cta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true">🎧 Get the Audio Kit — $19</a></div>
+
 
 <div class="zoom-modal" id="zoomModal" aria-hidden="true" role="dialog" aria-label="Card preview">
   <button class="zoom-close" id="zoomClose" aria-label="Close preview">×</button>
@@ -496,21 +472,22 @@ document.addEventListener('DOMContentLoaded',function(){
     $('step2').classList.add('hidden');
     $('step3').classList.remove('hidden');
     $('finalScore').innerText = score;
-    let t, b;
-    if (score <= 1) {
-      t = '⚠️ Locals would talk right over you.';
-      b = 'Your cards are on the way, but reading a phrase isn’t the same as recognizing it at speed. In the medina that’s where the tourist price comes from. The Premium Kit trains your ear with native audio.';
-    } else if (score < questions.length) {
-      t = '⚠️ Close, but one mix-up costs real money.';
-      b = 'Your cards are on the way. You caught most of it, but a single misheard phrase or price and you’re back to the tourist price. The Premium Kit gives you native audio for every phrase so nothing surprises you.';
-    } else {
-      t = '⚠️ Great ear. Now imagine hearing it at full speed.';
-      b = 'Your cards are on the way. You got every clip, but real conversations are faster and come with replies you haven’t heard yet. The Premium Kit covers what they say back, too.';
-    }
-    $('warnTitle').innerText = t; $('warnBody').innerText = b;
+    let m;
+    if (score <= 1) m = 'You’d miss most of what locals say. The audio kit trains your ear so you don’t.';
+    else if (score < questions.length) m = 'Close, but one misheard phrase can cost you. Hear every phrase before you land.';
+    else m = 'Great ear. Real conversations are faster, so keep the audio with you.';
+    $('scoreLine').innerText = m;
+    setupSticky();
     trk('quiz_complete_score_' + score);
     trk('online_pdf_view');
     window.scrollTo(0, 0);
+  }
+
+  // Sticky buy bar: shows whenever the main button is off screen
+  function setupSticky() {
+    const bar = $('stickyCta'), main = $('mainCta');
+    if (!('IntersectionObserver' in window)) { bar.classList.add('show'); return; }
+    new IntersectionObserver(es => es.forEach(e => bar.classList.toggle('show', !e.isIntersecting)), {threshold: 0.2}).observe(main);
   }
 </script>
 </body>
