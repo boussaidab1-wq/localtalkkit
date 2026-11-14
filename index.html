@@ -108,19 +108,33 @@ a{color:inherit;text-decoration:none}
 .lead-btn:hover{background:var(--purple-dark);transform:translateY(-1px)}
 .lead-box .download-fallback{margin:12px 0 0;font-size:11.5px;color:var(--muted);font-weight:600}
 /* Step 2: quiz */
-.quiz-container{max-width:520px;margin:40px auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 18px;box-shadow:0 10px 32px rgba(20,25,45,.06);text-align:center}
-.quiz-header{font-size:13px;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-.quiz-question{font-size:18px;font-weight:800;color:var(--dark);margin:0 0 16px;line-height:1.3}
-.audio-box{background:var(--soft);border:1px solid #d9d2ff;border-radius:12px;padding:12px;margin:0 0 16px}
-.audio-box audio{width:100%}
-.audio-box .tr{display:none;font-size:15px;font-weight:800;color:var(--dark);margin-top:8px}
+.quiz-container{max-width:520px;margin:28px auto;background:#fff;border:1px solid var(--line);border-radius:22px;padding:0 0 20px;box-shadow:0 14px 40px rgba(20,25,45,.08);overflow:hidden}
+.quiz-progress{height:6px;background:var(--soft)}
+.quiz-progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--purple),#8b6dff);border-radius:0 6px 6px 0;transition:width .4s ease}
+.quiz-body{padding:16px 16px 0}
+.quiz-header{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:.1em;margin:0 0 10px}
+.quiz-header .pill{background:var(--soft);padding:3px 10px;border-radius:999px}
+.scene{position:relative;height:150px;border-radius:16px;overflow:hidden;margin:0 0 14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ede9ff,#ffe9d6)}
+.scene .big{font-size:64px;line-height:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.15))}
+.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scene .tag{position:absolute;left:10px;bottom:10px;background:rgba(23,20,47,.78);color:#fff;font-size:11.5px;font-weight:800;padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)}
+.quiz-question{font-size:17px;font-weight:800;color:var(--dark);margin:0 0 14px;line-height:1.35;letter-spacing:-.01em;text-align:left}
+.audio-box{display:flex;flex-direction:column;gap:6px;background:var(--dark);border-radius:14px;padding:12px 12px 10px;margin:0 0 14px}
+.audio-box .audio-label{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#b9adff;text-align:left}
+.audio-box audio{width:100%;height:40px}
+.audio-box .tr{display:none;font-size:15px;font-weight:800;color:#ffd8a8;text-align:left}
 .audio-box .tr.show{display:block}
 .quiz-options{display:flex;flex-direction:column;gap:10px}
-.quiz-option{background:var(--bg);border:1px solid var(--line);padding:14px;border-radius:12px;font-size:14.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:all .15s;text-align:left}
-.quiz-option:hover{background:var(--soft);border-color:var(--purple)}
-.quiz-option.correct{background:#10b981;color:#fff;border-color:#10b981}
-.quiz-option.incorrect{background:#ef4444;color:#fff;border-color:#ef4444}
-.quiz-feedback{margin-top:16px;font-size:13.5px;font-weight:700;min-height:20px}
+.quiz-option{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);padding:13px 14px;border-radius:14px;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;transition:all .15s;text-align:left;line-height:1.3}
+.quiz-option .letter{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--soft);color:var(--purple);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+.quiz-option:hover{border-color:var(--purple);background:#faf9ff;transform:translateY(-1px)}
+.quiz-option.correct{background:#ecfdf5;border-color:#10b981;color:#065f46}
+.quiz-option.correct .letter{background:#10b981;color:#fff}
+.quiz-option.incorrect{background:#fef2f2;border-color:#ef4444;color:#991b1b}
+.quiz-option.incorrect .letter{background:#ef4444;color:#fff}
+.quiz-feedback{margin:14px 16px 0;font-size:13.5px;font-weight:700;min-height:0;padding:0;border-radius:12px;text-align:left}
+.quiz-feedback.ok{background:#ecfdf5;color:#065f46;padding:10px 12px}
+.quiz-feedback.no{background:#fef2f2;color:#991b1b;padding:10px 12px}
 .score-head{text-align:center;margin:14px 0 10px;font-size:22px;font-weight:900;letter-spacing:-.03em}
 .hidden{display:none !important}
 </style>
@@ -147,10 +161,18 @@ a{color:inherit;text-decoration:none}
   <!-- STEP 2: AUDIO QUIZ -->
   <div id="step2" class="hidden">
     <div class="quiz-container">
-      <div class="quiz-header" id="quizProgress">Question 1 of 4</div>
-      <h2 class="quiz-question" id="questionText">Loading...</h2>
-      <div class="audio-box"><audio id="quizAudio" controls preload="auto"></audio><div class="tr" id="quizTr"></div></div>
-      <div class="quiz-options" id="optionsContainer"></div>
+      <div class="quiz-progress"><div class="bar" id="quizBar"></div></div>
+      <div class="quiz-body">
+        <div class="quiz-header"><span class="pill" id="quizProgress">Question 1 of 4</span><span>🎧 Listening test</span></div>
+        <div class="scene" id="scene"></div>
+        <h2 class="quiz-question" id="questionText">Loading...</h2>
+        <div class="audio-box">
+          <div class="audio-label">▶ Tap play and listen</div>
+          <audio id="quizAudio" controls preload="auto"></audio>
+          <div class="tr" id="quizTr"></div>
+        </div>
+        <div class="quiz-options" id="optionsContainer"></div>
+      </div>
       <div class="quiz-feedback" id="quizFeedback"></div>
     </div>
   </div>
@@ -272,203 +294,4 @@ a{color:inherit;text-decoration:none}
 
 </main>
 
-<div class="zoom-modal" id="zoomModal" aria-hidden="true" role="dialog" aria-label="Card preview">
-  <button class="zoom-close" id="zoomClose" aria-label="Close preview">×</button>
-  <div class="zoom-count" id="zoomCount">1 of 5</div>
-  <button class="zoom-prev" id="zoomPrev" aria-label="Previous card">‹</button>
-  <img id="zoomImage" src="" alt="Zoomed Darija card">
-  <button class="zoom-next" id="zoomNext" aria-label="Next card">›</button>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded',function(){
-  const track=n=>{if(typeof window.clarity==='function')window.clarity('event',n)};
-
-  // Live-feeling download counter
-  (function(){
-    const el = document.getElementById('downloadCount');
-    if (!el) return;
-    const BASE = 734;
-    const START = Date.UTC(2026, 7, 20);
-    const now = Date.now();
-    const msPerDay = 86400000;
-    const daysPassed = Math.max(0, Math.floor((now - START) / msPerDay));
-    let count = BASE;
-    let day = 0;
-    while (day < daysPassed) {
-      const seed = ((day + 1) * 1103515245 + 12345) & 0x7fffffff;
-      const interval = 1 + (seed % 2);
-      const add = 1 + ((seed >> 3) % 9);
-      count += add;
-      day += interval;
-    }
-    el.textContent = count.toLocaleString() + '+';
-  })();
-
-  // Evergreen 2-Day Countdown Timer (robust)
-  const countdownEl = document.getElementById('countdownTimer');
-  const urgencyBanner = document.querySelector('.urgency');
-  if (countdownEl) {
-    const STORAGE_KEY = 'darija_offer_start';
-    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
-    let startTime = null;
-
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) startTime = parseInt(stored, 10);
-    } catch (e) {}
-
-    // Reset if missing, invalid, or expired
-    if (!startTime || isNaN(startTime) || (Date.now() - startTime > TWO_DAYS_MS)) {
-      startTime = Date.now();
-      try { localStorage.setItem(STORAGE_KEY, String(startTime)); } catch (e) {}
-    }
-
-    const expiresAt = startTime + TWO_DAYS_MS;
-
-    function updateCountdown() {
-      const diff = expiresAt - Date.now();
-      if (diff <= 0) {
-        if (urgencyBanner) urgencyBanner.style.display = 'none';
-        countdownEl.textContent = '00:00:00';
-        return;
-      }
-      const days = Math.floor(diff / 86400000);
-      const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
-      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
-      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-      countdownEl.textContent = days > 0 ? days + 'd ' + h + ':' + m + ':' + s : h + ':' + m + ':' + s;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  }
-
-  
-  document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(a=>a.addEventListener('click',()=>track('premium_click')));
-
-  const cards=[...document.querySelectorAll('.card-thumb img')];
-  const modal=document.getElementById('zoomModal');
-  const zoomImage=document.getElementById('zoomImage');
-  const zoomCount=document.getElementById('zoomCount');
-  let current=0;
-  function showCard(i){
-    current=(i+cards.length)%cards.length;
-    zoomImage.src=cards[current].src;
-    zoomImage.alt=cards[current].alt;
-    zoomCount.textContent=(current+1)+' of '+cards.length;
-    track('online_card_zoom');
-  }
-  function openCard(i){
-    showCard(i); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
-  }
-  function closeCard(){
-    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; zoomImage.src='';
-  }
-  cards.forEach((img,i)=>img.addEventListener('click',()=>openCard(i)));
-  document.getElementById('zoomClose').addEventListener('click',closeCard);
-  document.getElementById('zoomPrev').addEventListener('click',e=>{e.stopPropagation();showCard(current-1)});
-  document.getElementById('zoomNext').addEventListener('click',e=>{e.stopPropagation();showCard(current+1)});
-  modal.addEventListener('click',e=>{if(e.target===modal)closeCard()});
-  document.addEventListener('keydown',e=>{
-    if(!modal.classList.contains('open'))return;
-    if(e.key==='Escape')closeCard();
-    if(e.key==='ArrowLeft')showCard(current-1);
-    if(e.key==='ArrowRight')showCard(current+1);
-  });
-});
-</script>
-<script src="https://gumroad.com/js/gumroad.js"></script>
-<script>
-  const AUDIO_BASE = './audio/';
-  const trk = n => { if (typeof window.clarity === 'function') window.clarity('event', n); };
-
-  const questions = [
-    { file: 'ghali-bzaf.mp3', tr: 'Ghali bzaf!',
-      text: '🎧 A tourist-price shop. Play it: what is this phrase?',
-      options: [
-        { text: 'That’s too expensive!', ok: true, fb: 'Yes. This is your first move when a price is too high.' },
-        { text: 'That’s very delicious!', ok: false, fb: 'Not quite. “Ghali bzaf” means “too expensive.”' },
-        { text: 'It’s too far away.', ok: false, fb: 'Not quite. “Ghali bzaf” means “too expensive.”' } ] },
-    { file: 'aafak-kheddem-lkountour.mp3', tr: 'Aafak, kheddem l-kountour.',
-      text: '🚕 You get in a taxi. Play it: what is this phrase for?',
-      options: [
-        { text: 'Asking the driver to turn on the meter.', ok: true, fb: 'Yes. It’s the best way to avoid taxi overcharging.' },
-        { text: 'Asking him to drive faster.', ok: false, fb: 'Not quite. It means “please turn on the meter.”' },
-        { text: 'Asking him to stop here.', ok: false, fb: 'Not quite. It means “please turn on the meter.”' } ] },
-    { file: 'ma-fhemtsh-had-ttaman.mp3', tr: 'Ma fhemtsh had t-taman.',
-      text: '🛍️ A vendor quotes a price too fast. Play it: what do you say?',
-      options: [
-        { text: 'I didn’t understand this price.', ok: true, fb: 'Yes. It makes them slow down and repeat the number.' },
-        { text: 'I don’t want to buy anything.', ok: false, fb: 'Not quite. It means “I didn’t understand this price.”' },
-        { text: 'This price is fine.', ok: false, fb: 'Dangerous mix-up! It means “I didn’t understand this price.”' } ] },
-    { file: 'l-hsab-afak.mp3', tr: 'L-hsab, aafak.',
-      text: '🍽️ You finished eating at a café. Play it: what is this phrase?',
-      options: [
-        { text: 'The bill, please.', ok: true, fb: 'Yes. Short, polite, and you’ll use it every day.' },
-        { text: 'More tea, please.', ok: false, fb: 'Not quite. “L-hsab, aafak” means “the bill, please.”' },
-        { text: 'Where is the toilet?', ok: false, fb: 'Not quite. “L-hsab, aafak” means “the bill, please.”' } ] }
-  ];
-
-  let currentQ = 0, score = 0, isAnswering = false, missed = 0;
-  const $ = id => document.getElementById(id);
-  const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-
-  $('leadForm').addEventListener('submit', () => {
-    $('submitLeadBtn').innerText = 'Preparing your test...';
-    trk('lead_submit');
-    setTimeout(() => { $('step1').classList.add('hidden'); $('step2').classList.remove('hidden'); loadQuestion(); }, 1200);
-  });
-
-  function loadQuestion() {
-    isAnswering = false;
-    const q = questions[currentQ];
-    $('quizProgress').innerText = `Question ${currentQ + 1} of ${questions.length}`;
-    $('questionText').innerText = q.text;
-    $('quizFeedback').innerText = '';
-    const tr = $('quizTr'); tr.className = 'tr'; tr.innerText = '“' + q.tr + '”';
-    const a = $('quizAudio');
-    a.onerror = () => tr.classList.add('show');   // audio failed to load: show the phrase as text
-    a.src = AUDIO_BASE + q.file;
-    const c = $('optionsContainer'); c.innerHTML = '';
-    shuffle(q.options.slice()).forEach(opt => {
-      const b = document.createElement('div');
-      b.className = 'quiz-option'; b.innerText = opt.text;
-      b.onclick = () => handleAnswer(opt, b);
-      c.appendChild(b);
-    });
-  }
-
-  function handleAnswer(opt, el) {
-    if (isAnswering) return;
-    isAnswering = true;
-    if (opt.ok) { el.classList.add('correct'); score++; } else { el.classList.add('incorrect'); missed++; }
-    $('quizTr').classList.add('show');
-    const fb = $('quizFeedback'); fb.innerText = opt.fb; fb.style.color = opt.ok ? '#10b981' : '#ef4444';
-    setTimeout(() => { currentQ++; currentQ < questions.length ? loadQuestion() : showResults(); }, 2200);
-  }
-
-  function showResults() {
-    $('quizAudio').pause();
-    $('step2').classList.add('hidden');
-    $('step3').classList.remove('hidden');
-    $('finalScore').innerText = score;
-    let t, b;
-    if (score <= 1) {
-      t = '⚠️ Locals would talk right over you.';
-      b = 'Your cards are on the way, but reading a phrase isn’t the same as recognizing it at speed. In the medina that’s where the tourist price comes from. The Premium Kit trains your ear with native audio.';
-    } else if (score < questions.length) {
-      t = '⚠️ Close, but one mix-up costs real money.';
-      b = 'Your cards are on the way. You caught most of it, but a single misheard phrase or price and you’re back to the tourist price. The Premium Kit gives you native audio for every phrase so nothing surprises you.';
-    } else {
-      t = '⚠️ Great ear. Now imagine hearing it at full speed.';
-      b = 'Your cards are on the way. You got every clip, but real conversations are faster and come with replies you haven’t heard yet. The Premium Kit covers what they say back, too.';
-    }
-    $('warnTitle').innerText = t; $('warnBody').innerText = b;
-    trk('quiz_complete_score_' + score);
-    trk('online_pdf_view');
-    window.scrollTo(0, 0);
-  }
-</script>
-</body>
-</html>
+<div class="zoom-modal" id="zoomModal" aria-hidden="
