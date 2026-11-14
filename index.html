@@ -149,6 +149,24 @@ a{color:inherit;text-decoration:none}
 .sticky-cta .cta{background:var(--purple);color:#fff;max-width:520px;margin:0 auto}
 .sticky-cta .cta:hover{background:var(--purple-dark)}
 body{padding-bottom:70px}
+
+/* v3 tweaks */
+.score-line{position:relative;background:var(--soft);border:1px solid #d9d2ff;border-radius:14px;padding:12px 14px;color:var(--dark);font-size:16.5px;font-weight:800;line-height:1.35;letter-spacing:-.01em;max-width:480px;margin:0 auto 16px}
+.score-line::before{content:'🎧 ';}
+.offer .categories{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 14px}
+.offer .cat{padding:6px 10px;border-radius:999px;font-size:11.5px;gap:5px;line-height:1.2}
+.offer .cat .emoji{width:auto;font-size:13px}
+.offer .cta.top{margin:0 0 14px}
+.testimonials{grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:560px){.testimonials{grid-template-columns:1fr 1fr}}
+.testi{padding:10px 11px;border-radius:12px}
+.testi .stars{font-size:12px;margin-bottom:3px}
+.testi blockquote{font-size:12px;line-height:1.35}
+.testi .author{font-size:10.5px;margin-top:5px}
+.cards-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:520px;margin:0 auto}
+.card-thumb,.card-thumb:hover{width:auto}
+.card-thumb img{height:auto;object-fit:contain;background:#fff}
+@media(max-width:400px){.card-thumb{width:auto}.card-thumb img{height:auto}}
 .score-head{text-align:center;margin:14px 0 10px;font-size:22px;font-weight:900;letter-spacing:-.03em}
 .hidden{display:none !important}
 </style>
@@ -205,6 +223,8 @@ body{padding-bottom:70px}
         <span class="tbadge">⭐ <strong>4.8/5</strong></span>
         <span class="tbadge">⬇️ <strong id="downloadCount">734+</strong> downloads</span>
       </div>
+
+      <a class="cta top" id="topCta" href="https://darija101.gumroad.com/l/jpmflp?wanted=true" data-gumroad-overlay-checkout="true">Get the Audio Kit — $19</a>
 
       <div class="try-label">What’s inside the kit</div>
       <div class="categories" aria-label="What's inside">
@@ -485,9 +505,15 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // Sticky buy bar: shows whenever the main button is off screen
   function setupSticky() {
-    const bar = $('stickyCta'), main = $('mainCta');
+    const bar = $('stickyCta');
+    const btns = [$('topCta'), $('mainCta')];
     if (!('IntersectionObserver' in window)) { bar.classList.add('show'); return; }
-    new IntersectionObserver(es => es.forEach(e => bar.classList.toggle('show', !e.isIntersecting)), {threshold: 0.2}).observe(main);
+    const vis = new Set();
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => e.isIntersecting ? vis.add(e.target) : vis.delete(e.target));
+      bar.classList.toggle('show', vis.size === 0);
+    }, {threshold: 0.2});
+    btns.forEach(x => io.observe(x));
   }
 </script>
 </body>
