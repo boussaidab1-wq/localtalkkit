@@ -294,4 +294,224 @@ a{color:inherit;text-decoration:none}
 
 </main>
 
-<div class="zoom-modal" id="zoomModal" aria-hidden="
+<div class="zoom-modal" id="zoomModal" aria-hidden="true" role="dialog" aria-label="Card preview">
+  <button class="zoom-close" id="zoomClose" aria-label="Close preview">×</button>
+  <div class="zoom-count" id="zoomCount">1 of 5</div>
+  <button class="zoom-prev" id="zoomPrev" aria-label="Previous card">‹</button>
+  <img id="zoomImage" src="" alt="Zoomed Darija card">
+  <button class="zoom-next" id="zoomNext" aria-label="Next card">›</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const track=n=>{if(typeof window.clarity==='function')window.clarity('event',n)};
+
+  // Live-feeling download counter
+  (function(){
+    const el = document.getElementById('downloadCount');
+    if (!el) return;
+    const BASE = 734;
+    const START = Date.UTC(2026, 7, 20);
+    const now = Date.now();
+    const msPerDay = 86400000;
+    const daysPassed = Math.max(0, Math.floor((now - START) / msPerDay));
+    let count = BASE;
+    let day = 0;
+    while (day < daysPassed) {
+      const seed = ((day + 1) * 1103515245 + 12345) & 0x7fffffff;
+      const interval = 1 + (seed % 2);
+      const add = 1 + ((seed >> 3) % 9);
+      count += add;
+      day += interval;
+    }
+    el.textContent = count.toLocaleString() + '+';
+  })();
+
+  // Evergreen 2-Day Countdown Timer (robust)
+  const countdownEl = document.getElementById('countdownTimer');
+  const urgencyBanner = document.querySelector('.urgency');
+  if (countdownEl) {
+    const STORAGE_KEY = 'darija_offer_start';
+    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
+    let startTime = null;
+
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) startTime = parseInt(stored, 10);
+    } catch (e) {}
+
+    // Reset if missing, invalid, or expired
+    if (!startTime || isNaN(startTime) || (Date.now() - startTime > TWO_DAYS_MS)) {
+      startTime = Date.now();
+      try { localStorage.setItem(STORAGE_KEY, String(startTime)); } catch (e) {}
+    }
+
+    const expiresAt = startTime + TWO_DAYS_MS;
+
+    function updateCountdown() {
+      const diff = expiresAt - Date.now();
+      if (diff <= 0) {
+        if (urgencyBanner) urgencyBanner.style.display = 'none';
+        countdownEl.textContent = '00:00:00';
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+      countdownEl.textContent = days > 0 ? days + 'd ' + h + ':' + m + ':' + s : h + ':' + m + ':' + s;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  
+  document.querySelectorAll('a[href*="darija101.gumroad.com"]').forEach(a=>a.addEventListener('click',()=>track('premium_click')));
+
+  const cards=[...document.querySelectorAll('.card-thumb img')];
+  const modal=document.getElementById('zoomModal');
+  const zoomImage=document.getElementById('zoomImage');
+  const zoomCount=document.getElementById('zoomCount');
+  let current=0;
+  function showCard(i){
+    current=(i+cards.length)%cards.length;
+    zoomImage.src=cards[current].src;
+    zoomImage.alt=cards[current].alt;
+    zoomCount.textContent=(current+1)+' of '+cards.length;
+    track('online_card_zoom');
+  }
+  function openCard(i){
+    showCard(i); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+  }
+  function closeCard(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; zoomImage.src='';
+  }
+  cards.forEach((img,i)=>img.addEventListener('click',()=>openCard(i)));
+  document.getElementById('zoomClose').addEventListener('click',closeCard);
+  document.getElementById('zoomPrev').addEventListener('click',e=>{e.stopPropagation();showCard(current-1)});
+  document.getElementById('zoomNext').addEventListener('click',e=>{e.stopPropagation();showCard(current+1)});
+  modal.addEventListener('click',e=>{if(e.target===modal)closeCard()});
+  document.addEventListener('keydown',e=>{
+    if(!modal.classList.contains('open'))return;
+    if(e.key==='Escape')closeCard();
+    if(e.key==='ArrowLeft')showCard(current-1);
+    if(e.key==='ArrowRight')showCard(current+1);
+  });
+});
+</script>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<script>
+  const AUDIO_BASE = './audio/';
+  const trk = n => { if (typeof window.clarity === 'function') window.clarity('event', n); };
+
+  const questions = [
+    { file: 'ghali-bzaf.mp3', tr: 'Ghali bzaf!',
+      scene: {emoji:'🏺', tag:'In the souk', bg:'#ffe3c7,#f6c2d9', img:'./images/Souk.jpg'},
+      text: 'The shopkeeper quotes a price. You say this. What does it mean?',
+      options: [
+        { text: 'That’s too expensive!', ok: true, fb: 'Yes. This is your first move when a price is too high.' },
+        { text: 'That’s very delicious!', ok: false, fb: 'Not quite. “Ghali bzaf” means “too expensive.”' },
+        { text: 'It’s too far away.', ok: false, fb: 'Not quite. “Ghali bzaf” means “too expensive.”' } ] },
+    { file: 'aafak-kheddem-lkountour.mp3', tr: 'Aafak, kheddem l-kountour.',
+      scene: {emoji:'🚕', tag:'In a taxi', bg:'#fff1b8,#ffd0a6', img:'./images/Taxi.jpg'},
+      text: 'You get in a taxi and say this. What are you asking for?',
+      options: [
+        { text: 'Asking the driver to turn on the meter.', ok: true, fb: 'Yes. It’s the best way to avoid taxi overcharging.' },
+        { text: 'Asking him to drive faster.', ok: false, fb: 'Not quite. It means “please turn on the meter.”' },
+        { text: 'Asking him to stop here.', ok: false, fb: 'Not quite. It means “please turn on the meter.”' } ] },
+    { file: 'ma-fhemtsh-had-ttaman.mp3', tr: 'Ma fhemtsh had t-taman.',
+      scene: {emoji:'🧮', tag:'Price too fast', bg:'#d7f0ff,#e2dcff', img:'./images/Price.jpg'},
+      text: 'A vendor rattles off a price too fast. You say this. What does it mean?',
+      options: [
+        { text: 'I didn’t understand this price.', ok: true, fb: 'Yes. It makes them slow down and repeat the number.' },
+        { text: 'I don’t want to buy anything.', ok: false, fb: 'Not quite. It means “I didn’t understand this price.”' },
+        { text: 'This price is fine.', ok: false, fb: 'Dangerous mix-up! It means “I didn’t understand this price.”' } ] },
+    { file: 'l-hsab-afak.mp3', tr: 'L-hsab, aafak.',
+      scene: {emoji:'☕', tag:'At a café', bg:'#d9f5e5,#fff0c9', img:'./images/Cafe.jpg'},
+      text: 'You finish your meal and say this. What are you asking for?',
+      options: [
+        { text: 'The bill, please.', ok: true, fb: 'Yes. Short, polite, and you’ll use it every day.' },
+        { text: 'More tea, please.', ok: false, fb: 'Not quite. “L-hsab, aafak” means “the bill, please.”' },
+        { text: 'Where is the toilet?', ok: false, fb: 'Not quite. “L-hsab, aafak” means “the bill, please.”' } ] }
+  ];
+
+  let currentQ = 0, score = 0, isAnswering = false, missed = 0;
+  const $ = id => document.getElementById(id);
+  const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  $('leadForm').addEventListener('submit', () => {
+    $('submitLeadBtn').innerText = 'Preparing your test...';
+    trk('lead_submit');
+    setTimeout(() => { $('step1').classList.add('hidden'); $('step2').classList.remove('hidden'); loadQuestion(); }, 1200);
+  });
+
+  function renderScene(q) {
+    const sc = $('scene'); sc.innerHTML = '';
+    sc.style.background = 'linear-gradient(135deg,' + q.scene.bg + ')';
+    const big = document.createElement('div'); big.className = 'big'; big.innerText = q.scene.emoji; sc.appendChild(big);
+    if (q.scene.img) {   // optional real image; falls back to the emoji scene if it fails to load
+      const im = document.createElement('img'); im.alt = q.scene.tag; im.src = q.scene.img;
+      im.onerror = () => im.remove(); sc.appendChild(im);
+    }
+    const tag = document.createElement('div'); tag.className = 'tag'; tag.innerText = q.scene.tag; sc.appendChild(tag);
+  }
+
+  function loadQuestion() {
+    isAnswering = false;
+    const q = questions[currentQ];
+    $('quizProgress').innerText = `Question ${currentQ + 1} of ${questions.length}`;
+    $('quizBar').style.width = (currentQ / questions.length * 100) + '%';
+    renderScene(q);
+    $('questionText').innerText = q.text;
+    const fb = $('quizFeedback'); fb.innerText = ''; fb.className = 'quiz-feedback';
+    const tr = $('quizTr'); tr.className = 'tr'; tr.innerText = '“' + q.tr + '”';
+    const a = $('quizAudio');
+    a.onerror = () => tr.classList.add('show');   // audio failed to load: show the phrase as text
+    a.src = AUDIO_BASE + q.file;
+    const c = $('optionsContainer'); c.innerHTML = '';
+    shuffle(q.options.slice()).forEach((opt, i) => {
+      const b = document.createElement('div');
+      b.className = 'quiz-option';
+      const l = document.createElement('span'); l.className = 'letter'; l.innerText = 'ABC'[i];
+      const t = document.createElement('span'); t.innerText = opt.text;
+      b.appendChild(l); b.appendChild(t);
+      b.onclick = () => handleAnswer(opt, b);
+      c.appendChild(b);
+    });
+  }
+
+  function handleAnswer(opt, el) {
+    if (isAnswering) return;
+    isAnswering = true;
+    if (opt.ok) { el.classList.add('correct'); score++; } else { el.classList.add('incorrect'); missed++; }
+    $('quizTr').classList.add('show');
+    const fb = $('quizFeedback'); fb.innerText = (opt.ok ? '✅ ' : '❌ ') + opt.fb; fb.className = 'quiz-feedback ' + (opt.ok ? 'ok' : 'no');
+    setTimeout(() => { currentQ++; currentQ < questions.length ? loadQuestion() : showResults(); }, 2200);
+  }
+
+  function showResults() {
+    $('quizAudio').pause();
+    $('quizBar').style.width = '100%';
+    $('step2').classList.add('hidden');
+    $('step3').classList.remove('hidden');
+    $('finalScore').innerText = score;
+    let t, b;
+    if (score <= 1) {
+      t = '⚠️ Locals would talk right over you.';
+      b = 'Your cards are on the way, but reading a phrase isn’t the same as recognizing it at speed. In the medina that’s where the tourist price comes from. The Premium Kit trains your ear with native audio.';
+    } else if (score < questions.length) {
+      t = '⚠️ Close, but one mix-up costs real money.';
+      b = 'Your cards are on the way. You caught most of it, but a single misheard phrase or price and you’re back to the tourist price. The Premium Kit gives you native audio for every phrase so nothing surprises you.';
+    } else {
+      t = '⚠️ Great ear. Now imagine hearing it at full speed.';
+      b = 'Your cards are on the way. You got every clip, but real conversations are faster and come with replies you haven’t heard yet. The Premium Kit covers what they say back, too.';
+    }
+    $('warnTitle').innerText = t; $('warnBody').innerText = b;
+    trk('quiz_complete_score_' + score);
+    trk('online_pdf_view');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
